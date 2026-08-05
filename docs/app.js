@@ -24,6 +24,7 @@ function normalizedDeal(deal) {
     seller_reputation: { status: "unconfirmed" },
     seller_legal_signal: { status: "not_audited" },
     fuel_economy: { status: "unconfirmed" },
+    high_mileage: false,
     ...deal
   };
 }
@@ -58,6 +59,10 @@ function renderTrust(deal) {
     ? `${deal.seller_reputation.rating.toLocaleString("fr-CA")} ★ · ${formatNumber.format(deal.seller_reputation.review_count)} avis`
     : "Réputation Google non confirmée";
   label.append(text("span", reputationSummary, "trust-level"));
+  const branchScope = deal.seller_legal_signal?.branch_scope;
+  if (branchScope === "entity_only_branch_not_named_in_event" || branchScope === "entity_head_office_not_named_in_event") {
+    label.append(text("span", "Même entité juridique; cette succursale n’est pas nommée dans l’événement.", "trust-branch-scope"));
+  }
   summary.append(label);
   const chevron = text("span", "⌄", "trust-chevron");
   chevron.setAttribute("aria-hidden", "true");
@@ -196,7 +201,10 @@ function renderCard(deal) {
   image.src = deal.image || "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
   image.alt = `Photo de ${deal.title}`;
   fragment.querySelector(".new-badge").hidden = !deal.is_new;
-  fragment.querySelector(".match-badge").textContent = deal.eligible ? "Bon match" : `Pertinence ${deal.score}`;
+  const mileageWarning = fragment.querySelector(".mileage-warning");
+  mileageWarning.hidden = !deal.high_mileage;
+  if (deal.high_mileage) mileageWarning.textContent = `Kilométrage élevé · ${formatNumber.format(deal.mileage)} km`;
+  fragment.querySelector(".match-badge").textContent = deal.eligible ? "Bon match" : deal.high_mileage ? "Hors classement" : `Pertinence ${deal.score}`;
   fragment.querySelector(".deal-kicker").textContent = [deal.year, deal.trim, deal.engine].filter(Boolean).join(" · ");
   fragment.querySelector(".deal-title").textContent = deal.title;
   const payment = fragment.querySelector(".deal-payment");
@@ -235,20 +243,23 @@ function renderCard(deal) {
   deal.reasons.forEach((reason) => reasons.append(text("li", reason)));
   if (!deal.reasons.length) reasons.remove();
   card.dataset.eligible = String(deal.eligible);
+  card.dataset.highMileage = String(deal.high_mileage);
   return fragment;
 }
 
 function filteredDeals() {
   if (!state.data) return [];
   const eligibleOnly = $("#eligible-only").checked;
+  const includeHighMileage = $("#include-high-mileage").checked;
   const make = $("#make-filter").value;
   const model = $("#model-filter").value;
   const minYear = Number($("#year-filter").value);
   const cab = $("#cab-filter").value;
   const maxPayment = Number($("#payment-filter").value);
   return state.data.deals.filter((deal) => {
-    if (eligibleOnly && !deal.eligible) return false;
     deal = normalizedDeal(deal);
+    if (deal.high_mileage && !includeHighMileage) return false;
+    if (eligibleOnly && !deal.eligible && !(includeHighMileage && deal.high_mileage)) return false;
     if (make !== "all" && deal.make !== make) return false;
     if (model !== "all" && deal.model !== model) return false;
     if (!deal.year || deal.year < minYear) return false;
@@ -319,7 +330,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   $("#watch-status").addEventListener("click", () => $("#control-panel").scrollIntoView({ behavior: "smooth" }));
   $("#pause-button").addEventListener("click", () => control("pause"));
   $("#resume-button").addEventListener("click", () => control("resume"));
-  ["#eligible-only", "#make-filter", "#model-filter", "#year-filter", "#cab-filter", "#payment-filter"].forEach((selector) => {
+  ["#eligible-only", "#include-high-mileage", "#make-filter", "#model-filter", "#year-filter", "#cab-filter", "#payment-filter"].forEach((selector) => {
     $(selector).addEventListener("change", renderDeals);
   });
   try {

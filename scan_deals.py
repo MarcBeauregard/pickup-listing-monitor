@@ -67,6 +67,86 @@ def monthly_payment(price: int, annual_rate: float = 0.07, months: int = 84) -> 
     return round(payment)
 
 
+def monthly_payment_exact(price: int, annual_rate: float = 0.07, months: int = 84) -> float:
+    """Recalcule la mensualité contractuelle à deux décimales."""
+    principal = price * (1 + TAX_RATE)
+    monthly_rate = annual_rate / 12
+    payment = principal * monthly_rate / (1 - (1 + monthly_rate) ** -months)
+    return round(payment, 2)
+
+
+def canonical_url(url: str) -> str:
+    parts = urlsplit(url)
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/"), "", ""))
+
+
+def candidate_rows(candidates: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Retourne seulement les lignes livrées comme admissibles; les 5 distances non confirmées restent exclues."""
+    return {canonical_url(item["url"]): item for item in candidates.get("admissibles", [])}
+
+
+def candidate_cab(row: dict[str, Any]) -> tuple[str | None, str]:
+    cab = str(row.get("cabine") or "").strip()
+    proof = str(row.get("preuve_cabine") or "").lower()
+    make = str(row.get("marque") or "").lower()
+    model = str(row.get("modele") or "").lower()
+    if make == "toyota" and model == "tacoma":
+        if "double cab" in proof and "absent" not in proof and "indirect" not in proof:
+            return "Double Cab", "double_cab"
+        return None, "unknown"
+    normalized = f"{cab} {proof}".lower()
+    if "double cab" in normalized or "crew cab" in normalized or "supercrew" in normalized or "cabine double" in normalized:
+        return cab or "Crew Cab", "crew_cab"
+    if "access cab" in normalized:
+        return "Access Cab", "access_cab"
+    return cab or None, "unknown"
+
+
+def merge_candidate_metadata(current: dict[str, Any], row: dict[str, Any] | None) -> dict[str, Any]:
+    """Complète uniquement les métadonnées explicites de la fiche candidate; le prix/km live prévaut."""
+    if not row:
+        return current
+    result = dict(current)
+    make = str(row.get("marque") or "").strip()
+    if make.lower() == "ram":
+        make = "Ram"
+    cab, cab_class = candidate_cab(row)
+    fallbacks = {
+        "make": make or None,
+        "model": row.get("modele"),
+        "engine": row.get("moteur"),
+        "transmission": row.get("transmission"),
+        "drivetrain": row.get("rouage"),
+        "location": row.get("ville"),
+    }
+    for field, value in fallbacks.items():
+        if not result.get(field) and value:
+            result[field] = value
+    if make == "Toyota" and row.get("modele") == "Tacoma":
+        result["cab"] = cab
+        result["cab_class"] = cab_class
+    elif result.get("cab_class", "unknown") == "unknown" and cab:
+        result["cab"] = cab
+        result["cab_class"] = cab_class
+    distance = row.get("distance_estimee_km")
+    result.update({
+        "seller_name": row.get("vendeur"),
+        "distance_km": distance,
+        "distance_band": "0-150" if isinstance(distance, (int, float)) and distance <= 150 else "151-250",
+        "cab_proof": row.get("preuve_cabine"),
+        "candidate_source_status": row.get("statut"),
+    })
+    return result
+
+
+def is_high_mileage_only(current: dict[str, Any], criteria: dict[str, Any]) -> bool:
+    mileage = current.get("mileage")
+    if not isinstance(mileage, int) or mileage <= criteria["max_mileage"]:
+        return False
+    relaxed = {**criteria, "max_mileage": mileage}
+    return evaluate(current, relaxed)[0]
+
+
 def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, list[str], int]:
     reasons = []
     score = 100
@@ -191,6 +271,49 @@ def legal_signal_for(url: str, signals: dict[str, Any]) -> dict[str, Any]:
     return {**NO_LEGAL_SIGNAL, "source_checked_at": signals.get("checked_at")}
 
 
+def mapped_legal_signal_for(url: str, mapping: dict[str, Any]) -> dict[str, Any] | None:
+    """Adapte le mapping juridique vérifié sans effacer la portée exacte de la succursale."""
+    entry = next((item for item in mapping.get("entries", []) if canonical_url(item.get("url", "")) == canonical_url(url)), None)
+    if not entry:
+        return None
+    if entry.get("entity_match") != "exact" or entry.get("applicable") is not True:
+        return None
+    if entry.get("severity") not in {"red", "yellow"}:
+        return None
+    branch_scope = entry.get("branch_match")
+    if branch_scope not in {"exact_event_branch", "exact_trade_name_and_city", "entity_only_branch_not_named_in_event", "entity_head_office_not_named_in_event"}:
+        return None
+    seller = str(entry.get("seller") or "").lower()
+    sources = mapping.get("sources", {})
+    if "automobile en direct" in seller:
+        source_url = sources.get("automobile_en_direct_conviction")
+    elif "hgr" in seller or "grégoire" in seller:
+        source_url = sources.get("hgregoire_settlement")
+    elif "honda st-basile" in seller:
+        source_url = sources.get("honda_st_basile_conviction")
+    else:
+        source_url = sources.get("centre_bd_judgment_report")
+    if not str(source_url or "").startswith("https://"):
+        return None
+    return {
+        "status": entry["severity"],
+        "nature": entry["display_note"],
+        "event_type": entry["event_type"],
+        "event_date": entry["event_date"],
+        "legal_entity": entry["legal_entity"],
+        "permit_or_neq": entry["permit"],
+        "branch": entry["branch"],
+        "source_url": source_url,
+        "source_checked_at": mapping.get("generated_at"),
+        "match_status": "exact",
+        "match_basis": "raison sociale ou permis concordant",
+        "branch_matched": branch_scope in {"exact_event_branch", "exact_trade_name_and_city"},
+        "branch_scope": branch_scope,
+        "entity_match": "exact",
+        "applicable": True,
+    }
+
+
 def compute_trust_score(
     seller: dict[str, Any],
     legal: dict[str, Any],
@@ -271,6 +394,8 @@ def scan(
     listing_fetcher: Callable[[str, float], dict[str, Any]] = fetch_listing,
     enrichments: dict[str, Any] | None = None,
     legal_signals: dict[str, Any] | None = None,
+    candidates: dict[str, Any] | None = None,
+    legal_mapping: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     discovered = []
     source_errors = []
@@ -284,6 +409,8 @@ def scan(
         except Exception as exc:  # la source doit être isolée du reste du scan
             source_errors.append({"source": source["name"], "error": str(exc)})
 
+    candidates_by_url = candidate_rows(candidates or {})
+    discovered.extend(candidates_by_url)
     urls = list(dict.fromkeys(discovered))
     fetched: dict[str, dict[str, Any]] = {}
     with ThreadPoolExecutor(max_workers=min(8, max(len(urls), 1))) as executor:
@@ -300,13 +427,19 @@ def scan(
     checked_datetime = datetime.fromisoformat(checked_at)
     deals = []
     for url in urls:
-        current = fetched[url]
+        candidate = candidates_by_url.get(canonical_url(url))
+        current = merge_candidate_metadata(fetched[url], candidate)
         eligible, reasons, score = evaluate(current, config["criteria"])
+        high_mileage = is_high_mileage_only(current, config["criteria"])
+        if high_mileage:
+            reasons = ["kilométrage élevé — hors classement principal"]
         identifier = deal_id(url)
         price = current.get("price")
         previous_deal = previous_deals.get(identifier, {})
         enrichment = enrichment_for(url, current, enrichments or {})
-        legal_signal = legal_signal_for(url, legal_signals or {})
+        if enrichment["seller_reputation"].get("status") != "confirmed" and current.get("seller_name"):
+            enrichment["seller_reputation"] = unconfirmed({"name": current["seller_name"]})
+        legal_signal = mapped_legal_signal_for(url, legal_mapping or {}) or legal_signal_for(url, legal_signals or {})
         trust_score = compute_trust_score(enrichment["seller_reputation"], legal_signal, checked_at[:10])
         first_seen_at = previous_deal.get("first_seen_at") or checked_at
         try:
@@ -333,11 +466,18 @@ def scan(
                 "transmission": current.get("transmission"),
                 "drivetrain": current.get("drivetrain"),
                 "location": current.get("location"),
+                "seller_name": current.get("seller_name"),
+                "distance_km": current.get("distance_km"),
+                "distance_band": current.get("distance_band"),
+                "cab_proof": current.get("cab_proof"),
                 **enrichment,
                 "seller_legal_signal": legal_signal,
                 "trust_score": trust_score,
                 "status": current.get("status"),
                 "eligible": eligible,
+                "high_mileage": high_mileage,
+                "alert_eligible": eligible and not high_mileage,
+                "candidate_status": "eligible" if eligible else "high_mileage" if high_mileage else "rejected",
                 "score": score,
                 "reasons": reasons,
                 "first_seen_at": first_seen_at,
@@ -346,7 +486,7 @@ def scan(
                 "checked_at": checked_at,
             }
         )
-    deals.sort(key=lambda item: (not item["eligible"], -item["score"], item["price"] or 999_999))
+    deals.sort(key=lambda item: (not item["eligible"], not item["high_mileage"], -item["score"], item["price"] or 999_999))
     return {
         "schema_version": 2,
         "last_checked_at": checked_at,
@@ -356,6 +496,7 @@ def scan(
         "counts": {
             "discovered": len(deals),
             "eligible": sum(deal["eligible"] for deal in deals),
+            "high_mileage": sum(deal["high_mileage"] for deal in deals),
             "new": sum(deal["is_new"] for deal in deals),
             "new_eligible": sum(deal["is_new"] and deal["eligible"] for deal in deals),
             "new_in_run": sum(deal["new_in_run"] for deal in deals),
@@ -391,6 +532,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--history", type=Path, default=Path("docs/data/history.json"))
     parser.add_argument("--enrichments", type=Path, default=Path("data/enrichments.json"))
     parser.add_argument("--legal-signals", type=Path, default=Path("data/seller_legal_signals.json"))
+    parser.add_argument("--candidates", type=Path, default=Path("data/multibrand_candidates_2026-08-05.json"))
+    parser.add_argument("--legal-mapping", type=Path, default=Path("data/multibrand_legal_mapping_2026-08-05.json"))
     parser.add_argument("--timeout", type=float, default=20.0)
     return parser.parse_args()
 
@@ -402,7 +545,17 @@ def main() -> int:
     history = load_json(args.history, [])
     enrichments = load_json(args.enrichments, {"schema_version": 1, "listings": []})
     legal_signals = load_json(args.legal_signals, {"schema_version": 1, "listings": []})
-    result = scan(config, previous, args.timeout, enrichments=enrichments, legal_signals=legal_signals)
+    candidates = load_json(args.candidates, {"schema_version": 1, "admissibles": []})
+    legal_mapping = load_json(args.legal_mapping, {"schema_version": 1, "entries": []})
+    result = scan(
+        config,
+        previous,
+        args.timeout,
+        enrichments=enrichments,
+        legal_signals=legal_signals,
+        candidates=candidates,
+        legal_mapping=legal_mapping,
+    )
     write_json(args.deals, result)
     write_json(args.history, update_history(history, result))
     print(json.dumps({"status": result["scan_status"], **result["counts"]}, ensure_ascii=False))

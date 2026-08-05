@@ -54,6 +54,10 @@
           <input id="eligible-only" type="checkbox" checked>
           <span>Seulement les bons matchs</span>
         </label>
+        <label class="filter-toggle filter-toggle--warning">
+          <input id="include-high-mileage" type="checkbox">
+          <span>Afficher le kilométrage élevé</span>
+        </label>
         <label>
           <span>Marque</span>
           <select id="make-filter">
@@ -129,6 +133,7 @@
         <a class="deal-photo-link" target="_blank" rel="noopener noreferrer">
           <img class="deal-photo" loading="lazy" alt="">
           <span class="new-badge" hidden>Nouveau</span>
+          <span class="mileage-warning" hidden>Kilométrage élevé</span>
           <span class="match-badge"></span>
         </a>
         <div class="deal-body">

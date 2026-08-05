@@ -1,0 +1,3469 @@
+{
+  "schema_version": 1,
+  "validated_at": "2026-08-05T16:42:16.183664+00:00",
+  "source_counts": {
+    "admissibles": 92,
+    "non_confirmes": 5,
+    "rejetes": 2
+  },
+  "total": 99,
+  "decision_counts": {
+    "eligible": 64,
+    "high_mileage": 27,
+    "rejected_inactive": 1,
+    "distance_unconfirmed": 5,
+    "rejected_initial": 2
+  },
+  "rows": [
+    {
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-sr5-4x4-double-cab-auto-essence-noir-cat_ma70gr201474-8625188d-3dc8-4eb4-a3d9-5a9a6558c214",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire St-Léonard",
+      "make": "Toyota",
+      "model": "Tacoma",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 116742,
+        "price": 37795,
+        "monthly": 655.85,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": true,
+      "validated": {
+        "year": 2022,
+        "mileage": 116742,
+        "price": 37795,
+        "monthly": 655.85,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-trd-sport-6-feets-cruise-carplay-boite-6-pie-essence-gris-cat_ma70gr201474-e7927e84-ba8e-49a7-99a5-ad07dbb10571",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Volkswagen de Boucherville (mandataire Toyota)",
+      "make": "Toyota",
+      "model": "Tacoma",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 137278,
+        "price": 39195,
+        "monthly": 680.14,
+        "distance_km": 40
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 137278,
+        "price": 39195,
+        "monthly": 680.14,
+        "distance_km": 40,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": "unknown"
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-4x4-double-cab-auto-essence-blanc-cat_ma70gr201474-f1952de8-66c7-42dc-9257-bb2d3bbc9ac8",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "St Hubert Toyota",
+      "make": "Toyota",
+      "model": "Tacoma",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 146218,
+        "price": 38488,
+        "monthly": 667.87,
+        "distance_km": 35
+      },
+      "tacoma_double_cab_explicit": true,
+      "validated": {
+        "year": 2021,
+        "mileage": 146218,
+        "price": 38488,
+        "monthly": 667.87,
+        "distance_km": 35,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-trd-sport-v6-double-cab-4x4-bm-ac-navigation-essence-bleu-cat_ma70gr201474tr11891-ff8ff05b-a2e3-4776-a627-ac88f2d8d700",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Granby Toyota",
+      "make": "Toyota",
+      "model": "Tacoma",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 168925,
+        "price": 34995,
+        "monthly": 607.26,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": true,
+      "validated": {
+        "year": 2019,
+        "mileage": 168925,
+        "price": 34995,
+        "monthly": 607.26,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-pro-4x-cuir-nav-toit-8-roues-cruise-ad-essence-gris-cat_ma52gr201091tr481044-d2c08cdb-29b0-4408-a2f1-b603a83a4bfc",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Boucherville Chrysler Dodge Jeep Ram Fiat",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 69735,
+        "price": 38985,
+        "monthly": 676.47,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 69735,
+        "price": 38985,
+        "monthly": 676.5,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-sv-cabine-double-caisse-standard-4x4le-camion-pret-essence-blanc-cat_ma52gr201091-11033a11-bb1b-4132-8217-93cc6da8ac2a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Subaru Rive-Nord",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 24012,
+        "price": 38993,
+        "monthly": 676.61,
+        "distance_km": 95
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 24012,
+        "price": 38993,
+        "monthly": 676.64,
+        "distance_km": 95,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-sv-3-8l-v6-4x4-volant+sieges-chauffants-+++-essence-blanc-cat_ma52gr201091-809a9ab6-7049-4cb5-9bd4-fbe98f95ccd1",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Hyundai Saint-Jérôme",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 43611,
+        "price": 35490,
+        "monthly": 615.82,
+        "distance_km": 105
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 43611,
+        "price": 35490,
+        "monthly": 615.85,
+        "distance_km": 105,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-impeccable-essence-vert-cat_ma52gr201091-e896ffee-680e-4c4f-921f-cfe696ebd777",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Longueuil Toyota",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 93885,
+        "price": 39990,
+        "monthly": 693.91,
+        "distance_km": 50
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 93885,
+        "price": 39990,
+        "monthly": 693.94,
+        "distance_km": 50,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-titan-pro-4x-4x4-gps-volant-chauffant-essence-noir-cat_ma52gr201098-a2a08ff9-ced2-48b5-921e-e191aa81e4f4",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Toyota Victoriaville (Roy Auto)",
+      "make": "Nissan",
+      "model": "Titan",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 128375,
+        "price": 31495,
+        "monthly": 546.5,
+        "distance_km": 90
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 128375,
+        "price": 31495,
+        "monthly": 546.53,
+        "distance_km": 90,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-sport-honda-global-warranty-100-000-km-or-january-essence-noir-cat_ma31gr200646tr13216-27fe4165-8144-46f9-b19d-5fcc664df71c",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Honda Boucherville",
+      "make": "Honda",
+      "model": "Ridgeline",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 53929,
+        "price": 32990,
+        "monthly": 572.44,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 53929,
+        "price": 32990,
+        "monthly": 572.47,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-sport-awd-carplay-i-topit-ouvrant-i-sieges-chauffa-essence-argent-cat_ma31gr200646tr13216-e692aa22-eb24-4d1b-9fcb-0e60365ec013",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Chambly Honda",
+      "make": "Honda",
+      "model": "Ridgeline",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 118000,
+        "price": 28880,
+        "monthly": 501.13,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 118000,
+        "price": 28880,
+        "monthly": 501.15,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-touring-essence-cat_ma31gr200646tr13217-90ef34ec-f2b9-414d-89cf-71fbd47382d9",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Honda Laval",
+      "make": "Honda",
+      "model": "Ridgeline",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 80730,
+        "price": 32999,
+        "monthly": 572.6,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 80730,
+        "price": 32999,
+        "monthly": 572.63,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-black-edition-cuir-toit-remorques-5000-lbs-essence-noir-cat_ma31gr200646tr13211-f7bb02df-8e3e-4e4e-ab39-94f5ecbae03a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Honda St-Jean",
+      "make": "Honda",
+      "model": "Ridgeline",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 61350,
+        "price": 39999,
+        "monthly": 694.06,
+        "distance_km": 40
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 61350,
+        "price": 39999,
+        "monthly": 694.09,
+        "distance_km": 40,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-black-edition-20-dossiers-d-entretient-un-propriet-essence-blanc-cat_ma31gr200646tr13211-ee488260-fe19-4efe-a147-a5b83a9b89c5",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Lallier Honda 40/640",
+      "make": "Honda",
+      "model": "Ridgeline",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 88367,
+        "price": 37895,
+        "monthly": 657.55,
+        "distance_km": 70
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 88367,
+        "price": 37895,
+        "monthly": 657.58,
+        "distance_km": 70,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-sport-crew-cab-awd-5-7l-mags-essence-noir-cat_ma51793gr201260tr7155-9f109999-2128-4100-ac8f-6c86f74ac204",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile en direct - Québec",
+      "make": "Ram",
+      "model": "1500 Sport",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 164357,
+        "price": 31999,
+        "monthly": 555.27,
+        "distance_km": 199
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 164357,
+        "price": 31999,
+        "monthly": 555.27,
+        "distance_km": 199,
+        "distance_band": "151-250"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": true,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-153-0-ltz-w-2lz-essence-noir-cat_ma19gr202703tr478334-851f368e-4898-4876-94d9-2612e8ad847b",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile en direct - Québec",
+      "make": "Chevrolet",
+      "model": "Silverado 1500 LTZ w-2LZ",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2018,
+        "mileage": 120338,
+        "price": 31999,
+        "monthly": 555.27,
+        "distance_km": 199
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2018,
+        "mileage": 120338,
+        "price": 31999,
+        "monthly": 555.27,
+        "distance_km": 199,
+        "distance_band": "151-250"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-fx4-sport-2-7l-essence-gris-cat_ma29gr16518-cf5d01f1-96e2-4318-bf18-6314b90f28dc",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Accord Auto",
+      "make": "Ford",
+      "model": "F-150 XLT FX4 Sport",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 78000,
+        "price": 32995,
+        "monthly": 572.55,
+        "distance_km": 199
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 78000,
+        "price": 32995,
+        "monthly": 572.56,
+        "distance_km": 199,
+        "distance_band": "151-250"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-crew-cab-4x4-2-7l-gps-mags-camera-de-recul-a-c-essence-gris-cat_ma29gr16518tr11290-254a67b2-d354-4273-a528-22cf76e1ed5b",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile en direct - Québec",
+      "make": "Ford",
+      "model": "F-150 XLT",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 101845,
+        "price": 36499,
+        "monthly": 633.35,
+        "distance_km": 199
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 101845,
+        "price": 36499,
+        "monthly": 633.36,
+        "distance_km": 199,
+        "distance_band": "151-250"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-crew-cab-2-7-awd-mags-camera-de-recul-a-c-essence-blanc-cat_ma19gr202703tr478357-ec6681e6-dc57-4e01-9d8f-4e3d8bcd6bee",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile en direct - Québec",
+      "make": "Chevrolet",
+      "model": "Silverado 1500 Custom",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2024,
+        "mileage": 55794,
+        "price": 39999,
+        "monthly": 694.09,
+        "distance_km": 199
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2024,
+        "mileage": 55794,
+        "price": 39999,
+        "monthly": 694.09,
+        "distance_km": 199,
+        "distance_band": "151-250"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-157-work-truck-essence-noir-cat_ma19gr202703tr478316-db349cb2-32cb-44be-ae06-4efde7253e8a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile En Direct",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2024,
+        "mileage": 67064,
+        "price": 38499,
+        "monthly": 667.96,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2024,
+        "mileage": 67064,
+        "price": 38499,
+        "monthly": 668.07,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-rst-crew-cab-boite-6-5-toit-ouvrant-essence-blanc-cat_ma19gr202703va2611tr478324-1a66e6c1-13a9-4e90-979e-53c30d22dcf4",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Action Chevrolet Rive Sud",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 119921,
+        "price": 37488,
+        "monthly": 650.53,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 119921,
+        "price": 37488,
+        "monthly": 650.52,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-high-country-essence-bleu-cat_ma19gr202703tr478349-16f752a7-0403-4c15-b506-de94f636e18d",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Autoclic",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2018,
+        "mileage": 71456,
+        "price": 34995,
+        "monthly": 607.19,
+        "distance_km": 80
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2018,
+        "mileage": 71456,
+        "price": 34995,
+        "monthly": 607.26,
+        "distance_km": 80,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-crew-cab-2-7-essence-blanc-cat_ma19gr202703tr478357-d8ca6c26-d88d-4231-ae2b-3bbab764c1e9",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Action Chevrolet Rive Sud",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 95817,
+        "price": 38988,
+        "monthly": 676.44,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 95817,
+        "price": 38988,
+        "monthly": 676.55,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-lt-trail-boss-crew-cab-4x4-5-3l-v8-carplay-essence-gris-cat_ma19gr202703tr478337-6c571142-6d59-4449-a91e-0c7cecdae1db",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Hamel Chevrolet Buick GMC",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 146545,
+        "price": 32118,
+        "monthly": 557.24,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "rejected_inactive",
+      "reason": "annonce inactive ou illisible",
+      "live": {
+        "status": "unavailable",
+        "price": null,
+        "http_status": 200,
+        "final_url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-lt-trail-boss-crew-cab-4x4-5-3l-v8-carplay-essence-gris-cat_ma19gr202703tr478337-6c571142-6d59-4449-a91e-0c7cecdae1db"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-4x4-crew-cab-mags-camera-essence-argent-cat_ma19gr202703tr478357-e6755f72-9da6-4064-b45c-dce3da3e5513",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Gervais Auto",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 73425,
+        "price": 35995,
+        "monthly": 624.55,
+        "distance_km": 90
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 73425,
+        "price": 35995,
+        "monthly": 624.61,
+        "distance_km": 90,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-work-truck-crew-cab-4x4-2-7t-mags-essence-blanc-cat_ma19gr202703tr478316-a78a13e0-7026-4953-840f-12f0c0c22571",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile En Direct",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2024,
+        "mileage": 36408,
+        "price": 39999,
+        "monthly": 693.98,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2024,
+        "mileage": 36408,
+        "price": 39999,
+        "monthly": 694.09,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-rally-sport-grp-remorquage-marchepied-essence-blanc-cat_ma19gr202703tr478357-49b6db46-af0a-45d8-88e7-b0a68578bd17",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Christin Automobiles",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 54262,
+        "price": 39994,
+        "monthly": 693.9,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 54262,
+        "price": 39994,
+        "monthly": 694.01,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-boite-6-5-crew-cab-camera-mags-essence-noir-cat_ma19gr202703tr478357-55be7e40-79fc-450c-9d5a-c7706634fb51",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire Mitsubishi",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 35278,
+        "price": 39995,
+        "monthly": 693.92,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 35278,
+        "price": 39995,
+        "monthly": 694.03,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-157-lt-essence-bleu-cat_ma19gr202703tr478339-63a6df27-19b2-48ec-a23e-83f118688646",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Joliette Dodge Jeep Chrysler RAM & Fiat",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 109808,
+        "price": 38995,
+        "monthly": 676.56,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 109808,
+        "price": 38995,
+        "monthly": 676.67,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-rst-z-71-double-cab-4x4-3-0t-sieges-chauffants-cam-diesel-blanc-cat_ma19gr202703tr478324-4a44bbc0-1169-4300-9ed6-86b4a473f747",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile En Direct",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 131517,
+        "price": 35999,
+        "monthly": 624.62,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 131517,
+        "price": 35999,
+        "monthly": 624.68,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-crew-cab-2-7-awd-mags-camera-de-recul-a-c-essence-rouge-cat_ma19gr202703va2611tr478357-f64ddde3-ddb5-4683-bb95-08f8f9a642b7",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile En Direct",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 128013,
+        "price": 31999,
+        "monthly": 555.18,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 128013,
+        "price": 31999,
+        "monthly": 555.27,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-147-custom-trail-boss-essence-noir-cat_ma19gr202703tr478356-d8ca6c26-d88d-4231-ae2b-3bbab764c1e9",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile En Direct",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 128258,
+        "price": 37999,
+        "monthly": 659.28,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 95817,
+        "price": 38988,
+        "monthly": 676.55,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": true,
+        "live_mileage": true,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-6-places-bluetooth-air-climatise-clean-carf-essence-gris-cat_ma19gr202703va2611tr478357-9dc6b93a-7525-4c1e-83d8-edc562314746",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Hyundai Saint-Laurent",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 136435,
+        "price": 30995,
+        "monthly": 537.75,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 136435,
+        "price": 30995,
+        "monthly": 537.85,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-4wd-crew-cab-157-elevation-diesel-blanc-cat_ma2153gr202685tr478281-c3166330-ba26-49a6-b64d-b8702fe78292",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Lussier Chevrolet Buick GMC",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 157402,
+        "price": 39998,
+        "monthly": 693.96,
+        "distance_km": 0
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 157402,
+        "price": 39998,
+        "monthly": 694.08,
+        "distance_km": 0,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-crew-+-3-0l-diesel-crew-+-3-0l-diesel-diesel-noir-cat_ma2153gr202685tr478276-2914056c-717f-4d57-a974-d44018b23f3f",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "La Zone Auto",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 188400,
+        "price": 37995,
+        "monthly": 659.22,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 188400,
+        "price": 37995,
+        "monthly": 659.32,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-4wd-crew-cab-157-elevation-essence-brun-cat_ma2153gr202685tr478281-6cfe6a0b-cffc-49d4-b4a0-eb6d9f3c5dad",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Lussier Chevrolet Buick GMC",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 122500,
+        "price": 36998,
+        "monthly": 641.94,
+        "distance_km": 0
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 122500,
+        "price": 36998,
+        "monthly": 642.02,
+        "distance_km": 0,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-4wd-crew-cab-157-at4-gris-cat_ma2153gr202685tr478276-5288ef58-5770-48ab-8d9c-0bcd010d4b29",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Lussier Chevrolet Buick GMC",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 197287,
+        "price": 34998,
+        "monthly": 607.21,
+        "distance_km": 0
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 197287,
+        "price": 34998,
+        "monthly": 607.31,
+        "distance_km": 0,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-elevation-cabine-double-4rm-147-po-essence-noir-cat_ma2153gr202685tr478281-b7c16c5e-2b8f-4f11-a6af-2e6b20173f1b",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Mazda Drummondville",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 122029,
+        "price": 29490,
+        "monthly": 511.68,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 122029,
+        "price": 29490,
+        "monthly": 511.73,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-elevation-4x4-crew-cab-+-meilleur-deal-sur-le-marc-diesel-noir-cat_ma2153gr202685tr478281-5e68d3e2-3ecb-43a3-971d-4af14ab2065e",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Hyundai Drummondville",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 124005,
+        "price": 34988,
+        "monthly": 607.03,
+        "distance_km": 45
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 124005,
+        "price": 34988,
+        "monthly": 607.14,
+        "distance_km": 45,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-at4-crew-cab-short-box-4wd-diesel-noir-cat_ma2153gr202685va2878tr478276-3904235a-b73c-4ebf-8b45-f7865d694adf",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Lexus Gabriel Brossard",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 146354,
+        "price": 39995,
+        "monthly": 693.9,
+        "distance_km": 35
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 146354,
+        "price": 39995,
+        "monthly": 694.03,
+        "distance_km": 35,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-crew-cab-standard-box-4x4-sieges-volant-chauff-essence-noir-cat_ma2153gr202685va2878tr478286-8774ca7c-13b6-4df6-9e29-c67a03110cc7",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Joliette Mitsubishi",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 110608,
+        "price": 34980,
+        "monthly": 606.89,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 110608,
+        "price": 34980,
+        "monthly": 607.0,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-pro-crewcab-boite-6-6-moteur-4-cyl-essence-blanc-cat_ma2153gr202685tr478284-3d359fd4-651e-405b-8b58-a22fb54ff0d3",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Granby GM",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 60000,
+        "price": 39872,
+        "monthly": 691.71,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 60000,
+        "price": 39872,
+        "monthly": 691.89,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-elevation-+-crew-+-boite-6-5-+-carplaky-+-camera-+-essence-blanc-cat_ma2153gr202685tr478281-b61bc099-e269-4563-a1f5-4940ad285f61",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Toyota de Boucherville",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 84000,
+        "price": 39988,
+        "monthly": 693.78,
+        "distance_km": 35
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 84000,
+        "price": 39988,
+        "monthly": 693.9,
+        "distance_km": 35,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-x31-5-3l-v8-marchepied-linex-essence-noir-cat_ma2153gr202685-f7568018-ca0b-43ec-905f-e31958a38d6e",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Christin Automobiles",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 128049,
+        "price": 32994,
+        "monthly": 572.55,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 128049,
+        "price": 32994,
+        "monthly": 572.54,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-essence-noir-cat_ma2153gr202685tr478286-5d631c89-f5f3-4548-a58f-24a940ba9a36",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "L. Gervais Autos",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2018,
+        "mileage": 97132,
+        "price": 29999,
+        "monthly": 520.47,
+        "distance_km": 75
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2018,
+        "mileage": 97132,
+        "price": 29999,
+        "monthly": 520.57,
+        "distance_km": 75,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-crew-elevation-5-3l-awd-mags-camera-recul-essence-blanc-cat_ma2153gr202685tr478281-a3ce810f-601a-40da-9cd1-f8daca3035da",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Auto Studio 72",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 123975,
+        "price": 32995,
+        "monthly": 572.57,
+        "distance_km": 90
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 123975,
+        "price": 32995,
+        "monthly": 572.56,
+        "distance_km": 90,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-essence-rouge-cat_ma2153gr202685tr478286-19de54e1-552a-43de-af71-5f487e28c71d",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile Hamelin",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 42673,
+        "price": 37999,
+        "monthly": 659.28,
+        "distance_km": 70
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 42673,
+        "price": 37999,
+        "monthly": 659.39,
+        "distance_km": 70,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-at4-4x4-mags-cuir-boite-6-5pi-v8-6-2l-essence-noir-cat_ma2153gr202685va2878tr478276-b6188f73-e394-46d4-80e0-ea1095d62eb5",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Val Estrie Ford",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 158391,
+        "price": 37988,
+        "monthly": 659.09,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 158391,
+        "price": 37988,
+        "monthly": 659.2,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-denali-crew-4x4-v8-toit-nav-cuir-sieges-ventil-essence-noir-cat_ma2153gr202685tr478279-880d126d-ea67-477d-822d-3851f3199c65",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Léveillé Chevrolet Buick GMC",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2018,
+        "mileage": 143102,
+        "price": 28995,
+        "monthly": 503.06,
+        "distance_km": 100
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2018,
+        "mileage": 143102,
+        "price": 28995,
+        "monthly": 503.14,
+        "distance_km": 100,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-pro-crew-4x4-bedliner-carplay-diff-auto-wifi-usb-essence-blanc-cat_ma2153gr202685tr478284-59843578-5fc2-466b-83d0-e5fe0c5d3239",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Léveillé Chevrolet Buick GMC",
+      "make": "GMC",
+      "model": "Sierra 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2024,
+        "mileage": 60647,
+        "price": 39995,
+        "monthly": 693.9,
+        "distance_km": 100
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2024,
+        "mileage": 60647,
+        "price": 39995,
+        "monthly": 694.03,
+        "distance_km": 100,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-limited-v8-crew-6-4-cuir-3-92-alpine-essence-noir-cat_ma51793gr201260tr4993-c0f4bf48-057b-40f5-9e24-883da279f51a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Boucherville Chrysler Dodge Jeep Ram Fiat",
+      "make": "Ram",
+      "model": "1500 Limited",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2018,
+        "mileage": 116358,
+        "price": 29985,
+        "monthly": 520.24,
+        "distance_km": 35
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2018,
+        "mileage": 116358,
+        "price": 29985,
+        "monthly": 520.32,
+        "distance_km": 35,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-night-v8-attelage-banc-chauff-essence-gris-cat_ma51793gr201260va2403tr11758-ae7a674d-8ed8-47d2-9256-b7e296c37f71",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Boucherville Chrysler Dodge Jeep Ram Fiat",
+      "make": "Ram",
+      "model": "1500 Classic Express Night",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 108101,
+        "price": 31785,
+        "monthly": 551.47,
+        "distance_km": 35
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 108101,
+        "price": 31785,
+        "monthly": 551.56,
+        "distance_km": 35,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-sport-4x4-auto-ac-mags-cam-recule-bluetooth-essence-gris-cat_ma51793gr201260tr7155-3481d2b6-834b-417b-821a-677130f48764",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire Carignan",
+      "make": "Ram",
+      "model": "1500 Sport",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 113927,
+        "price": 37998,
+        "monthly": 659.26,
+        "distance_km": 25
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 113927,
+        "price": 37998,
+        "monthly": 659.37,
+        "distance_km": 25,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-4x4-auto-ac-gr-elec-mags-cam-recule-essence-gris-cat_ma51793gr201260va2403tr11700-d3a535d3-4eac-4547-b142-97848d05a3aa",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire Carignan",
+      "make": "Ram",
+      "model": "1500 Classic SLT",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 80861,
+        "price": 31998,
+        "monthly": 555.16,
+        "distance_km": 25
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 80861,
+        "price": 31998,
+        "monthly": 555.26,
+        "distance_km": 25,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-night-pkg-sieges-volant-chauff-essence-gris-cat_ma51793gr201260va2403tr11758-17c0a295-32b6-41b5-a42e-2d0d707f5d63",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "AutoFlash",
+      "make": "Ram",
+      "model": "1500 Classic Express",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 100464,
+        "price": 35888,
+        "monthly": 622.71,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 100464,
+        "price": 35888,
+        "monthly": 622.76,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-sport-+-cuir-+-night-edition-+-volant-chauffant-+-essence-noir-cat_ma51793gr201260tr7155-ff14991e-c3dc-4136-8142-2005f480af75",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Honda St-Basile",
+      "make": "Ram",
+      "model": "1500 Sport",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 81686,
+        "price": 38989,
+        "monthly": 676.46,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 81686,
+        "price": 38989,
+        "monthly": 676.57,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-4x4-auto-ac-gr-elec-mags-cam-recule-blueto-essence-blanc-cat_ma51793gr201260va2403tr11758-1178b001-3b6d-4d0c-8392-810a13f72ac0",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire Carignan",
+      "make": "Ram",
+      "model": "1500 Classic Express",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 36502,
+        "price": 39598,
+        "monthly": 687.03,
+        "distance_km": 25
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 36502,
+        "price": 39598,
+        "monthly": 687.14,
+        "distance_km": 25,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-v6-3-6l-crew-cab-boite-5-5p-essence-blanc-cat_ma51793gr201260va2403tr11700-7fb9f230-f96a-4332-8fe4-e85bdb8a4628",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Centre liquidation BD",
+      "make": "Ram",
+      "model": "1500 Classic SLT",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 68964,
+        "price": 32789,
+        "monthly": 568.98,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 68964,
+        "price": 32789,
+        "monthly": 568.98,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-crew-v8-console-bancs-chauff-essence-gris-cat_ma51793gr201260va2403tr11758-49b7958a-86b2-4069-bff9-af1887ae38c1",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Boucherville Chrysler Dodge Jeep Ram Fiat",
+      "make": "Ram",
+      "model": "1500 Classic Express",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 79830,
+        "price": 38885,
+        "monthly": 674.65,
+        "distance_km": 35
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 79830,
+        "price": 38885,
+        "monthly": 674.76,
+        "distance_km": 35,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-awd-auto-ac-mags-gr-elect-cam-recul-bleuto-essence-blanc-cat_ma51793gr201260va2403tr11758-d823759f-be8f-4e2e-a2c4-af6d8e69007a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire St-Léonard",
+      "make": "Ram",
+      "model": "1500 Classic Express",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 26605,
+        "price": 37998,
+        "monthly": 659.26,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 26605,
+        "price": 37998,
+        "monthly": 659.37,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-warlock-crewcab-v6-pentastar-essence-noir-cat_ma51793gr201260va2403tr14894-1263307f-686b-4b38-9e0b-33ec31ea30b0",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Chaput Automobile Inc",
+      "make": "Ram",
+      "model": "1500 Classic Warlock",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 83231,
+        "price": 35749,
+        "monthly": 620.3,
+        "distance_km": 40
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 83231,
+        "price": 35749,
+        "monthly": 620.35,
+        "distance_km": 40,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-4x4-crew-cab-5-7-box-essence-blanc-cat_ma51793gr201260va2403tr11758-56261fdd-9b57-41a1-b113-ec21f8bd597a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Olivier Hyundai St-Basile",
+      "make": "Ram",
+      "model": "1500 Classic Express",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 126925,
+        "price": 29999,
+        "monthly": 520.47,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2023,
+        "mileage": 126925,
+        "price": 29999,
+        "monthly": 520.57,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ram-1500-rebel-crew-cab-4x4-boite-5-7-cuir-camera-recul-5-7-essence-noir-cat_ma51793gr201260tr6401-46d008c1-b44c-4485-bcf0-2a6785e6d34c",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Kia Joliette",
+      "make": "Ram",
+      "model": "1500 Rebel",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 139108,
+        "price": 39980,
+        "monthly": 693.75,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 139108,
+        "price": 39980,
+        "monthly": 693.77,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-z71-a-c-gr-elect-mags-essence-noir-cat_ma19gr200266tr12575-3785784c-91a7-436f-a492-fd7985065f63",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire St-Eustache",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 155699,
+        "price": 29988,
+        "monthly": 520.28,
+        "distance_km": 72
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 155699,
+        "price": 29988,
+        "monthly": 520.38,
+        "distance_km": 72,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-work-truck-crew-cab-4x4-2-7t-camera-essence-blanc-cat_ma19gr200266tr12573-1f0a6611-d841-429b-ba33-33e4cc560ea8",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobile En Direct Laval",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2025,
+        "mileage": 101834,
+        "price": 33999,
+        "monthly": 589.88,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2025,
+        "mileage": 101834,
+        "price": 33999,
+        "monthly": 589.98,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-wt-crew-4x4-bedliner-gr-commodite-boite-6-2-pi-essence-noir-cat_ma19gr200266tr12573-e71dec2b-0c33-4ffb-a7ca-b32a23454652",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Léveillé Chevrolet Buick GMC",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 55885,
+        "price": 34995,
+        "monthly": 607.19,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 55885,
+        "price": 34995,
+        "monthly": 607.26,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-wt-2rm-+-cabine-multiplace-camera-+-bluetooth-essence-rouge-cat_ma19gr200266tr12568-f67e06af-674c-4b0d-87e7-7ff1cb4aa0c8",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Sherbrooke Auto Occasion",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 63193,
+        "price": 28988,
+        "monthly": 502.94,
+        "distance_km": 82
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 63193,
+        "price": 28988,
+        "monthly": 503.02,
+        "distance_km": 82,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-crew-cab-essence-noir-cat_ma19gr200266tr12573-4c10243e-da1a-4d7b-9b9f-67bfa732d26b",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Thibault Chevrolet Cadillac Buick GMC",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 45674,
+        "price": 38994,
+        "monthly": 676.63,
+        "distance_km": 83
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 45674,
+        "price": 38994,
+        "monthly": 676.66,
+        "distance_km": 83,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-crew-cab-wt-apple-car-play-groupe-convenience-essence-blanc-cat_ma19gr200266tr12573-1cf79921-15fc-4914-a2f9-833808616bbb",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Honda de St-Jean",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2024,
+        "mileage": 58839,
+        "price": 37888,
+        "monthly": 657.44,
+        "distance_km": 42
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2024,
+        "mileage": 58839,
+        "price": 37888,
+        "monthly": 657.46,
+        "distance_km": 42,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-crew-cab-141-lt-essence-noir-cat_ma19gr200266tr12571-d8ebd321-0d36-41a7-ba28-f315df6dc2aa",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Hyundai Gabriel Anjou",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 88824,
+        "price": 29989,
+        "monthly": 520.29,
+        "distance_km": 51
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 88824,
+        "price": 29989,
+        "monthly": 520.39,
+        "distance_km": 51,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-z71-v6-automatique-crew-cab-1-propri-essence-cat_ma19gr200266tr12575-d78d181c-47cb-4722-90c3-3967f18cb55d",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Chevrolet Buick GMC West Island",
+      "make": "Chevrolet",
+      "model": "Colorado",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 36626,
+        "price": 39988,
+        "monthly": 693.78,
+        "distance_km": 68
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 36626,
+        "price": 39988,
+        "monthly": 693.9,
+        "distance_km": 68,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-crew-cab-141-denali-essence-noir-cat_ma2153gr202502tr17746-d3355b14-05e3-419b-9bb6-61408e8ddf4d",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Mercedes-Benz Granby",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 101808,
+        "price": 36995,
+        "monthly": 641.9,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 101808,
+        "price": 36995,
+        "monthly": 641.97,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-sle-+-duramax-+-4x4-+-crew-+-rare-diesel-blanc-cat_ma2153gr202502tr17749-399e2567-759f-4266-ab68-1d3db1f5b62d",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Haut-Richelieu Volkswagen",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 125526,
+        "price": 29995,
+        "monthly": 520.42,
+        "distance_km": 40
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 125526,
+        "price": 29995,
+        "monthly": 520.5,
+        "distance_km": 40,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-elevation-bas-km-toile-de-boite-essence-noir-cat_ma2153gr202502tr17747-ae8e3a7d-e977-48b0-adc4-6a68ec2a6c3e",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Candiac Toyota",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 80873,
+        "price": 34845,
+        "monthly": 604.6,
+        "distance_km": 40
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 80873,
+        "price": 34845,
+        "monthly": 604.66,
+        "distance_km": 40,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-elevation-v6-3-6l-camera-de-recul-1-seul-p-essence-blanc-cat_ma2153gr202502tr17737-740115c7-5bcc-4308-967d-2efd395efed1",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Chevrolet Buick GMC West Island",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 53607,
+        "price": 29988,
+        "monthly": 520.28,
+        "distance_km": 68
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 53607,
+        "price": 29988,
+        "monthly": 520.38,
+        "distance_km": 68,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-elevation-standard-essence-noir-cat_ma2153gr202502tr17748-6f9bfeed-3a64-47a1-8771-b9e46b88f6e7",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Occasion Grenier",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 80000,
+        "price": 29889,
+        "monthly": 518.55,
+        "distance_km": 53
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 80000,
+        "price": 29889,
+        "monthly": 518.66,
+        "distance_km": 53,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-2wd-elevation-auto-a-c-cuir-gr-elect-mags-cam-recu-essence-blanc-cat_ma2153gr202502tr17736-70782be0-2615-4eb3-a017-92e24764fefd",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire Vaudreuil",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 53004,
+        "price": 29998,
+        "monthly": 520.47,
+        "distance_km": 90
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 53004,
+        "price": 29998,
+        "monthly": 520.55,
+        "distance_km": 90,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-gmc-canyon-at4-2021-v6-3-6-l-4x4-summit-white-av-essence-blanc-cat_ma2153gr202502tr17744-36a081e7-3cd3-4bb4-9e1a-59f232adefeb",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "St-Jérôme Chrysler Jeep Dodge Ram",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 126700,
+        "price": 34991,
+        "monthly": 607.12,
+        "distance_km": 90
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 126700,
+        "price": 34991,
+        "monthly": 607.19,
+        "distance_km": 90,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-crew-cab-141-at4-w-cloth-essence-noir-cat_ma2153gr202502tr17744-877f9823-efe7-4616-be4f-a389fcff59c1",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "HGrégoire Hyundai Vaudreuil",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 144597,
+        "price": 34995,
+        "monthly": 607.19,
+        "distance_km": 90
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 144597,
+        "price": 34995,
+        "monthly": 607.26,
+        "distance_km": 90,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-v6-slt-75-158-km-essence-noir-cat_ma2153gr202502tr17750-827a15bc-a93f-465c-9e59-91af3cdbbc87",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Robichaud Autos",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2018,
+        "mileage": 75158,
+        "price": 29495,
+        "monthly": 511.72,
+        "distance_km": 30
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2018,
+        "mileage": 75158,
+        "price": 29495,
+        "monthly": 511.82,
+        "distance_km": 30,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-at4-w-leather-inspecte-aucune-surprise-pret-essence-blanc-cat_ma2153gr202502tr17745-2c6d6277-b99c-471f-95f1-24c71055144c",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Le Relais Chevrolet",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 165592,
+        "price": 30995,
+        "monthly": 537.75,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 165592,
+        "price": 30995,
+        "monthly": 537.85,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "high_mileage",
+      "reason": "kilométrage supérieur à 120 000 km; hors classement principal"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-elevation-4wd-crew-cab-boite-de-6-6-pieds-essence-noir-cat_ma2153gr202502tr17747-5ddafea1-3d1a-41c1-881d-d891c194214b",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "St-Eustache Chevrolet Buick GMC",
+      "make": "GMC",
+      "model": "Canyon",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 77728,
+        "price": 37475,
+        "monthly": 650.24,
+        "distance_km": 72
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 77728,
+        "price": 37475,
+        "monthly": 650.3,
+        "distance_km": 72,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-4wd-supercrew-5-box-camera-recul-bluetooth-cl-essence-noir-cat_ma29gr15862-11066083-7846-4dfe-9c39-ccdc4789b9c6",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Joliette Mitsubishi",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 107596,
+        "price": 29995,
+        "monthly": 520.42,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 107596,
+        "price": 29995,
+        "monthly": 520.5,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-fx4-+-panneau-essence-gris-cat_ma29gr15862-71e713a2-0b2f-4a86-ab1f-50871a0b391b",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "RD Autos",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 54600,
+        "price": 34990,
+        "monthly": 607.17,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 54600,
+        "price": 34990,
+        "monthly": 607.17,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": false,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-lariat-cabine-supercrew-4rm-caisse-de-5-pi-essence-gris-cat_ma29gr15862-7ee7e1e4-6c62-4d1f-a5bd-e10f19e3dfa8",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Blainville Honda",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 80770,
+        "price": 35888,
+        "monthly": 622.71,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 80770,
+        "price": 35888,
+        "monthly": 622.76,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-cabine-supercrew-4rm-caisse-de-5-pi-essence-rouge-cat_ma29gr15862-c5e43d8b-3b98-47c4-80a6-af349faf9a75",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Blainville Honda",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 119761,
+        "price": 29888,
+        "monthly": 518.65,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 119761,
+        "price": 29888,
+        "monthly": 518.64,
+        "distance_km": 85,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-crew-4x4-nav-bedliner-carplay-gr-remorq-essence-gris-cat_ma29gr15862tr8512-f3c1b4d7-b829-43f1-9b33-141a942ddd7a",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "St-Jérôme Auto Dépôt",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2024,
+        "mileage": 108325,
+        "price": 37995,
+        "monthly": 659.22,
+        "distance_km": 100
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2024,
+        "mileage": 108325,
+        "price": 37995,
+        "monthly": 659.32,
+        "distance_km": 100,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-302a-fx4-demarruer-tow-pack-carfax-essence-argent-cat_ma29gr15862-711d7209-a543-4620-9cfb-b1864af3c89e",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Léveillé Ford",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 105123,
+        "price": 29955,
+        "monthly": 519.72,
+        "distance_km": 100
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 105123,
+        "price": 29955,
+        "monthly": 519.8,
+        "distance_km": 100,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-4wd-supercrew-5-box-essence-gris-cat_ma29gr15862-1068057e-bf8d-47f4-8822-ee34de150cf1",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Particulier",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2021,
+        "mileage": 117000,
+        "price": 33000,
+        "monthly": 572.55,
+        "distance_km": 53
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2021,
+        "mileage": 117000,
+        "price": 33000,
+        "monthly": 572.64,
+        "distance_km": 53,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-cabine-super-crew-4rm-caisse-de-5-pi-essence-gris-cat_ma29gr15862tr8512-c53592fe-82e2-46bb-9402-98bb4a7606b5",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Automobiles Sylvain Ouellet Inc.",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 50236,
+        "price": 38995,
+        "monthly": 676.62,
+        "distance_km": 70
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2022,
+        "mileage": 50236,
+        "price": 38995,
+        "monthly": 676.67,
+        "distance_km": 70,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-cabine-supercrew-4rm-caisse-de-5-pi-essence-bleu-cat_ma29gr15862-c02b2ecd-78a0-4c3c-a067-a92a244c4d33",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Val Estrie Ford",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 86853,
+        "price": 29988,
+        "monthly": 520.28,
+        "distance_km": 65
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2020,
+        "mileage": 86853,
+        "price": 29988,
+        "monthly": 520.38,
+        "distance_km": 65,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-essence-cat_ma29gr15862tr8512-111c781b-b856-4e65-bf2c-ed8bc7822e57",
+      "source_group": "admissibles",
+      "source_status": "admissible",
+      "seller": "Centre de l'auto Fernand Leblanc",
+      "make": "Ford",
+      "model": "Ranger",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 63079,
+        "price": 29495,
+        "monthly": 511.72,
+        "distance_km": 55
+      },
+      "tacoma_double_cab_explicit": false,
+      "validated": {
+        "year": 2019,
+        "mileage": 63079,
+        "price": 29495,
+        "monthly": 511.82,
+        "distance_km": 55,
+        "distance_band": "0-150"
+      },
+      "corrections": {
+        "payment": true,
+        "live_price": false,
+        "live_mileage": false,
+        "make_case": false,
+        "cab": null
+      },
+      "decision": "eligible",
+      "reason": "contrôles année, rayon, budget, URL et kilométrage réussis"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-sv-cabine-double-caisse-longue-4x4-essence-gris-cat_ma52gr201091-af3145d6-46fa-49b8-9f02-20bed29c472b",
+      "source_group": "non_confirmes",
+      "source_status": "non_confirme",
+      "seller": "Levis Subaru",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 90860,
+        "price": 34995,
+        "monthly": 607.23,
+        "distance_km": 140
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "distance_unconfirmed",
+      "reason": "distance ~140km proche limite 150km"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-s-v6-4x4-auto-full-equipe-a-c-mags-carplay-73-520-essence-noir-cat_ma52gr201091tr14580-5e45ea6e-46b3-4311-b889-95954bfa6d13",
+      "source_group": "non_confirmes",
+      "source_status": "non_confirme",
+      "seller": "Autos Occasion LD",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 73520,
+        "price": 34990,
+        "monthly": 607.15,
+        "distance_km": 140
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "distance_unconfirmed",
+      "reason": "distance ~140km proche limite"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-pro-4x-cabine-double-caisse-standard-4x4-essence-rouge-cat_ma52gr201091-c408d9d3-cc9b-4bb4-8312-52bb2e00cce4",
+      "source_group": "non_confirmes",
+      "source_status": "non_confirme",
+      "seller": "Toyota Ste-Agathe",
+      "make": "Nissan",
+      "model": "Frontier",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2022,
+        "mileage": 85500,
+        "price": 38895,
+        "monthly": 674.91,
+        "distance_km": 145
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "distance_unconfirmed",
+      "reason": "distance proche/au-delà 150km"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/nissan-titan-sv-diesel-noir-cat_ma52gr201098va2624-2452f4d7-dcb0-4959-8db7-f76f7ad06c07",
+      "source_group": "non_confirmes",
+      "source_status": "non_confirme",
+      "seller": "Vendeur privé",
+      "make": "Nissan",
+      "model": "Titan XD",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 86000,
+        "price": 36900,
+        "monthly": 640.29,
+        "distance_km": 130
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "distance_unconfirmed",
+      "reason": "distance à confirmer + vendeur privé"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-+-crew-cab-+-black-on-black-+-ecran-6-car-essence-noir-cat_ma19gr202703tr478357-40c017ff-74ba-412a-b854-c462ee48af34",
+      "source_group": "non_confirmes",
+      "source_status": "non_confirme",
+      "seller": "Joliette Dodge Jeep Chrysler RAM & Fiat",
+      "make": "Chevrolet",
+      "model": "Silverado 1500",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2023,
+        "mileage": 87062,
+        "price": 36895,
+        "monthly": 640.16,
+        "distance_km": 85
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "distance_unconfirmed",
+      "reason": "URL potentiellement dupliquée avec une autre annonce (Centre Liq. BD) — à valider manuellement"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-sport-4x4-only-59-000kms-alloys-tow-pkg-a-c-essence-blanc-cat_ma29gr16518-c21f5342-43f1-4f53-a7f5-c898f334481e",
+      "source_group": "rejetes",
+      "source_status": "rejete",
+      "seller": "Car-On Auto Sales",
+      "make": "Ford",
+      "model": "F-150 Sport",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2020,
+        "mileage": 58989,
+        "price": 32453,
+        "monthly": 563.14,
+        "distance_km": 256
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "rejected_initial",
+      "reason": "distance ~256km dépasse le plafond 250km; ancien véhicule de location"
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-4x4-5-3l-v8-carplay-tonneau-tow-pkg-essence-argent-cat_ma19gr202703va2612tr478357-9dce23e5-ba80-49fb-83c4-3d5637757b0e",
+      "source_group": "rejetes",
+      "source_status": "rejete",
+      "seller": "Car-On Auto Sales",
+      "make": "Chevrolet",
+      "model": "Silverado 1500 Custom",
+      "missing_fields": [],
+      "duplicate_with_existing": false,
+      "duplicate_in_batch": false,
+      "supplied": {
+        "year": 2019,
+        "mileage": 121064,
+        "price": 29988,
+        "monthly": 520.37,
+        "distance_km": 256
+      },
+      "tacoma_double_cab_explicit": false,
+      "decision": "rejected_initial",
+      "reason": "distance ~256km dépasse le plafond 250km; ancien véhicule de location"
+    }
+  ]
+}

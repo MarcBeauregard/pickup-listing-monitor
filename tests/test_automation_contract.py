@@ -72,6 +72,17 @@ class AutomationContractTests(unittest.TestCase):
         self.assertIn('<option value="2017">2017+</option>', page)
         self.assertIn('<option value="double_cab">Tacoma Double Cab</option>', page)
         self.assertIn('<option value="access_cab">Access Cab</option>', page)
+        self.assertIn('id="include-high-mileage"', page)
+        client = (ROOT / "docs" / "app.js").read_text(encoding="utf-8")
+        self.assertIn("deal.high_mileage && !includeHighMileage", client)
+        self.assertIn("Kilométrage élevé ·", client)
+        self.assertIn('alert_eligible', (ROOT / "scan_deals.py").read_text(encoding="utf-8"))
+
+    def test_entity_level_legal_risk_keeps_branch_nuance_visible(self):
+        client = (ROOT / "docs" / "app.js").read_text(encoding="utf-8")
+        self.assertIn("entity_only_branch_not_named_in_event", client)
+        self.assertIn("entity_head_office_not_named_in_event", client)
+        self.assertIn("cette succursale n’est pas nommée dans l’événement", client)
 
 
 if __name__ == "__main__":

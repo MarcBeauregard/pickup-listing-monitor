@@ -90,7 +90,7 @@ class ScanDealsTests(unittest.TestCase):
             source_fetcher=lambda *_: SOURCE_HTML,
             listing_fetcher=lambda *_: DETAIL,
         )
-        self.assertEqual(first["counts"], {"discovered": 1, "eligible": 1, "new": 1, "new_eligible": 1, "new_in_run": 1})
+        self.assertEqual(first["counts"], {"discovered": 1, "eligible": 1, "high_mileage": 0, "new": 1, "new_eligible": 1, "new_in_run": 1})
         self.assertTrue(first["deals"][0]["is_new"])
 
         second = scan_deals.scan(
@@ -121,6 +121,28 @@ class ScanDealsTests(unittest.TestCase):
         eligible, reasons, _score = scan_deals.evaluate(current, CONFIG["criteria"])
         self.assertFalse(eligible)
         self.assertIn("kilométrage au-dessus de la cible", reasons)
+        self.assertTrue(scan_deals.is_high_mileage_only(current, CONFIG["criteria"]))
+
+    def test_120000_is_eligible_and_120001_is_high_mileage_never_alertable(self):
+        candidates = {"admissibles": [
+            {"url": "https://www.autohebdo.net/annonces/honda-ridgeline-120000", "marque": "Honda", "modele": "Ridgeline", "cabine": "Crew Cab", "annee": 2020, "km": 120000, "prix": 32000, "mensualite_calculee": 555.0, "vendeur": "Garage A", "ville": "Granby", "distance_estimee_km": 30, "statut": "admissible"},
+            {"url": "https://www.autohebdo.net/annonces/honda-ridgeline-120001", "marque": "Honda", "modele": "Ridgeline", "cabine": "Crew Cab", "annee": 2020, "km": 120001, "prix": 32000, "mensualite_calculee": 555.0, "vendeur": "Garage B", "ville": "Granby", "distance_estimee_km": 30, "statut": "admissible"},
+        ]}
+        by_url = {
+            row["url"]: {**DETAIL, "title": "Honda Ridgeline Crew Cab", "price": row["prix"], "year": row["annee"], "mileage": row["km"], "make": "Honda", "model": "Ridgeline"}
+            for row in candidates["admissibles"]
+        }
+        result = scan_deals.scan(
+            {**CONFIG, "sources": []}, previous=None, timeout=1,
+            listing_fetcher=lambda url, _timeout: by_url[url], candidates=candidates,
+        )
+        eligible = next(item for item in result["deals"] if item["mileage"] == 120000)
+        high = next(item for item in result["deals"] if item["mileage"] == 120001)
+        self.assertTrue(eligible["eligible"])
+        self.assertFalse(high["eligible"])
+        self.assertTrue(high["high_mileage"])
+        self.assertFalse(high["alert_eligible"])
+        self.assertEqual(high["candidate_status"], "high_mileage")
 
     def test_accepts_2017_and_rejects_2016_for_any_model(self):
         generic = {**DETAIL, "make": "Honda", "model": "Ridgeline", "cab_class": "crew_cab", "price": 32000}
@@ -140,6 +162,12 @@ class ScanDealsTests(unittest.TestCase):
         self.assertTrue(double_cab[0])
         self.assertTrue(access_cab[0])
         self.assertEqual(double_cab[2] - access_cab[2], 15)
+
+    def test_tacoma_priority_requires_explicit_double_cab_proof(self):
+        explicit = {"marque": "Toyota", "modele": "Tacoma", "cabine": "Double Cab", "preuve_cabine": 'Titre "Double Cab"'}
+        indirect = {"marque": "Toyota", "modele": "Tacoma", "cabine": "Double Cab", "preuve_cabine": "Portes : 4"}
+        self.assertEqual(scan_deals.candidate_cab(explicit), ("Double Cab", "double_cab"))
+        self.assertEqual(scan_deals.candidate_cab(indirect), (None, "unknown"))
 
     def test_empty_source_is_reported_as_partial(self):
         result = scan_deals.scan(
@@ -256,6 +284,26 @@ class ScanDealsTests(unittest.TestCase):
             scan_deals.legal_signal_for(url, {"checked_at": "2026-08-05", "listings": [invalid]}),
             {"status": "not_audited", "source_checked_at": "2026-08-05"},
         )
+
+    def test_multibrand_legal_mapping_preserves_entity_only_branch_scope(self):
+        url = "https://www.autohebdo.net/annonces/ram-1500-test"
+        mapping = {
+            "generated_at": "2026-08-05",
+            "sources": {"automobile_en_direct_conviction": "https://www.opc.gouv.qc.ca/source"},
+            "entries": [{
+                "url": url, "seller": "Automobile en direct - Québec", "branch": "Québec",
+                "legal_entity": "AUTOMOBILE EN DIRECT.COM INC.", "permit": "2110323-1",
+                "entity_match": "exact", "branch_match": "entity_only_branch_not_named_in_event",
+                "applicable": True, "severity": "red", "event_type": "guilty_plea",
+                "event_date": "2025-03-27",
+                "display_note": "Même entité; la succursale de Québec n’est pas nommée comme lieu des infractions.",
+            }],
+        }
+        signal = scan_deals.mapped_legal_signal_for(url, mapping)
+        self.assertEqual(signal["status"], "red")
+        self.assertFalse(signal["branch_matched"])
+        self.assertEqual(signal["branch_scope"], "entity_only_branch_not_named_in_event")
+        self.assertIn("n’est pas nommée", signal["nature"])
 
     def test_trust_score_legal_bands_and_missing_data_floors(self):
         reputation = {
