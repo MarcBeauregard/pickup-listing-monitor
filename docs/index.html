@@ -25,9 +25,9 @@
     <main id="top">
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">Pickups familiaux · grandes cabines · 2020+</p>
+          <p class="eyebrow">Pickups familiaux · toutes marques · 2017+</p>
           <h1 id="page-title">Les pickups qui valent le détour.</h1>
-          <p class="intro">Une sélection fraîche, pensée pour trois ados, un bel habitacle et un paiement sous 700 $ par mois.</p>
+          <p class="intro">Une sélection fraîche dans le budget de 500 à 700 $ par mois, avec priorité aux Tacoma Double Cab sans exclure les autres pickups.</p>
           <p class="data-warning" id="data-warning" hidden>Scan partiel : une source n’a pas répondu correctement. Les derniers résultats lisibles restent affichés.</p>
         </div>
         <div class="hero-meta" aria-live="polite">
@@ -55,23 +55,33 @@
           <span>Seulement les bons matchs</span>
         </label>
         <label>
+          <span>Marque</span>
+          <select id="make-filter">
+            <option value="all">Toutes</option>
+          </select>
+        </label>
+        <label>
           <span>Modèle</span>
           <select id="model-filter">
             <option value="all">Toutes</option>
-            <option value="Tacoma">Tacoma</option>
-            <option value="F-150">F-150</option>
-            <option value="1500">Ram 1500</option>
-            <option value="Silverado">Silverado</option>
-            <option value="Sierra">Sierra</option>
-            <option value="Frontier">Frontier</option>
+          </select>
+        </label>
+        <label>
+          <span>Année min.</span>
+          <select id="year-filter">
+            <option value="2017">2017+</option>
+            <option value="2020">2020+</option>
+            <option value="2022">2022+</option>
           </select>
         </label>
         <label>
           <span>Cabine</span>
           <select id="cab-filter">
-            <option value="all">Toutes les grandes cabines</option>
+            <option value="all">Toutes</option>
             <option value="double_cab">Tacoma Double Cab</option>
             <option value="crew_cab">Crew Cab / SuperCrew</option>
+            <option value="access_cab">Access Cab</option>
+            <option value="unknown">À confirmer</option>
           </select>
         </label>
         <label>
@@ -131,11 +141,10 @@
           </div>
           <div class="deal-facts"></div>
           <div class="deal-enrichment">
-            <div class="enrichment-item seller-reputation"></div>
-            <div class="enrichment-item seller-legal-signal"></div>
             <div class="enrichment-item fuel-economy"></div>
           </div>
           <p class="deal-location"></p>
+          <div class="trust-slot"></div>
           <div class="deal-price-row">
             <span class="deal-price"></span>
             <a class="deal-link" target="_blank" rel="noopener noreferrer">Voir l’annonce <span aria-hidden="true">↗</span></a>

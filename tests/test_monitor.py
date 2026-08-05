@@ -73,6 +73,10 @@ class MonitorTests(unittest.TestCase):
         self.assertEqual(double_cab["transmission"], "automatic")
         self.assertEqual(access_cab["cab_class"], "access_cab")
 
+    def test_recognizes_additional_pickup_models(self):
+        self.assertEqual(monitor.infer_vehicle_identity("2017 Honda Ridgeline Crew Cab")["model"], "Ridgeline")
+        self.assertEqual(monitor.infer_vehicle_identity("2021 Ford Ranger SuperCrew")["make"], "Ford")
+
     def test_fetch_marks_sold_page_unavailable(self):
         result = monitor.fetch_listing(
             "https://example.test/sold",

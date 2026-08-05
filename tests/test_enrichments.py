@@ -10,6 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class EnrichmentContractTests(unittest.TestCase):
+    def test_denise_reference_examples_keep_all_eight_exact_outputs(self):
+        examples = json.loads((ROOT / "data/trust_score_examples.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            [item["trust_score"]["score"] for item in examples],
+            [17.48, 17.48, 0.0, 47.97, 51.0, 80, 80, None],
+        )
+
     def test_certified_table_matches_the_twenty_existing_listings(self):
         snapshot = json.loads((ROOT / "docs/data/deals.json").read_text(encoding="utf-8"))
         enrichments = json.loads((ROOT / "data/enrichments.json").read_text(encoding="utf-8"))
@@ -41,6 +48,27 @@ class EnrichmentContractTests(unittest.TestCase):
         )
         self.assertTrue(any(deal["seller_reputation"]["status"] == "unconfirmed" for deal in preview["deals"]))
         self.assertTrue(any(deal["fuel_economy"]["status"] == "unconfirmed" for deal in preview["deals"]))
+
+    def test_preview_reproduces_real_trust_states_without_client_estimates(self):
+        snapshot = json.loads((ROOT / "docs/data/deals.json").read_text(encoding="utf-8"))
+        enrichments = json.loads((ROOT / "data/enrichments.json").read_text(encoding="utf-8"))
+        legal_signals = json.loads((ROOT / "data/seller_legal_signals.json").read_text(encoding="utf-8"))
+        preview = build_preview(snapshot, enrichments, legal_signals)
+        by_branch = {
+            deal["seller_legal_signal"].get("branch"): deal
+            for deal in preview["deals"]
+            if deal["seller_legal_signal"].get("branch")
+        }
+        self.assertEqual(by_branch["HGrégoire Carignan"]["trust_score"]["score"], 17.48)
+        self.assertEqual(by_branch["Automobile En Direct Laval"]["trust_score"]["score"], 17.48)
+        self.assertEqual(by_branch["Centre de liquidation BD, Granby"]["trust_score"]["score"], 0)
+        self.assertEqual(by_branch["St-Basile Honda, 135 boul. Sir-Wilfrid-Laurier"]["trust_score"]["score"], 47.97)
+        durocher = by_branch["Auto Durocher, Mirabel"]
+        self.assertEqual(durocher["trust_score"]["level"], "vigilance_homonymie")
+        self.assertEqual(durocher["seller_legal_signal"]["match_status"], "different_entity")
+        self.assertIn("signal non attribué", durocher["seller_legal_signal"]["nature"])
+        self.assertTrue(any(deal["trust_score"]["score"] == 80 for deal in preview["deals"]))
+        self.assertTrue(any(deal["trust_score"]["score"] is None for deal in preview["deals"]))
 
     def test_legal_table_reproduces_five_audited_cases(self):
         snapshot = json.loads((ROOT / "docs/data/deals.json").read_text(encoding="utf-8"))

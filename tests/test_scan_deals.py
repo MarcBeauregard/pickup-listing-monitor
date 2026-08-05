@@ -51,12 +51,12 @@ ENRICHMENTS = {
 
 CONFIG = {
     "criteria": {
-        "min_year": 2020,
+        "min_year": 2017,
         "max_price": 40000,
+        "min_monthly": 500,
+        "max_monthly": 700,
         "max_mileage": 120000,
-        "engine_terms": ["2.7", "3.5", "ecoboost"],
-        "trims": ["Lariat", "XLT"],
-        "require_supercrew": True,
+        "priority": {"make": "Toyota", "model": "Tacoma", "cab_class": "double_cab", "score_bonus": 15},
     },
     "sources": [{
         "name": "fixture",
@@ -121,6 +121,25 @@ class ScanDealsTests(unittest.TestCase):
         eligible, reasons, _score = scan_deals.evaluate(current, CONFIG["criteria"])
         self.assertFalse(eligible)
         self.assertIn("kilométrage au-dessus de la cible", reasons)
+
+    def test_accepts_2017_and_rejects_2016_for_any_model(self):
+        generic = {**DETAIL, "make": "Honda", "model": "Ridgeline", "cab_class": "crew_cab", "price": 32000}
+        self.assertTrue(scan_deals.evaluate({**generic, "year": 2017}, CONFIG["criteria"])[0])
+        rejected = scan_deals.evaluate({**generic, "year": 2016}, CONFIG["criteria"])
+        self.assertFalse(rejected[0])
+        self.assertIn("année hors cible ou inconnue", rejected[1])
+
+    def test_unknown_make_and_model_are_not_silently_excluded(self):
+        future_source = {**DETAIL, "make": None, "model": None, "cab_class": "unknown", "price": 32000, "year": 2019}
+        self.assertTrue(scan_deals.evaluate(future_source, CONFIG["criteria"])[0])
+
+    def test_tacoma_double_cab_is_priority_not_an_exclusion(self):
+        base = {**DETAIL, "make": "Toyota", "model": "Tacoma", "price": 32000}
+        double_cab = scan_deals.evaluate({**base, "cab_class": "double_cab"}, CONFIG["criteria"])
+        access_cab = scan_deals.evaluate({**base, "cab_class": "access_cab"}, CONFIG["criteria"])
+        self.assertTrue(double_cab[0])
+        self.assertTrue(access_cab[0])
+        self.assertEqual(double_cab[2] - access_cab[2], 15)
 
     def test_empty_source_is_reported_as_partial(self):
         result = scan_deals.scan(
@@ -213,7 +232,7 @@ class ScanDealsTests(unittest.TestCase):
         self.assertEqual(scan_deals.legal_signal_for(url, signals)["status"], "unattributed")
         self.assertEqual(
             scan_deals.legal_signal_for("https://example.test/autre-succursale", signals),
-            {"status": "none_confirmed", "source_checked_at": "2026-08-05"},
+            {"status": "not_audited", "source_checked_at": "2026-08-05"},
         )
 
     def test_attributed_alert_requires_exact_branch_match(self):
@@ -235,8 +254,97 @@ class ScanDealsTests(unittest.TestCase):
         }
         self.assertEqual(
             scan_deals.legal_signal_for(url, {"checked_at": "2026-08-05", "listings": [invalid]}),
-            {"status": "none_confirmed", "source_checked_at": "2026-08-05"},
+            {"status": "not_audited", "source_checked_at": "2026-08-05"},
         )
+
+    def test_trust_score_legal_bands_and_missing_data_floors(self):
+        reputation = {
+            "status": "confirmed", "rating": 4.1, "review_count": 1311,
+            "source_url": "https://maps.example/seller", "verified_at": "2026-08-05",
+        }
+        red = scan_deals.compute_trust_score(reputation, {"status": "red", "nature": "Entente", "source_url": "https://law.example/red"}, "2026-08-05")
+        yellow = scan_deals.compute_trust_score({**reputation, "rating": 4.5, "review_count": 2326}, {"status": "yellow"}, "2026-08-05")
+        missing_red = scan_deals.compute_trust_score({"status": "unconfirmed"}, {"status": "red"}, "2026-08-05")
+        homonymy = scan_deals.compute_trust_score({"status": "unconfirmed"}, {"status": "unattributed"}, "2026-08-05")
+        self.assertEqual(red["score"], 17.48)
+        self.assertLessEqual(red["score"], 20)
+        self.assertEqual(yellow["score"], 47.97)
+        self.assertLessEqual(yellow["score"], 50)
+        self.assertEqual(missing_red["score"], 0)
+        self.assertEqual(homonymy["score"], 51)
+
+    def test_non_audited_score_caps_at_80_and_missing_stays_null(self):
+        perfect = scan_deals.compute_trust_score(
+            {"status": "confirmed", "rating": 5.0, "review_count": 23, "source_url": "https://maps.example/seller", "verified_at": "2026-08-05"},
+            {"status": "not_audited"},
+            "2026-08-05",
+        )
+        missing = scan_deals.compute_trust_score({"status": "unconfirmed"}, {"status": "not_audited"}, "2026-08-05")
+        self.assertEqual(perfect["components"]["volume_points"], 9.2)
+        self.assertEqual(perfect["score"], 80)
+        self.assertIsNone(missing["score"])
+
+    def test_trust_freshness_thresholds_are_monotonic(self):
+        expected_freshness = {
+            "2026-08-05": 1.0,
+            "2026-07-06": 1.0,
+            "2026-05-07": 0.95,
+            "2026-02-05": 0.90,
+            "2025-08-05": 0.80,
+        }
+        scores = []
+        for verified_at, expected in expected_freshness.items():
+            result = scan_deals.compute_trust_score(
+                {"status": "confirmed", "rating": 4.0, "review_count": 100, "verified_at": verified_at},
+                {"status": "red"},
+                "2026-08-05",
+            )
+            self.assertEqual(result["components"]["freshness_multiplier"], expected)
+            self.assertLessEqual(result["score"], 20)
+            scores.append(result["score"])
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+    def test_trust_freshness_exact_90_day_boundary(self):
+        before = scan_deals.compute_trust_score(
+            {"status": "confirmed", "rating": 4.0, "review_count": 100, "verified_at": "2026-05-08"},
+            {"status": "yellow"},
+            "2026-08-05",
+        )
+        exact = scan_deals.compute_trust_score(
+            {"status": "confirmed", "rating": 4.0, "review_count": 100, "verified_at": "2026-05-07"},
+            {"status": "yellow"},
+            "2026-08-05",
+        )
+        self.assertEqual(before["components"]["freshness_multiplier"], 1.0)
+        self.assertEqual(exact["components"]["freshness_multiplier"], 0.95)
+        self.assertLessEqual(exact["score"], 50)
+
+    def test_invalid_missing_and_future_dates_apply_the_worst_freshness(self):
+        base = {"status": "confirmed", "rating": 5.0, "review_count": 1000}
+        for verified_at in (None, "not-a-date", "2026-08-06"):
+            seller = {**base}
+            if verified_at is not None:
+                seller["verified_at"] = verified_at
+            result = scan_deals.compute_trust_score(seller, {"status": "not_audited"}, "2026-08-05")
+            self.assertEqual(result["score"], 50.0)
+            self.assertEqual(result["components"]["freshness_multiplier"], 0.5)
+            self.assertTrue(result["components"]["date_invalid_or_missing"])
+            self.assertTrue(any("fraîcheur minimale" in reason for reason in result["reasons"]))
+
+    def test_better_google_rating_never_escapes_legal_cap(self):
+        for status, cap in (("red", 20), ("yellow", 50), ("unattributed", 70), ("not_audited", 80)):
+            lower = scan_deals.compute_trust_score(
+                {"status": "confirmed", "rating": 2.0, "review_count": 50, "verified_at": "2026-08-05"},
+                {"status": status},
+                "2026-08-05",
+            )
+            higher = scan_deals.compute_trust_score(
+                {"status": "confirmed", "rating": 5.0, "review_count": 5000, "verified_at": "2026-08-05"},
+                {"status": status},
+                "2026-08-05",
+            )
+            self.assertLessEqual(lower["score"], higher["score"])
+            self.assertLessEqual(higher["score"], cap)
 
     def test_old_listing_without_enrichment_stays_readable(self):
         result = scan_deals.scan(
@@ -250,18 +358,19 @@ class ScanDealsTests(unittest.TestCase):
         self.assertEqual(deal["seller_reputation"], {"status": "unconfirmed"})
         self.assertEqual(deal["fuel_economy"], {"status": "unconfirmed"})
 
-    def test_tacoma_profile_accepts_double_cab_and_rejects_access_cab(self):
+    def test_tacoma_access_cab_remains_eligible_under_generic_scope(self):
         criteria = {
-            "min_year": 2020,
+            "min_year": 2017,
             "max_price": 40000,
+            "min_monthly": 500,
+            "max_monthly": 700,
             "max_mileage": 120000,
-            "profiles": [{"model": "Tacoma", "cab_classes": ["double_cab"], "cab_reason": "Tacoma Double Cab non confirmé"}],
+            "priority": {"make": "Toyota", "model": "Tacoma", "cab_class": "double_cab", "score_bonus": 15},
         }
-        base = {"status": "active", "price": 36000, "year": 2022, "mileage": 80000, "model": "Tacoma", "title": "Toyota Tacoma SR5 V6", "cab": "Double Cab", "cab_class": "double_cab"}
+        base = {"status": "active", "price": 36000, "year": 2022, "mileage": 80000, "make": "Toyota", "model": "Tacoma", "title": "Toyota Tacoma SR5 V6", "cab": "Double Cab", "cab_class": "double_cab"}
         self.assertTrue(scan_deals.evaluate(base, criteria)[0])
-        rejected = scan_deals.evaluate({**base, "cab": "Access Cab", "cab_class": "access_cab"}, criteria)
-        self.assertFalse(rejected[0])
-        self.assertIn("Tacoma Double Cab non confirmé", rejected[1])
+        access = scan_deals.evaluate({**base, "cab": "Access Cab", "cab_class": "access_cab"}, criteria)
+        self.assertTrue(access[0])
 
 
 if __name__ == "__main__":

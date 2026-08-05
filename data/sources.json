@@ -1,47 +1,16 @@
 {
   "criteria": {
-    "min_year": 2020,
+    "min_year": 2017,
     "max_price": 40000,
     "min_monthly": 500,
     "max_monthly": 700,
     "max_mileage": 120000,
-    "engine_terms": ["2.7", "2,7", "3.5", "3,5", "ecoboost"],
-    "trims": ["Lariat", "XLT"],
-    "require_supercrew": true,
-    "profiles": [
-      {
-        "model": "F-150",
-        "cab_classes": ["crew_cab"],
-        "engine_terms": ["2.7", "2,7", "3.5", "3,5", "ecoboost"],
-        "trims": ["Lariat", "XLT", "XTR"]
-      },
-      {
-        "model": "Tacoma",
-        "cab_classes": ["double_cab"],
-        "cab_reason": "Tacoma Double Cab non confirmé"
-      },
-      {
-        "model": "1500",
-        "cab_classes": ["crew_cab"]
-      },
-      {
-        "model": "Silverado",
-        "cab_classes": ["crew_cab"]
-      },
-      {
-        "model": "Sierra",
-        "cab_classes": ["crew_cab"]
-      },
-      {
-        "model": "Frontier",
-        "cab_classes": ["crew_cab"]
-      }
-    ]
+    "priority": {"make": "Toyota", "model": "Tacoma", "cab_class": "double_cab", "score_bonus": 15}
   },
   "sources": [
     {
-      "name": "AutoHebdo — F-150 usagés, rayon Saint-Hyacinthe",
-      "url": "https://www.autohebdo.net/autos/ford/f-150/qc/?rcp=50&rcs=0&srt=9&yRng=2020%2C2026&pRng=%2C40000&prx=150&prv=Quebec&loc=Saint-Hyacinthe%2C%20QC&hprc=True&wcp=True&sts=Used",
+      "name": "AutoHebdo — tous camions usagés, rayon Saint-Hyacinthe",
+      "url": "https://www.autohebdo.net/autos/qc/?body=Camion&hprc=True&loc=Saint-Hyacinthe%2C%20QC&pRng=%2C40000&prv=Quebec&prx=150&rcp=50&rcs=0&srt=9&sts=Occasion&wcp=True&yRng=2017%2C2026",
       "listing_domain": "www.autohebdo.net",
       "max_listings": 50
     }

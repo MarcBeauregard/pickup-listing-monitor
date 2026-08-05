@@ -120,6 +120,32 @@ def infer_engine(value: str | None) -> str | None:
     return engine
 
 
+def infer_vehicle_identity(value: str | None) -> dict[str, Any]:
+    """Identifie marque, modèle et cabine uniquement à partir de libellés explicites."""
+    search_text = re.sub(r"[-_/]+", " ", (value or "").lower())
+    if re.search(r"double\s*cab|double\s+cabine|cabine\s+double", search_text):
+        cab, cab_class = "Double Cab", "double_cab"
+    elif re.search(r"access\s*cab|cabine\s+d['’]?acc[eè]s", search_text):
+        cab, cab_class = "Access Cab", "access_cab"
+    elif re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew|cabine\s+multiplace", search_text):
+        cab, cab_class = "SuperCrew", "crew_cab"
+    else:
+        cab, cab_class = None, "unknown"
+    make = next((item for item in ("Toyota", "Ford", "Ram", "Chevrolet", "GMC", "Nissan", "Honda", "Jeep", "Hyundai") if item.lower() in search_text), None)
+    model_patterns = (
+        ("Tacoma", r"\btacoma\b"), ("F-150", r"\bf\s*150\b"),
+        ("Silverado", r"\bsilverado\b"), ("Sierra", r"\bsierra\b"),
+        ("Frontier", r"\bfrontier\b"), ("Titan", r"\btitan\b"),
+        ("Tundra", r"\btundra\b"), ("Ridgeline", r"\bridgeline\b"),
+        ("Colorado", r"\bcolorado\b"), ("Canyon", r"\bcanyon\b"),
+        ("Ranger", r"\branger\b"), ("Maverick", r"\bmaverick\b"),
+        ("Gladiator", r"\bgladiator\b"), ("Santa Cruz", r"\bsanta\s+cruz\b"),
+        ("1500", r"\bram\s+1500\b"),
+    )
+    model = next((item for item, pattern in model_patterns if re.search(pattern, search_text)), None)
+    return {"make": make, "model": model, "cab": cab, "cab_class": cab_class}
+
+
 def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
     """Extrait les champs utiles au tableau de bord depuis une fiche véhicule."""
     title = extract_text(
@@ -163,28 +189,7 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
         (value for value in ("Lariat", "XLT", "XTR", "Platinum", "King Ranch", "SR5", "TRD", "SR", "SLT", "SLE", "Custom") if value.lower() in search_text),
         None,
     )
-    if re.search(r"double\s*cab|double\s+cabine|cabine\s+double", search_text):
-        cab = "Double Cab"
-        cab_class = "double_cab"
-    elif re.search(r"access\s*cab|cabine\s+d['’]?acc[eè]s", search_text):
-        cab = "Access Cab"
-        cab_class = "access_cab"
-    elif re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew|cabine\s+multiplace", search_text):
-        cab = "SuperCrew"
-        cab_class = "crew_cab"
-    else:
-        cab = None
-        cab_class = "unknown"
-    make = next((value for value in ("Toyota", "Ford", "Ram", "Chevrolet", "GMC", "Nissan") if value.lower() in search_text), None)
-    model_patterns = (
-        ("Tacoma", r"\btacoma\b"),
-        ("F-150", r"\bf\s*150\b"),
-        ("Silverado", r"\bsilverado\b"),
-        ("Sierra", r"\bsierra\b"),
-        ("Frontier", r"\bfrontier\b"),
-        ("1500", r"\bram\s+1500\b"),
-    )
-    model = next((value for value, pattern in model_patterns if re.search(pattern, search_text)), None)
+    identity = infer_vehicle_identity(search_text)
     transmission = "automatic" if re.search(r"\bautomatique\b|\bautomatic\b|\bba\b", search_text) else None
     drivetrain = "4WD" if re.search(r"\b4x4\b|\b4wd\b|\b4rm\b", search_text) else None
     return {
@@ -196,10 +201,7 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
         "location": ", ".join(value.replace("_", " ").title() for value in (city, province) if value),
         "engine": engine,
         "trim": trim,
-        "cab": cab,
-        "cab_class": cab_class,
-        "make": make,
-        "model": model,
+        **identity,
         "transmission": transmission,
         "drivetrain": drivetrain,
     }

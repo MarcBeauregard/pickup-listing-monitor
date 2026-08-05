@@ -4,21 +4,17 @@
   "scan_status": "ok",
   "source_errors": [],
   "criteria": {
-    "min_year": 2020,
+    "min_year": 2017,
     "max_price": 40000,
+    "min_monthly": 500,
+    "max_monthly": 700,
     "max_mileage": 120000,
-    "engine_terms": [
-      "2.7",
-      "2,7",
-      "3.5",
-      "3,5",
-      "ecoboost"
-    ],
-    "trims": [
-      "Lariat",
-      "XLT"
-    ],
-    "require_supercrew": true
+    "priority": {
+      "make": "Toyota",
+      "model": "Tacoma",
+      "cab_class": "double_cab",
+      "score_bonus": 15
+    }
   },
   "counts": {
     "discovered": 20,
@@ -49,6 +45,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "transmission": "automatic (AS10, 10 vitesses)",
       "drivetrain": "4x4/4WD",
       "seller_reputation": {
@@ -73,8 +72,38 @@
         }
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 95.8,
+          "reputation_base_raw": 95.8,
+          "reputation_base_effective": 95.8,
+          "rating_points": 65.8,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/autoflash-166717454634389"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -98,6 +127,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "unconfirmed"
       },
@@ -105,8 +137,37 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -132,6 +193,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "seller_reputation": {
         "status": "unconfirmed"
       },
@@ -151,6 +215,37 @@
         "match_status": "exact",
         "match_basis": "raison sociale et permis",
         "branch_matched": true
+      },
+      "trust_score": {
+        "score": 0.0,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [
+          "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -176,6 +271,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "transmission": "automatic (AS10, 10 vitesses)",
       "drivetrain": "4x4/4WD",
       "seller_reputation": {
@@ -200,8 +298,38 @@
         }
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 88.8,
+          "reputation_base_raw": 88.8,
+          "reputation_base_effective": 88.8,
+          "rating_points": 58.8,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/auto-450-167825015215763"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -227,6 +355,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "transmission": "automatic (AS10, 10 vitesses)",
       "drivetrain": "4x4/4WD",
       "seller_reputation": {
@@ -246,8 +377,37 @@
         }
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -273,6 +433,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "seller_reputation": {
         "status": "unconfirmed"
       },
@@ -292,6 +455,37 @@
         "match_status": "exact",
         "match_basis": "raison sociale et permis",
         "branch_matched": true
+      },
+      "trust_score": {
+        "score": 0.0,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [
+          "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -317,6 +511,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "transmission": "automatic (AS10, 10 vitesses)",
       "drivetrain": "4x4/4WD",
       "seller_reputation": {
@@ -353,6 +550,37 @@
         "match_status": "exact",
         "match_basis": "raison sociale et succursale nommée",
         "branch_matched": true
+      },
+      "trust_score": {
+        "score": 17.48,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": 87.4,
+          "reputation_base_raw": 87.4,
+          "reputation_base_effective": 87.4,
+          "rating_points": 57.4,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Plaidoyer de culpabilité : garanties supplémentaires proposées sans information requise sur les garanties légales; 31 380 $ d’amendes."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/automobile-en-directcom-concessionnaire-vehicule-doccasion-financement-reparation-echange-achats-173334780284585",
+          "https://www.opc.gouv.qc.ca/actualite/toutes-les-actualites/article/automobile-en-directcom-inc-plaide-coupable"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -378,6 +606,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "transmission": "automatic (AS10, 10 vitesses)",
       "drivetrain": "4x4/4WD",
       "seller_reputation": {
@@ -409,6 +640,37 @@
         "match_status": "different_entity",
         "match_basis": "raisons sociales différentes",
         "branch_matched": false
+      },
+      "trust_score": {
+        "score": 51.0,
+        "level": "vigilance_homonymie",
+        "level_label": "🟠 Vigilance — homonymie, aucune faute prouvée contre ce vendeur",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            51,
+            70
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "vigilance_homonymie",
+        "reasons": [
+          "Homonymie / entité différente — signal non attribué. La condamnation de Laval ne vise pas l’entité actuelle de Mirabel.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [
+          "https://www.protegez-vous.ca/condamnations/automobile/entrepot-auto-durocher-laval-et-auto-max-saint-jean-sur-richelieu"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -434,6 +696,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "transmission": "automatic (AS10, 10 vitesses)",
       "drivetrain": "4x4/4WD",
       "seller_reputation": {
@@ -458,8 +723,38 @@
         }
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 91.6,
+          "reputation_base_raw": 91.6,
+          "reputation_base_effective": 91.6,
+          "rating_points": 61.6,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/honda-de-boucherville-167803227679241"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -485,6 +780,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "Auto Svetna",
@@ -497,8 +795,38 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 89.2,
+          "reputation_base_raw": 89.2,
+          "reputation_base_effective": 89.2,
+          "rating_points": 70.0,
+          "volume_points": 9.2,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/grossiste-dauto-svetna-lte-167815800960866"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -524,6 +852,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "Miller Hughes Ford Sales",
@@ -536,8 +867,38 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 93.15,
+          "reputation_base_raw": 93.15,
+          "reputation_base_effective": 93.15,
+          "rating_points": 65.8,
+          "volume_points": 17.35,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -564,6 +925,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "seller_reputation": {
         "status": "confirmed",
         "name": "Christin Automobiles",
@@ -576,8 +940,38 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 85.29,
+          "reputation_base_raw": 85.29,
+          "reputation_base_effective": 85.29,
+          "rating_points": 57.4,
+          "volume_points": 17.89,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/christin-chevrolet-buick-gmc-166996863732430"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -604,6 +998,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "HGrégoire Carignan",
@@ -628,6 +1025,37 @@
         "match_status": "exact",
         "match_basis": "raison sociale et succursale nommée",
         "branch_matched": true
+      },
+      "trust_score": {
+        "score": 17.48,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": 87.4,
+          "reputation_base_raw": 87.4,
+          "reputation_base_effective": 87.4,
+          "rating_points": 57.4,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $."
+        ],
+        "sources": [
+          "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+          "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -654,6 +1082,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "crew_cab",
       "seller_reputation": {
         "status": "confirmed",
         "name": "Lallier Honda 40/640",
@@ -666,8 +1097,38 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 84.6,
+          "reputation_base_raw": 84.6,
+          "reputation_base_effective": 84.6,
+          "rating_points": 54.6,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/lallier-honda-40-640-167754280580788"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -694,6 +1155,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "Honda St-Basile",
@@ -718,6 +1182,37 @@
         "match_status": "exact",
         "match_basis": "raison sociale et adresse de succursale",
         "branch_matched": true
+      },
+      "trust_score": {
+        "score": 47.97,
+        "level": "jaune",
+        "level_label": "🟡 Prudence",
+        "components": {
+          "reputation_base": 93.0,
+          "reputation_base_raw": 93.0,
+          "reputation_base_effective": 93.0,
+          "rating_points": 63.0,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            21,
+            50
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "jaune",
+        "reasons": [
+          "Plaidoyer de culpabilité : frais de 99 $ ajoutés et supplément de 1 500 $ exigé en cas de refus du financement; amende de 3 000 $."
+        ],
+        "sources": [
+          "https://yably.ca/reviews/saint-basile-le-grand/st-basile-honda-135-boul-sir-wilfrid-laurier",
+          "https://www.opc.gouv.qc.ca/en/actualite/poursuite-condamnation-region-date/poursuites-et-condamnations/article/st-basile-honda-plaide-coupable"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -744,6 +1239,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "unconfirmed"
       },
@@ -751,8 +1249,37 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -779,6 +1306,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "JP Auto Farnham",
@@ -791,8 +1321,38 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 84.78,
+          "reputation_base_raw": 84.78,
+          "reputation_base_effective": 84.78,
+          "rating_points": 64.4,
+          "volume_points": 10.38,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://www.jpautofarnham.com/en"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -820,6 +1380,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "unconfirmed"
       },
@@ -827,8 +1390,37 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -856,6 +1448,9 @@
       "is_new": true,
       "new_in_run": true,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "Miller Hughes Ford Sales",
@@ -868,8 +1463,38 @@
         "status": "unconfirmed"
       },
       "seller_legal_signal": {
-        "status": "none_confirmed",
+        "status": "not_audited",
         "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 93.15,
+          "reputation_base_raw": 93.15,
+          "reputation_base_effective": 93.15,
+          "rating_points": 65.8,
+          "volume_points": 17.35,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     },
     {
@@ -898,6 +1523,9 @@
       "is_new": true,
       "new_in_run": false,
       "checked_at": "2026-08-05T12:20:24.960272+00:00",
+      "make": "Ford",
+      "model": "F-150",
+      "cab_class": "unknown",
       "seller_reputation": {
         "status": "confirmed",
         "name": "HGrégoire Carignan",
@@ -922,6 +1550,37 @@
         "match_status": "exact",
         "match_basis": "raison sociale et succursale nommée",
         "branch_matched": true
+      },
+      "trust_score": {
+        "score": 17.48,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": 87.4,
+          "reputation_base_raw": 87.4,
+          "reputation_base_effective": 87.4,
+          "rating_points": 57.4,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $."
+        ],
+        "sources": [
+          "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+          "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
       }
     }
   ],

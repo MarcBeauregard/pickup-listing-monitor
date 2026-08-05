@@ -1,0 +1,178 @@
+[
+  {
+    "seller_name": "HGrégoire Carignan",
+    "trust_score": {
+      "score": 17.48,
+      "band": [
+        0,
+        20
+      ],
+      "legal_status": "rouge",
+      "components": {
+        "reputation_base_raw": 87.4,
+        "reputation_base_effective": 87.4,
+        "rating_points": 57.4,
+        "volume_points": 20,
+        "identity_points": 10,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": false
+    }
+  },
+  {
+    "seller_name": "Automobile En Direct Laval",
+    "trust_score": {
+      "score": 17.48,
+      "band": [
+        0,
+        20
+      ],
+      "legal_status": "rouge",
+      "components": {
+        "reputation_base_raw": 87.4,
+        "reputation_base_effective": 87.4,
+        "rating_points": 57.4,
+        "volume_points": 20,
+        "identity_points": 10,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": false
+    }
+  },
+  {
+    "seller_name": "Centre Liquidation BD",
+    "trust_score": {
+      "score": 0.0,
+      "band": [
+        0,
+        20
+      ],
+      "legal_status": "rouge",
+      "components": {
+        "reputation_base_raw": null,
+        "reputation_base_effective": null,
+        "rating_points": null,
+        "volume_points": null,
+        "identity_points": null,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": true
+    }
+  },
+  {
+    "seller_name": "Honda St-Basile",
+    "trust_score": {
+      "score": 47.97,
+      "band": [
+        21,
+        50
+      ],
+      "legal_status": "jaune",
+      "components": {
+        "reputation_base_raw": 93.0,
+        "reputation_base_effective": 93.0,
+        "rating_points": 63.0,
+        "volume_points": 20,
+        "identity_points": 10,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": false
+    }
+  },
+  {
+    "seller_name": "Auto Durocher (Mirabel)",
+    "trust_score": {
+      "score": 51.0,
+      "band": [
+        51,
+        70
+      ],
+      "legal_status": "vigilance_homonymie",
+      "components": {
+        "reputation_base_raw": null,
+        "reputation_base_effective": null,
+        "rating_points": null,
+        "volume_points": null,
+        "identity_points": null,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": true
+    }
+  },
+  {
+    "seller_name": "AutoFlash",
+    "trust_score": {
+      "score": 80,
+      "band": [
+        0,
+        80
+      ],
+      "legal_status": "non_audité",
+      "components": {
+        "reputation_base_raw": 95.8,
+        "reputation_base_effective": 95.8,
+        "rating_points": 65.8,
+        "volume_points": 20,
+        "identity_points": 10,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": false
+    }
+  },
+  {
+    "seller_name": "Auto Svetna",
+    "trust_score": {
+      "score": 80,
+      "band": [
+        0,
+        80
+      ],
+      "legal_status": "non_audité",
+      "components": {
+        "reputation_base_raw": 89.2,
+        "reputation_base_effective": 89.2,
+        "rating_points": 70.0,
+        "volume_points": 9.2,
+        "identity_points": 10,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": false
+    }
+  },
+  {
+    "seller_name": "Autos Occasion LD",
+    "trust_score": {
+      "score": null,
+      "band": [
+        0,
+        80
+      ],
+      "legal_status": "non_audité",
+      "components": {
+        "reputation_base_raw": null,
+        "reputation_base_effective": null,
+        "rating_points": null,
+        "volume_points": null,
+        "identity_points": null,
+        "freshness_multiplier": 1.0,
+        "days_elapsed": 0,
+        "date_invalid_or_missing": false
+      },
+      "floor_applied_missing_data": true
+    }
+  }
+]

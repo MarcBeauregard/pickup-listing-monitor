@@ -16,11 +16,12 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from monitor import USER_AGENT, fetch_listing
+from trust_score import trust_score as calculate_trust_score
 
 
 TAX_RATE = 0.14975
 UNKNOWN_ENRICHMENT = {"status": "unconfirmed"}
-NO_LEGAL_SIGNAL = {"status": "none_confirmed"}
+NO_LEGAL_SIGNAL = {"status": "not_audited"}
 
 
 def utc_now() -> str:
@@ -72,31 +73,6 @@ def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, l
     price = current.get("price")
     year = current.get("year")
     mileage = current.get("mileage")
-    title = " ".join(
-        str(value or "")
-        for value in (current.get("title"), current.get("description"), current.get("engine"), current.get("trim"), current.get("cab"))
-    ).lower()
-
-    profiles = criteria.get("profiles", [])
-    if profiles:
-        profile = next((item for item in profiles if item.get("model") == current.get("model")), None)
-        if not profile:
-            reasons.append("modèle hors sélection")
-            score -= 40
-        else:
-            allowed_cabs = profile.get("cab_classes", [])
-            if allowed_cabs and current.get("cab_class") not in allowed_cabs:
-                reasons.append(profile.get("cab_reason", "grande cabine non confirmée"))
-                score -= 25
-            engine_terms = profile.get("engine_terms", [])
-            if engine_terms and not any(term.lower() in title for term in engine_terms):
-                reasons.append("motorisation admissible non confirmée")
-                score -= 25
-            trims = profile.get("trims", [])
-            if trims and not any(trim.lower() in title for trim in trims):
-                reasons.append("finition admissible non confirmée")
-                score -= 15
-
     if current.get("status") != "active":
         reasons.append("annonce inactive ou illisible")
         score -= 100
@@ -118,16 +94,6 @@ def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, l
     elif mileage > criteria["max_mileage"]:
         reasons.append("kilométrage au-dessus de la cible")
         score -= 25
-    if not profiles and not any(term.lower() in title for term in criteria["engine_terms"]):
-        reasons.append("EcoBoost 2.7L/3.5L non confirmé")
-        score -= 25
-    if not profiles and criteria.get("require_supercrew") and not any(term in title for term in ("supercrew", "super crew", "crew cab")):
-        reasons.append("cabine SuperCrew non confirmée")
-        score -= 25
-    if not profiles and not any(trim.lower() in title for trim in criteria["trims"]):
-        reasons.append("finition Lariat/XLT non confirmée")
-        score -= 15
-
     eligible = not reasons
     if eligible:
         if current.get("trim") == "Lariat":
@@ -136,6 +102,9 @@ def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, l
             score += 10
         if price is not None and monthly_payment(price) <= 700:
             score += 5
+        priority = criteria.get("priority", {})
+        if priority and all(current.get(field) == priority.get(field) for field in ("make", "model", "cab_class")):
+            score += int(priority.get("score_bonus", 0))
     return eligible, reasons, max(score, 0)
 
 
@@ -222,6 +191,78 @@ def legal_signal_for(url: str, signals: dict[str, Any]) -> dict[str, Any]:
     return {**NO_LEGAL_SIGNAL, "source_checked_at": signals.get("checked_at")}
 
 
+def compute_trust_score(
+    seller: dict[str, Any],
+    legal: dict[str, Any],
+    computed_at: str,
+) -> dict[str, Any]:
+    """Adapte l'implémentation de référence Denise au schéma explicable du dashboard."""
+    legal_status = {
+        "red": "rouge",
+        "yellow": "jaune",
+        "unattributed": "vigilance_homonymie",
+        "none_confirmed": "aucun_signal_audité",
+        "not_audited": "non_audité",
+    }.get(legal.get("status"), "non_audité")
+    labels = {
+        "rouge": "🔴 Risque élevé",
+        "jaune": "🟡 Prudence",
+        "vigilance_homonymie": "🟠 Vigilance — homonymie, aucune faute prouvée contre ce vendeur",
+        "aucun_signal_audité": "⚪ Aucun signal confirmé dans les sources auditées",
+        "non_audité": "⚪ Non audité juridiquement",
+    }
+    rating = seller.get("rating")
+    review_count = seller.get("review_count")
+    confirmed = (
+        seller.get("status") == "confirmed"
+        and isinstance(rating, (int, float))
+        and 0 <= rating <= 5
+        and isinstance(review_count, int)
+        and review_count >= 0
+    )
+    reference = calculate_trust_score(
+        rating=rating if confirmed else None,
+        review_count=review_count if confirmed else None,
+        identity_confirmed=confirmed,
+        reputation_confirmed=confirmed,
+        legal_status=legal_status,
+        verified_at=seller.get("verified_at"),
+        computed_at=computed_at,
+    )
+    components = reference["components"]
+    missing_floor = reference["floor_applied_missing_data"]
+    label = labels[legal_status] if reference["score"] is not None else "⚪ Données insuffisantes"
+
+    reasons = []
+    if legal.get("nature"):
+        reasons.append(legal["nature"])
+    if legal_status == "non_audité":
+        reasons.append("Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.")
+    if missing_floor:
+        reasons.append("Réputation Google insuffisante; plancher juridique appliqué sans estimation.")
+    if components["date_invalid_or_missing"] and confirmed:
+        reasons.append("Date de réputation manquante, future ou invalide; fraîcheur minimale de 0,5 appliquée.")
+    sources = list(dict.fromkeys(
+        value for value in (seller.get("source_url"), legal.get("source_url")) if value
+    ))
+    return {
+        "score": reference["score"],
+        "level": legal_status,
+        "level_label": label,
+        "components": {
+            "reputation_base": components["reputation_base_effective"],
+            **components,
+            "band_applied": reference["band"],
+            "missing_data_floor_applied": missing_floor,
+        },
+        "legal_status": legal_status,
+        "reasons": reasons,
+        "sources": sources,
+        "computed_at": computed_at,
+        "formula_version": 1,
+    }
+
+
 def scan(
     config: dict[str, Any],
     previous: dict[str, Any] | None,
@@ -266,6 +307,7 @@ def scan(
         previous_deal = previous_deals.get(identifier, {})
         enrichment = enrichment_for(url, current, enrichments or {})
         legal_signal = legal_signal_for(url, legal_signals or {})
+        trust_score = compute_trust_score(enrichment["seller_reputation"], legal_signal, checked_at[:10])
         first_seen_at = previous_deal.get("first_seen_at") or checked_at
         try:
             recent = checked_datetime - datetime.fromisoformat(first_seen_at) <= timedelta(hours=72)
@@ -275,7 +317,7 @@ def scan(
         deals.append(
             {
                 "id": identifier,
-                "title": current.get("title") or "Ford F-150 — détails à confirmer",
+                "title": current.get("title") or "Pickup — détails à confirmer",
                 "url": url,
                 "image": current.get("image"),
                 "price": price,
@@ -293,6 +335,7 @@ def scan(
                 "location": current.get("location"),
                 **enrichment,
                 "seller_legal_signal": legal_signal,
+                "trust_score": trust_score,
                 "status": current.get("status"),
                 "eligible": eligible,
                 "score": score,
