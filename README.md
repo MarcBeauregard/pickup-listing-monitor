@@ -1,6 +1,6 @@
 # Vigie Pickup
 
-Veille automatisée sans LLM et tableau mobile pour repérer les Ford F-150 EcoBoost SuperCrew qui respectent le budget familial.
+Veille automatisée sans LLM et tableau mobile pour repérer des pickups usagés de toute marque, année 2017 ou plus récente, qui respectent le budget familial. Les Tacoma Double Cab sont priorisés sans exclure les autres modèles ou cabines.
 
 Le dépôt contient deux parcours complémentaires :
 
@@ -48,3 +48,7 @@ python3 tools/preview_server.py
 Ouvrir ensuite `http://127.0.0.1:4173/?controlApi=http://127.0.0.1:4173` pour tester aussi Arrêter/Reprendre. Ce serveur est une démonstration locale; la passerelle de production authentifiée est dans `control-worker/`.
 
 L’architecture, le compromis GitHub Pages et la mise en service après GO sont documentés dans [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Enrichissements sourcés
+
+Les notes vendeur et consommations ne sont jamais collectées ou devinées par le scanner. Le score de confiance est calculé côté pipeline à partir de preuves validées; le client n’applique aucune formule cachée. Consultez [`docs/ENRICHMENT_SCHEMA.md`](docs/ENRICHMENT_SCHEMA.md) pour le contrat rétrocompatible, les preuves obligatoires et la correspondance mécanique exacte.

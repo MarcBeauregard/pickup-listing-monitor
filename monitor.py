@@ -103,6 +103,49 @@ def extract_text(document: str, patterns: tuple[str, ...]) -> str | None:
     return None
 
 
+def infer_engine(value: str | None) -> str | None:
+    """Normalise un moteur explicite sans compléter une motorisation ambiguë."""
+    if not value:
+        return None
+    search_text = re.sub(r"[-_/]+", " ", value.lower())
+    match = re.search(r"\b(2[,.\s]7|3[,.\s]5|3[,.\s]6|5[,.\s]0|5[,.\s]7)\s*([lt])?\b", search_text)
+    if not match:
+        return None
+    engine = re.sub(r"[ ,]", ".", match.group(1)) + "L"
+    turbo_ford = match.group(2) == "t" and ("ford" in search_text or re.search(r"\bf\s*150\b", search_text))
+    if "ecoboost" in search_text or turbo_ford:
+        engine += " EcoBoost"
+    elif "duramax" in search_text or "diesel" in search_text:
+        engine += " Diesel"
+    return engine
+
+
+def infer_vehicle_identity(value: str | None) -> dict[str, Any]:
+    """Identifie marque, modèle et cabine uniquement à partir de libellés explicites."""
+    search_text = re.sub(r"[-_/]+", " ", (value or "").lower())
+    if re.search(r"double\s*cab|double\s+cabine|cabine\s+double", search_text):
+        cab, cab_class = "Double Cab", "double_cab"
+    elif re.search(r"access\s*cab|cabine\s+d['’]?acc[eè]s", search_text):
+        cab, cab_class = "Access Cab", "access_cab"
+    elif re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew|cabine\s+multiplace", search_text):
+        cab, cab_class = "SuperCrew", "crew_cab"
+    else:
+        cab, cab_class = None, "unknown"
+    make = next((item for item in ("Toyota", "Ford", "Ram", "Chevrolet", "GMC", "Nissan", "Honda", "Jeep", "Hyundai") if item.lower() in search_text), None)
+    model_patterns = (
+        ("Tacoma", r"\btacoma\b"), ("F-150", r"\bf\s*150\b"),
+        ("Silverado", r"\bsilverado\b"), ("Sierra", r"\bsierra\b"),
+        ("Frontier", r"\bfrontier\b"), ("Titan", r"\btitan\b"),
+        ("Tundra", r"\btundra\b"), ("Ridgeline", r"\bridgeline\b"),
+        ("Colorado", r"\bcolorado\b"), ("Canyon", r"\bcanyon\b"),
+        ("Ranger", r"\branger\b"), ("Maverick", r"\bmaverick\b"),
+        ("Gladiator", r"\bgladiator\b"), ("Santa Cruz", r"\bsanta\s+cruz\b"),
+        ("1500", r"\bram\s+1500\b"),
+    )
+    model = next((item for item, pattern in model_patterns if re.search(pattern, search_text)), None)
+    return {"make": make, "model": model, "cab": cab, "cab_class": cab_class}
+
+
 def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
     """Extrait les champs utiles au tableau de bord depuis une fiche véhicule."""
     title = extract_text(
@@ -141,10 +184,14 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
     search_text = " ".join(value for value in (title, description, url) if value).lower()
     search_text = re.sub(r"[-_/]+", " ", search_text)
 
-    engine_match = re.search(r"\b(2[,.\s]7|3[,.\s]5)\s*l?\b", search_text)
-    engine = re.sub(r"[ ,]", ".", engine_match.group(1)) + "L EcoBoost" if engine_match else None
-    trim = next((value for value in ("Lariat", "XLT", "Platinum", "King Ranch") if value.lower() in search_text), None)
-    cab = "SuperCrew" if re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew", search_text) else None
+    engine = infer_engine(search_text)
+    trim = next(
+        (value for value in ("Lariat", "XLT", "XTR", "Platinum", "King Ranch", "SR5", "TRD", "SR", "SLT", "SLE", "Custom") if value.lower() in search_text),
+        None,
+    )
+    identity = infer_vehicle_identity(search_text)
+    transmission = "automatic" if re.search(r"\bautomatique\b|\bautomatic\b|\bba\b", search_text) else None
+    drivetrain = "4WD" if re.search(r"\b4x4\b|\b4wd\b|\b4rm\b", search_text) else None
     return {
         "title": title,
         "description": description,
@@ -154,7 +201,9 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
         "location": ", ".join(value.replace("_", " ").title() for value in (city, province) if value),
         "engine": engine,
         "trim": trim,
-        "cab": cab,
+        **identity,
+        "transmission": transmission,
+        "drivetrain": drivetrain,
     }
 
 

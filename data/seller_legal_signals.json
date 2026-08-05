@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-08-05",
+  "listings": [
+    {
+      "case_id": "centre-liquidation-bd",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-supercrew-xlt-3-5l-ecoboost-boite-6-5p-essence-blanc-cat_ma29gr16518-07da989b-60d7-4f44-94cb-b8b0ee609f6b",
+      "status": "red", "nature": "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.", "event_type": "jugement civil", "event_date": "2026-01-17",
+      "legal_entity": "3100-8436 Québec inc.", "permit_or_neq": "permis OPC 2102927-1", "branch": "Centre de liquidation BD, Granby",
+      "source_url": "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000", "source_checked_at": "2026-08-05",
+      "match_status": "exact", "match_basis": "raison sociale et permis", "branch_matched": true
+    },
+    {
+      "case_id": "centre-liquidation-bd",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-supercrew-boite-5-5p-v6-2-7l-essence-gris-cat_ma29gr16518-e053e646-d194-496d-9d21-ddfe10ba5fe0",
+      "status": "red", "nature": "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.", "event_type": "jugement civil", "event_date": "2026-01-17",
+      "legal_entity": "3100-8436 Québec inc.", "permit_or_neq": "permis OPC 2102927-1", "branch": "Centre de liquidation BD, Granby",
+      "source_url": "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000", "source_checked_at": "2026-08-05",
+      "match_status": "exact", "match_basis": "raison sociale et permis", "branch_matched": true
+    },
+    {
+      "case_id": "automobile-en-direct-laval",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-crew-cab-4x4-2-7t-sieges-chauffants-camera-essence-blanc-cat_ma29gr16518-d293d454-b466-40fc-8546-bc81827204c3",
+      "status": "red", "nature": "Plaidoyer de culpabilité : garanties supplémentaires proposées sans information requise sur les garanties légales; 31 380 $ d’amendes.", "event_type": "plaidoyer de culpabilité", "event_date": "2025-03-27",
+      "legal_entity": "Automobile en direct.com inc.", "permit_or_neq": "raison sociale concordante", "branch": "Automobile En Direct Laval",
+      "source_url": "https://www.opc.gouv.qc.ca/actualite/toutes-les-actualites/article/automobile-en-directcom-inc-plaide-coupable", "source_checked_at": "2026-08-05",
+      "match_status": "exact", "match_basis": "raison sociale et succursale nommée", "branch_matched": true
+    },
+    {
+      "case_id": "auto-durocher-mirabel",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-4wd-supercrew-5-5-box-marchepieds-essence-noir-cat_ma29gr16518tr11275-d9c774df-c0a5-47af-9823-469c7a3431d0",
+      "status": "unattributed", "nature": "Homonymie / entité différente — signal non attribué. La condamnation de Laval ne vise pas l’entité actuelle de Mirabel.", "event_type": "condamnation non attribuée", "event_date": "2021-10-17",
+      "legal_entity": "9131-3015 Québec inc. (Mirabel); 9131-2561 Québec inc. (Laval visée)", "permit_or_neq": "permis Mirabel 2107347-1", "branch": "Auto Durocher, Mirabel",
+      "source_url": "https://www.protegez-vous.ca/condamnations/automobile/entrepot-auto-durocher-laval-et-auto-max-saint-jean-sur-richelieu", "source_checked_at": "2026-08-05",
+      "match_status": "different_entity", "match_basis": "raisons sociales différentes", "branch_matched": false
+    },
+    {
+      "case_id": "hgregoire-carignan",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4wd-auto-ac-nav-mags-cam-recule-bluetooth-essence-noir-cat_ma29gr16518-ed4d9d98-92be-45b4-b9d9-a1dbbc1f9eee",
+      "status": "red", "nature": "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $.", "event_type": "entente et reconnaissance de manquements", "event_date": "2024-02-15",
+      "legal_entity": "2970-7528 Québec inc.", "permit_or_neq": "2970-7528 Québec inc.", "branch": "HGrégoire Carignan",
+      "source_url": "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire", "source_checked_at": "2026-08-05",
+      "match_status": "exact", "match_basis": "raison sociale et succursale nommée", "branch_matched": true
+    },
+    {
+      "case_id": "st-basile-honda",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-+-bang-olufsen-+-toit-panoramique-+-siege-essence-noir-cat_ma29gr16518-412c1bbb-7c3c-4b94-9e5f-9aa6f822b6f3",
+      "status": "yellow", "nature": "Plaidoyer de culpabilité : frais de 99 $ ajoutés et supplément de 1 500 $ exigé en cas de refus du financement; amende de 3 000 $.", "event_type": "plaidoyer de culpabilité", "event_date": "2023-09-27",
+      "legal_entity": "9309-5420 Québec inc.", "permit_or_neq": "9309-5420 Québec inc.", "branch": "St-Basile Honda, 135 boul. Sir-Wilfrid-Laurier",
+      "source_url": "https://www.opc.gouv.qc.ca/en/actualite/poursuite-condamnation-region-date/poursuites-et-condamnations/article/st-basile-honda-plaide-coupable", "source_checked_at": "2026-08-05",
+      "match_status": "exact", "match_basis": "raison sociale et adresse de succursale", "branch_matched": true
+    },
+    {
+      "case_id": "hgregoire-carignan",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-stx-4wd-a-c-camera-recul-navigation-mags-essence-gris-cat_ma29gr16518-202e261e-a5d0-499e-a59d-ad8669966c08",
+      "status": "red", "nature": "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $.", "event_type": "entente et reconnaissance de manquements", "event_date": "2024-02-15",
+      "legal_entity": "2970-7528 Québec inc.", "permit_or_neq": "2970-7528 Québec inc.", "branch": "HGrégoire Carignan",
+      "source_url": "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire", "source_checked_at": "2026-08-05",
+      "match_status": "exact", "match_basis": "raison sociale et succursale nommée", "branch_matched": true
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "listings": [
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-2-7l-v6-4x4-super-crew-5-5-box-essence-noir-cat_ma29gr16518tr11290-93be0311-3ed9-4124-99fd-c63dc545d806",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "AutoFlash",
+        "rating": 4.7,
+        "review_count": 2753,
+        "source_url": "https://reviews.birdeye.com/autoflash-166717454634389",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 13.1,
+        "highway_l_per_100km": 10.2,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2020,
+          "engine": "2.7L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xtr-v6-2-7l-ecoboost-6-passagers-66-920-km-essence-noir-cat_ma29gr16518-76bb5f46-aa03-4268-a5c6-9f6be40f6284",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-supercrew-xlt-3-5l-ecoboost-boite-6-5p-essence-blanc-cat_ma29gr16518-07da989b-60d7-4f44-94cb-b8b0ee609f6b",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-nav-crewcab-financement-facile-essence-rouge-cat_ma29gr16518-9d5b58d1-e1e1-4e7e-a5c2-f3d98e575e88",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Auto 450",
+        "rating": 4.2,
+        "review_count": 1103,
+        "source_url": "https://reviews.birdeye.com/auto-450-167825015215763",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 12.9,
+        "highway_l_per_100km": 10.1,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2022,
+          "engine": "2.7L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-2-7-crew-cab-essence-noir-cat_ma29gr16518tr11290-fad4505f-f728-4104-a8a4-62dc35dc6175",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 12.9,
+        "highway_l_per_100km": 10.1,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2022,
+          "engine": "2.7L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-supercrew-boite-5-5p-v6-2-7l-essence-gris-cat_ma29gr16518-e053e646-d194-496d-9d21-ddfe10ba5fe0",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-crew-cab-4x4-2-7t-sieges-chauffants-camera-essence-blanc-cat_ma29gr16518-d293d454-b466-40fc-8546-bc81827204c3",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Automobile En Direct Laval",
+        "rating": 4.1,
+        "review_count": 2012,
+        "source_url": "https://reviews.birdeye.com/automobile-en-directcom-concessionnaire-vehicule-doccasion-financement-reparation-echange-achats-173334780284585",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 12.8,
+        "highway_l_per_100km": 10.0,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2021,
+          "engine": "2.7L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-4wd-supercrew-5-5-box-marchepieds-essence-noir-cat_ma29gr16518tr11275-d9c774df-c0a5-47af-9823-469c7a3431d0",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 13.1,
+        "highway_l_per_100km": 10.2,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2020,
+          "engine": "2.7L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-fx4-off-road-3-5l-20-inch-wheels-fx4-off-r-essence-argent-cat_ma29gr16518-97a5ceac-c449-495c-8a52-64c3d082f66e",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Honda de Boucherville",
+        "rating": 4.4,
+        "review_count": 3359,
+        "source_url": "https://reviews.birdeye.com/honda-de-boucherville-167803227679241",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 14.6,
+        "highway_l_per_100km": 10.9,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2020,
+          "engine": "3.5L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-6-1-2ft-box-essence-blanc-cat_ma29gr16518tr11290-200f30a4-e735-4732-8b96-3d9b36bac676",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Auto Svetna",
+        "rating": 5.0,
+        "review_count": 23,
+        "source_url": "https://reviews.birdeye.com/grossiste-dauto-svetna-lte-167815800960866",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-essence-blanc-cat_ma29gr16518-35940292-39cb-4a15-adae-7983d58f61d9",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Miller Hughes Ford Sales",
+        "rating": 4.7,
+        "review_count": 400,
+        "source_url": "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-sport-supercrew-302a-marchepied-couvre-caisse-essence-blanc-cat_ma29gr16518-051b7cba-b694-443d-9418-a49e1e1b76bd",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Christin Automobiles",
+        "rating": 4.1,
+        "review_count": 482,
+        "source_url": "https://reviews.birdeye.com/christin-chevrolet-buick-gmc-166996863732430",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4wd-auto-ac-nav-mags-cam-recule-bluetooth-essence-noir-cat_ma29gr16518-ed4d9d98-92be-45b4-b9d9-a1dbbc1f9eee",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "HGrégoire Carignan",
+        "rating": 4.1,
+        "review_count": 1311,
+        "source_url": "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-supercrew-jamais-accidente-+-hybride-+-boite-d-hybride-essence-electrique-blanc-cat_ma29gr16518-180dd0d9-ae8f-4008-b989-a61e48cec4dd",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Lallier Honda 40/640",
+        "rating": 3.9,
+        "review_count": 1022,
+        "source_url": "https://reviews.birdeye.com/lallier-honda-40-640-167754280580788",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-+-bang-olufsen-+-toit-panoramique-+-siege-essence-noir-cat_ma29gr16518-412c1bbb-7c3c-4b94-9e5f-9aa6f822b6f3",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Honda St-Basile",
+        "rating": 4.5,
+        "review_count": 2326,
+        "source_url": "https://yably.ca/reviews/saint-basile-le-grand/st-basile-honda-135-boul-sir-wilfrid-laurier",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-flex-fuel-blanc-cat_ma29gr16518tr11290-da83bd3d-7e73-4d0b-9735-1aceee2053f8",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-essence-noir-cat_ma29gr16518tr11275-c1bc6e2e-030a-4462-a2f8-2cfe5714cca1",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "JP Auto Farnham",
+        "rating": 4.6,
+        "review_count": 35,
+        "source_url": "https://www.jpautofarnham.com/en",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-gr-elec-a-c-bluetooth-camera-mags-essence-blanc-cat_ma29gr16518-c51e1743-0586-4091-b99c-8db9c0e8370e",
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-essence-bleu-cat_ma29gr16518-2fc9a39a-96fb-44df-9377-87362ac7fb19",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Miller Hughes Ford Sales",
+        "rating": 4.7,
+        "review_count": 400,
+        "source_url": "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    },
+    {
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-stx-4wd-a-c-camera-recul-navigation-mags-essence-gris-cat_ma29gr16518-202e261e-a5d0-499e-a59d-ad8669966c08",
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "HGrégoire Carignan",
+        "rating": 4.1,
+        "review_count": 1311,
+        "source_url": "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      }
+    }
+  ]
+}
