@@ -94,6 +94,70 @@ def extract_price(document: str) -> int | None:
     return None
 
 
+def extract_text(document: str, patterns: tuple[str, ...]) -> str | None:
+    for pattern in patterns:
+        match = re.search(pattern, document, flags=re.IGNORECASE | re.DOTALL)
+        if match:
+            value = re.sub(r"<[^>]+>", " ", unescape(match.group(1)))
+            return re.sub(r"\s+", " ", value).strip()
+    return None
+
+
+def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
+    """Extrait les champs utiles au tableau de bord depuis une fiche véhicule."""
+    title = extract_text(
+        document,
+        (
+            r"<h1[^>]*>(.*?)</h1>",
+            r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:title["\']',
+            r"<title[^>]*>(.*?)</title>",
+        ),
+    )
+    description = extract_text(
+        document,
+        (
+            r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']description["\']',
+        ),
+    )
+
+    def json_value(key: str) -> str | None:
+        match = re.search(rf'["\']{re.escape(key)}["\']\s*:\s*["\']([^"\']+)', document)
+        return unescape(match.group(1)).strip() if match else None
+
+    image = extract_text(
+        document,
+        (
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
+            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+        ),
+    ) or json_value("img")
+    mileage = parse_price(json_value("stmil"))
+    year_raw = json_value("year")
+    year = int(year_raw) if year_raw and year_raw.isdigit() else None
+    city = json_value("city")
+    province = json_value("province")
+    search_text = " ".join(value for value in (title, description, url) if value).lower()
+    search_text = re.sub(r"[-_/]+", " ", search_text)
+
+    engine_match = re.search(r"\b(2[,.\s]7|3[,.\s]5)\s*l?\b", search_text)
+    engine = re.sub(r"[ ,]", ".", engine_match.group(1)) + "L EcoBoost" if engine_match else None
+    trim = next((value for value in ("Lariat", "XLT", "Platinum", "King Ranch") if value.lower() in search_text), None)
+    cab = "SuperCrew" if re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew", search_text) else None
+    return {
+        "title": title,
+        "description": description,
+        "image": image,
+        "mileage": mileage,
+        "year": year,
+        "location": ", ".join(value.replace("_", " ").title() for value in (city, province) if value),
+        "engine": engine,
+        "trim": trim,
+        "cab": cab,
+    }
+
+
 def fetch_listing(
     url: str,
     timeout: float,
@@ -138,11 +202,13 @@ def fetch_listing(
             "final_url": final_url,
         }
     price = extract_price(body)
+    metadata = extract_listing_metadata(body, final_url)
     return {
         "status": "active" if price is not None else "unknown",
         "price": price,
         "http_status": status_code,
         "final_url": final_url,
+        **metadata,
         **({"error": "prix introuvable dans la page"} if price is None else {}),
     }
 
@@ -255,4 +321,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

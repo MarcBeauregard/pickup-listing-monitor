@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111a18">
+    <meta name="description" content="Veille automatisée des meilleurs Ford F-150 EcoBoost familiaux près de Saint-Hyacinthe.">
+    <title>Vigie Pickup — F-150 EcoBoost</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Vigie Pickup, retour en haut">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span>Vigie Pickup</span>
+      </a>
+      <button class="status-pill" id="watch-status" type="button" aria-controls="control-panel">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Chargement…</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">F-150 EcoBoost · SuperCrew · 2020+</p>
+          <h1 id="page-title">Les pickups qui valent le détour.</h1>
+          <p class="intro">Une sélection fraîche, pensée pour trois ados, un bel habitacle et un paiement sous 700 $ par mois.</p>
+          <p class="data-warning" id="data-warning" hidden>Scan partiel : une source n’a pas répondu correctement. Les derniers résultats lisibles restent affichés.</p>
+        </div>
+        <div class="hero-meta" aria-live="polite">
+          <div><strong id="eligible-count">—</strong><span>bons candidats</span></div>
+          <div><strong id="new-count">—</strong><span>nouveaux depuis 72 h</span></div>
+          <div><strong id="last-checked-short">—</strong><span>dernière vérification</span></div>
+        </div>
+      </section>
+
+      <section class="control-panel" id="control-panel" aria-labelledby="control-title">
+        <div>
+          <p class="eyebrow">Contrôle de la veille</p>
+          <h2 id="control-title">État : <span id="control-state">vérification…</span></h2>
+          <p id="control-detail">Le scan planifié ne consomme aucun jeton d’IA.</p>
+        </div>
+        <div class="control-actions">
+          <button class="button button-stop" id="pause-button" type="button">Arrêter la veille</button>
+          <button class="button button-start" id="resume-button" type="button">Reprendre</button>
+        </div>
+      </section>
+
+      <section class="filters" aria-label="Filtres des annonces">
+        <label class="filter-toggle">
+          <input id="eligible-only" type="checkbox" checked>
+          <span>Seulement les bons matchs</span>
+        </label>
+        <label>
+          <span>Finition</span>
+          <select id="trim-filter">
+            <option value="all">Toutes</option>
+            <option value="Lariat">Lariat</option>
+            <option value="XLT">XLT</option>
+          </select>
+        </label>
+        <label>
+          <span>Moteur</span>
+          <select id="engine-filter">
+            <option value="all">2.7L + 3.5L</option>
+            <option value="2.7">2.7L EcoBoost</option>
+            <option value="3.5">3.5L EcoBoost</option>
+          </select>
+        </label>
+        <label>
+          <span>Paiement max.</span>
+          <select id="payment-filter">
+            <option value="700">700 $ / mois</option>
+            <option value="650">650 $ / mois</option>
+            <option value="600">600 $ / mois</option>
+          </select>
+        </label>
+      </section>
+
+      <section aria-labelledby="results-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Résultats vérifiés</p>
+            <h2 id="results-title">Les meilleurs matchs</h2>
+          </div>
+          <p id="result-count" aria-live="polite"></p>
+        </div>
+        <div class="deal-grid" id="deal-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <strong>Aucun camion ne passe ces filtres.</strong>
+          <span>Élargis un critère ou reviens après le prochain scan.</span>
+        </div>
+      </section>
+
+      <section class="history" aria-labelledby="history-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Journal automatique</p>
+            <h2 id="history-title">Derniers passages</h2>
+          </div>
+        </div>
+        <ol id="history-list"></ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>Les prix et disponibilités doivent être reconfirmés avec le vendeur. Mensualités estimées à 7 % sur 84 mois, taxes du Québec incluses, 0 $ comptant.</p>
+    </footer>
+
+    <template id="deal-card-template">
+      <article class="deal-card">
+        <a class="deal-photo-link" target="_blank" rel="noopener noreferrer">
+          <img class="deal-photo" loading="lazy" alt="">
+          <span class="new-badge" hidden>Nouveau</span>
+          <span class="match-badge"></span>
+        </a>
+        <div class="deal-body">
+          <div class="deal-title-row">
+            <div>
+              <p class="deal-kicker"></p>
+              <h3 class="deal-title"></h3>
+            </div>
+            <strong class="deal-payment"></strong>
+          </div>
+          <div class="deal-facts"></div>
+          <p class="deal-location"></p>
+          <div class="deal-price-row">
+            <span class="deal-price"></span>
+            <a class="deal-link" target="_blank" rel="noopener noreferrer">Voir l’annonce <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="deal-reasons"></ul>
+        </div>
+      </article>
+    </template>
+  </body>
+</html>

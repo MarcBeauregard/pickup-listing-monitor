@@ -1,0 +1,53 @@
+name: Veille pickup sans LLM
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pickup-pages
+  cancel-in-progress: false
+
+jobs:
+  scan-and-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restaurer l'historique du tableau
+        uses: actions/cache/restore@v4
+        with:
+          path: docs/data
+          key: pickup-data-${{ github.run_id }}
+          restore-keys: pickup-data-
+
+      - name: Scanner les annonces sans LLM
+        run: python3 scan_deals.py --timeout 20
+
+      - name: Conserver l'historique du prochain scan
+        uses: actions/cache/save@v4
+        with:
+          path: docs/data
+          key: pickup-data-${{ github.run_id }}
+
+      - name: Préparer GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Charger l'artefact statique
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Publier GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

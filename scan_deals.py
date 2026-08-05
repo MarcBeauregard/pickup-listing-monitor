@@ -1,0 +1,244 @@
+#!/usr/bin/env python3
+"""Découvre et publie des deals de pickups pour le tableau statique."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime, timedelta, timezone
+from html import unescape
+from pathlib import Path
+from typing import Any, Callable
+from urllib.request import Request, urlopen
+
+from monitor import USER_AGENT, fetch_listing
+
+
+TAX_RATE = 0.14975
+
+
+def utc_now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def fetch_html(url: str, timeout: float) -> str:
+    request = Request(
+        url,
+        headers={
+            "User-Agent": USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml",
+            "Accept-Language": "fr-CA,fr;q=0.9,en;q=0.7",
+        },
+    )
+    with urlopen(request, timeout=timeout) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
+def discover_urls(document: str, source: dict[str, Any]) -> list[str]:
+    domain = source.get("listing_domain", "www.autohebdo.net")
+    absolute = re.findall(rf'https?://{re.escape(domain)}/annonces/[^"\'<>\s]+', document, flags=re.IGNORECASE)
+    relative = re.findall(r'["\'](/annonces/[^"\'<>\s]+)', document, flags=re.IGNORECASE)
+    candidates = [unescape(url).rstrip("/,") for url in absolute]
+    candidates.extend(f"https://{domain}{unescape(url).rstrip('/,')}" for url in relative)
+    unique = []
+    seen = set()
+    for url in candidates:
+        canonical = url.split("?")[0]
+        if canonical not in seen:
+            seen.add(canonical)
+            unique.append(canonical)
+    return unique[: int(source.get("max_listings", 30))]
+
+
+def monthly_payment(price: int, annual_rate: float = 0.07, months: int = 84) -> int:
+    principal = price * (1 + TAX_RATE)
+    monthly_rate = annual_rate / 12
+    payment = principal * monthly_rate / (1 - (1 + monthly_rate) ** -months)
+    return round(payment)
+
+
+def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, list[str], int]:
+    reasons = []
+    score = 100
+    price = current.get("price")
+    year = current.get("year")
+    mileage = current.get("mileage")
+    title = " ".join(
+        str(value or "")
+        for value in (current.get("title"), current.get("description"), current.get("engine"), current.get("trim"), current.get("cab"))
+    ).lower()
+
+    if current.get("status") != "active":
+        reasons.append("annonce inactive ou illisible")
+        score -= 100
+    if price is None or price > criteria["max_price"]:
+        reasons.append("prix hors cible ou inconnu")
+        score -= 35
+    if year is None or year < criteria["min_year"]:
+        reasons.append("année hors cible ou inconnue")
+        score -= 20
+    if mileage is None:
+        reasons.append("kilométrage inconnu")
+        score -= 15
+    elif mileage > criteria["max_mileage"]:
+        reasons.append("kilométrage au-dessus de la cible")
+        score -= 25
+    if not any(term.lower() in title for term in criteria["engine_terms"]):
+        reasons.append("EcoBoost 2.7L/3.5L non confirmé")
+        score -= 25
+    if criteria.get("require_supercrew") and not any(term in title for term in ("supercrew", "super crew", "crew cab")):
+        reasons.append("cabine SuperCrew non confirmée")
+        score -= 25
+    if not any(trim.lower() in title for trim in criteria["trims"]):
+        reasons.append("finition Lariat/XLT non confirmée")
+        score -= 15
+
+    eligible = not reasons
+    if eligible:
+        if current.get("trim") == "Lariat":
+            score += 15
+        if mileage is not None and mileage <= 100_000:
+            score += 10
+        if price is not None and monthly_payment(price) <= 700:
+            score += 5
+    return eligible, reasons, max(score, 0)
+
+
+def deal_id(url: str) -> str:
+    return hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
+
+
+def scan(
+    config: dict[str, Any],
+    previous: dict[str, Any] | None,
+    timeout: float,
+    source_fetcher: Callable[[str, float], str] = fetch_html,
+    listing_fetcher: Callable[[str, float], dict[str, Any]] = fetch_listing,
+) -> dict[str, Any]:
+    discovered = []
+    source_errors = []
+    for source in config["sources"]:
+        try:
+            page = source_fetcher(source["url"], timeout)
+            source_urls = discover_urls(page, source)
+            if not source_urls:
+                source_errors.append({"source": source["name"], "error": "aucune annonce découverte; structure possiblement changée"})
+            discovered.extend(source_urls)
+        except Exception as exc:  # la source doit être isolée du reste du scan
+            source_errors.append({"source": source["name"], "error": str(exc)})
+
+    urls = list(dict.fromkeys(discovered))
+    fetched: dict[str, dict[str, Any]] = {}
+    with ThreadPoolExecutor(max_workers=min(8, max(len(urls), 1))) as executor:
+        futures = {executor.submit(listing_fetcher, url, timeout): url for url in urls}
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                fetched[url] = future.result()
+            except Exception as exc:
+                fetched[url] = {"status": "fetch_error", "price": None, "error": str(exc)}
+
+    previous_deals = {deal["id"]: deal for deal in (previous or {}).get("deals", [])}
+    checked_at = utc_now()
+    checked_datetime = datetime.fromisoformat(checked_at)
+    deals = []
+    for url in urls:
+        current = fetched[url]
+        eligible, reasons, score = evaluate(current, config["criteria"])
+        identifier = deal_id(url)
+        price = current.get("price")
+        previous_deal = previous_deals.get(identifier, {})
+        first_seen_at = previous_deal.get("first_seen_at") or checked_at
+        try:
+            recent = checked_datetime - datetime.fromisoformat(first_seen_at) <= timedelta(hours=72)
+        except ValueError:
+            first_seen_at = checked_at
+            recent = True
+        deals.append(
+            {
+                "id": identifier,
+                "title": current.get("title") or "Ford F-150 — détails à confirmer",
+                "url": url,
+                "image": current.get("image"),
+                "price": price,
+                "monthly_7pct": monthly_payment(price) if price else None,
+                "year": current.get("year"),
+                "mileage": current.get("mileage"),
+                "engine": current.get("engine"),
+                "trim": current.get("trim"),
+                "cab": current.get("cab"),
+                "location": current.get("location"),
+                "status": current.get("status"),
+                "eligible": eligible,
+                "score": score,
+                "reasons": reasons,
+                "first_seen_at": first_seen_at,
+                "is_new": recent,
+                "new_in_run": identifier not in previous_deals,
+                "checked_at": checked_at,
+            }
+        )
+    deals.sort(key=lambda item: (not item["eligible"], -item["score"], item["price"] or 999_999))
+    return {
+        "schema_version": 1,
+        "last_checked_at": checked_at,
+        "scan_status": "ok" if not source_errors else "partial",
+        "source_errors": source_errors,
+        "criteria": config["criteria"],
+        "counts": {
+            "discovered": len(deals),
+            "eligible": sum(deal["eligible"] for deal in deals),
+            "new": sum(deal["is_new"] for deal in deals),
+            "new_eligible": sum(deal["is_new"] and deal["eligible"] for deal in deals),
+            "new_in_run": sum(deal["new_in_run"] for deal in deals),
+        },
+        "deals": deals,
+    }
+
+
+def update_history(previous_history: list[dict[str, Any]], result: dict[str, Any]) -> list[dict[str, Any]]:
+    entry = {
+        "checked_at": result["last_checked_at"],
+        "status": result["scan_status"],
+        "discovered": result["counts"]["discovered"],
+        "eligible": result["counts"]["eligible"],
+        "new_ids": [deal["id"] for deal in result["deals"] if deal["new_in_run"]],
+    }
+    return ([entry] + previous_history)[:40]
+
+
+def load_json(path: Path, fallback: Any) -> Any:
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else fallback
+
+
+def write_json(path: Path, value: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", type=Path, default=Path("data/sources.json"))
+    parser.add_argument("--deals", type=Path, default=Path("docs/data/deals.json"))
+    parser.add_argument("--history", type=Path, default=Path("docs/data/history.json"))
+    parser.add_argument("--timeout", type=float, default=20.0)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    config = load_json(args.config, {})
+    previous = load_json(args.deals, None)
+    history = load_json(args.history, [])
+    result = scan(config, previous, args.timeout)
+    write_json(args.deals, result)
+    write_json(args.history, update_history(history, result))
+    print(json.dumps({"status": result["scan_status"], **result["counts"]}, ensure_ascii=False))
+    return 0 if result["scan_status"] in {"ok", "partial"} else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -33,6 +33,22 @@ class MonitorTests(unittest.TestCase):
         page = '<meta property="product:price:amount" content="31 998">'
         self.assertEqual(monitor.extract_price(page), 31998)
 
+    def test_extracts_dashboard_metadata(self):
+        page = """
+        <meta property="og:title" content="2022 Ford F-150 LARIAT 502A Crew Cab 4x4 2.7T">
+        <meta property="og:image" content="https://images.test/truck.webp">
+        <meta name="description" content="F-150 Lariat SuperCrew 2,7 L EcoBoost cuir">
+        <script>{"stmil":"97395","year":"2022","city":"ILE_PERROT","province":"Quebec"}</script>
+        """
+        result = monitor.extract_listing_metadata(page, "https://example.test/f150")
+        self.assertEqual(result["year"], 2022)
+        self.assertEqual(result["mileage"], 97395)
+        self.assertEqual(result["trim"], "Lariat")
+        self.assertEqual(result["cab"], "SuperCrew")
+        self.assertEqual(result["engine"], "2.7L EcoBoost")
+        self.assertEqual(result["location"], "Ile Perrot, Quebec")
+        self.assertEqual(result["image"], "https://images.test/truck.webp")
+
     def test_fetch_marks_sold_page_unavailable(self):
         result = monitor.fetch_listing(
             "https://example.test/sold",
@@ -85,4 +101,3 @@ class MonitorTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

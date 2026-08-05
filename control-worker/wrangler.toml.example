@@ -1,0 +1,17 @@
+name = "pickup-watch-control"
+main = "src/worker.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+APP_ORIGIN = "https://OWNER.github.io"
+GITHUB_OWNER = "OWNER"
+GITHUB_REPO = "pickup-listing-monitor"
+GITHUB_WORKFLOW_FILE = "pickup-watch.yml"
+GITHUB_REF = "main"
+ACCESS_TEAM_DOMAIN = "https://TEAM.cloudflareaccess.com"
+ACCESS_AUD = "CLOUDFLARE_ACCESS_APPLICATION_AUD"
+ALLOWED_EMAILS = "marc@example.com,conjointe@example.com"
+
+# Secret à définir côté Worker seulement :
+# wrangler secret put GITHUB_TOKEN
+

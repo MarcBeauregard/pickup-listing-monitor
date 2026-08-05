@@ -1,0 +1,9 @@
+{
+  "name": "pickup-watch-control-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
+

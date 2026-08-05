@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "min_year": 2020,
+    "max_price": 40000,
+    "max_mileage": 120000,
+    "engine_terms": ["2.7", "2,7", "3.5", "3,5", "ecoboost"],
+    "trims": ["Lariat", "XLT"],
+    "require_supercrew": true
+  },
+  "sources": [
+    {
+      "name": "AutoHebdo — F-150 usagés, rayon Saint-Hyacinthe",
+      "url": "https://www.autohebdo.net/autos/ford/f-150/qc/?rcp=50&rcs=0&srt=9&yRng=2020%2C2026&pRng=%2C40000&prx=150&prv=Quebec&loc=Saint-Hyacinthe%2C%20QC&hprc=True&wcp=True&sts=Used",
+      "listing_domain": "www.autohebdo.net",
+      "max_listings": 50
+    }
+  ]
+}
+
