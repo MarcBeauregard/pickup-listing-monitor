@@ -12,12 +12,14 @@ from datetime import datetime, timedelta, timezone
 from html import unescape
 from pathlib import Path
 from typing import Any, Callable
+from urllib.parse import urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from monitor import USER_AGENT, fetch_listing
 
 
 TAX_RATE = 0.14975
+UNKNOWN_ENRICHMENT = {"status": "unconfirmed"}
 
 
 def utc_now() -> str:
@@ -39,14 +41,17 @@ def fetch_html(url: str, timeout: float) -> str:
 
 def discover_urls(document: str, source: dict[str, Any]) -> list[str]:
     domain = source.get("listing_domain", "www.autohebdo.net")
-    absolute = re.findall(rf'https?://{re.escape(domain)}/annonces/[^"\'<>\s]+', document, flags=re.IGNORECASE)
-    relative = re.findall(r'["\'](/annonces/[^"\'<>\s]+)', document, flags=re.IGNORECASE)
+    listing_path = source.get("listing_path_pattern", r"/annonces/[^\"'<>\s]+")
+    absolute = re.findall(rf'https?://{re.escape(domain)}{listing_path}', document, flags=re.IGNORECASE)
+    relative = re.findall(rf'["\']({listing_path})', document, flags=re.IGNORECASE)
     candidates = [unescape(url).rstrip("/,") for url in absolute]
-    candidates.extend(f"https://{domain}{unescape(url).rstrip('/,')}" for url in relative)
+    base_url = source.get("base_url", f"https://{domain}")
+    candidates.extend(urljoin(base_url, unescape(url).rstrip("/,")) for url in relative)
     unique = []
     seen = set()
     for url in candidates:
-        canonical = url.split("?")[0]
+        parts = urlsplit(url)
+        canonical = urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip("/"), "", ""))
         if canonical not in seen:
             seen.add(canonical)
             unique.append(canonical)
@@ -71,6 +76,26 @@ def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, l
         for value in (current.get("title"), current.get("description"), current.get("engine"), current.get("trim"), current.get("cab"))
     ).lower()
 
+    profiles = criteria.get("profiles", [])
+    if profiles:
+        profile = next((item for item in profiles if item.get("model") == current.get("model")), None)
+        if not profile:
+            reasons.append("modèle hors sélection")
+            score -= 40
+        else:
+            allowed_cabs = profile.get("cab_classes", [])
+            if allowed_cabs and current.get("cab_class") not in allowed_cabs:
+                reasons.append(profile.get("cab_reason", "grande cabine non confirmée"))
+                score -= 25
+            engine_terms = profile.get("engine_terms", [])
+            if engine_terms and not any(term.lower() in title for term in engine_terms):
+                reasons.append("motorisation admissible non confirmée")
+                score -= 25
+            trims = profile.get("trims", [])
+            if trims and not any(trim.lower() in title for trim in trims):
+                reasons.append("finition admissible non confirmée")
+                score -= 15
+
     if current.get("status") != "active":
         reasons.append("annonce inactive ou illisible")
         score -= 100
@@ -86,13 +111,13 @@ def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, l
     elif mileage > criteria["max_mileage"]:
         reasons.append("kilométrage au-dessus de la cible")
         score -= 25
-    if not any(term.lower() in title for term in criteria["engine_terms"]):
+    if not profiles and not any(term.lower() in title for term in criteria["engine_terms"]):
         reasons.append("EcoBoost 2.7L/3.5L non confirmé")
         score -= 25
-    if criteria.get("require_supercrew") and not any(term in title for term in ("supercrew", "super crew", "crew cab")):
+    if not profiles and criteria.get("require_supercrew") and not any(term in title for term in ("supercrew", "super crew", "crew cab")):
         reasons.append("cabine SuperCrew non confirmée")
         score -= 25
-    if not any(trim.lower() in title for trim in criteria["trims"]):
+    if not profiles and not any(trim.lower() in title for trim in criteria["trims"]):
         reasons.append("finition Lariat/XLT non confirmée")
         score -= 15
 
@@ -111,12 +136,47 @@ def deal_id(url: str) -> str:
     return hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
 
 
+def enrichment_for(url: str, current: dict[str, Any], enrichments: dict[str, Any]) -> dict[str, Any]:
+    """Retourne uniquement un enrichissement dont l'annonce et la mécanique concordent exactement."""
+    entry = next((item for item in enrichments.get("listings", []) if item.get("url") == url), None)
+    if not entry:
+        return {"seller_reputation": dict(UNKNOWN_ENRICHMENT), "fuel_economy": dict(UNKNOWN_ENRICHMENT)}
+
+    seller = entry.get("seller_reputation") or UNKNOWN_ENRICHMENT
+    fuel = entry.get("fuel_economy") or UNKNOWN_ENRICHMENT
+    seller_fields = ("name", "rating", "review_count", "source_url", "verified_at")
+    seller_confirmed = (
+        seller.get("status") == "confirmed"
+        and all(seller.get(field) is not None for field in seller_fields)
+        and isinstance(seller.get("rating"), (int, float))
+        and 0 <= seller["rating"] <= 5
+        and isinstance(seller.get("review_count"), int)
+        and seller["review_count"] >= 0
+        and str(seller.get("source_url", "")).startswith("https://")
+    )
+    required = fuel.get("match", {})
+    mechanical_fields = ("year", "engine", "transmission", "drivetrain")
+    fuel_fields = ("city_l_per_100km", "highway_l_per_100km", "source_url", "verified_at")
+    exact_match = (
+        fuel.get("status") == "confirmed"
+        and all(fuel.get(field) is not None for field in fuel_fields)
+        and all(isinstance(fuel.get(field), (int, float)) and 0 < fuel[field] < 100 for field in ("city_l_per_100km", "highway_l_per_100km"))
+        and str(fuel.get("source_url", "")).startswith("https://")
+        and all(required.get(field) is not None and required.get(field) == current.get(field) for field in mechanical_fields)
+    )
+    return {
+        "seller_reputation": seller if seller_confirmed else dict(UNKNOWN_ENRICHMENT),
+        "fuel_economy": fuel if exact_match else dict(UNKNOWN_ENRICHMENT),
+    }
+
+
 def scan(
     config: dict[str, Any],
     previous: dict[str, Any] | None,
     timeout: float,
     source_fetcher: Callable[[str, float], str] = fetch_html,
     listing_fetcher: Callable[[str, float], dict[str, Any]] = fetch_listing,
+    enrichments: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     discovered = []
     source_errors = []
@@ -151,6 +211,7 @@ def scan(
         identifier = deal_id(url)
         price = current.get("price")
         previous_deal = previous_deals.get(identifier, {})
+        enrichment = enrichment_for(url, current, enrichments or {})
         first_seen_at = previous_deal.get("first_seen_at") or checked_at
         try:
             recent = checked_datetime - datetime.fromisoformat(first_seen_at) <= timedelta(hours=72)
@@ -170,7 +231,13 @@ def scan(
                 "engine": current.get("engine"),
                 "trim": current.get("trim"),
                 "cab": current.get("cab"),
+                "cab_class": current.get("cab_class", "unknown"),
+                "make": current.get("make"),
+                "model": current.get("model"),
+                "transmission": current.get("transmission"),
+                "drivetrain": current.get("drivetrain"),
                 "location": current.get("location"),
+                **enrichment,
                 "status": current.get("status"),
                 "eligible": eligible,
                 "score": score,
@@ -183,7 +250,7 @@ def scan(
         )
     deals.sort(key=lambda item: (not item["eligible"], -item["score"], item["price"] or 999_999))
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "last_checked_at": checked_at,
         "scan_status": "ok" if not source_errors else "partial",
         "source_errors": source_errors,
@@ -224,6 +291,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=Path("data/sources.json"))
     parser.add_argument("--deals", type=Path, default=Path("docs/data/deals.json"))
     parser.add_argument("--history", type=Path, default=Path("docs/data/history.json"))
+    parser.add_argument("--enrichments", type=Path, default=Path("data/enrichments.json"))
     parser.add_argument("--timeout", type=float, default=20.0)
     return parser.parse_args()
 
@@ -233,7 +301,8 @@ def main() -> int:
     config = load_json(args.config, {})
     previous = load_json(args.deals, None)
     history = load_json(args.history, [])
-    result = scan(config, previous, args.timeout)
+    enrichments = load_json(args.enrichments, {"schema_version": 1, "listings": []})
+    result = scan(config, previous, args.timeout, enrichments=enrichments)
     write_json(args.deals, result)
     write_json(args.history, update_history(history, result))
     print(json.dumps({"status": result["scan_status"], **result["counts"]}, ensure_ascii=False))

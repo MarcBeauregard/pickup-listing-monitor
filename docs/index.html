@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#111a18">
-    <meta name="description" content="Veille automatisée des meilleurs Ford F-150 EcoBoost familiaux près de Saint-Hyacinthe.">
-    <title>Vigie Pickup — F-150 EcoBoost</title>
+    <meta name="description" content="Veille automatisée de pickups familiaux près de Saint-Hyacinthe.">
+    <title>Vigie Pickup — pickups familiaux</title>
     <link rel="stylesheet" href="styles.css">
     <script src="config.js" defer></script>
     <script src="app.js" defer></script>
@@ -25,7 +25,7 @@
     <main id="top">
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">F-150 EcoBoost · SuperCrew · 2020+</p>
+          <p class="eyebrow">Pickups familiaux · grandes cabines · 2020+</p>
           <h1 id="page-title">Les pickups qui valent le détour.</h1>
           <p class="intro">Une sélection fraîche, pensée pour trois ados, un bel habitacle et un paiement sous 700 $ par mois.</p>
           <p class="data-warning" id="data-warning" hidden>Scan partiel : une source n’a pas répondu correctement. Les derniers résultats lisibles restent affichés.</p>
@@ -55,19 +55,23 @@
           <span>Seulement les bons matchs</span>
         </label>
         <label>
-          <span>Finition</span>
-          <select id="trim-filter">
+          <span>Modèle</span>
+          <select id="model-filter">
             <option value="all">Toutes</option>
-            <option value="Lariat">Lariat</option>
-            <option value="XLT">XLT</option>
+            <option value="Tacoma">Tacoma</option>
+            <option value="F-150">F-150</option>
+            <option value="1500">Ram 1500</option>
+            <option value="Silverado">Silverado</option>
+            <option value="Sierra">Sierra</option>
+            <option value="Frontier">Frontier</option>
           </select>
         </label>
         <label>
-          <span>Moteur</span>
-          <select id="engine-filter">
-            <option value="all">2.7L + 3.5L</option>
-            <option value="2.7">2.7L EcoBoost</option>
-            <option value="3.5">3.5L EcoBoost</option>
+          <span>Cabine</span>
+          <select id="cab-filter">
+            <option value="all">Toutes les grandes cabines</option>
+            <option value="double_cab">Tacoma Double Cab</option>
+            <option value="crew_cab">Crew Cab / SuperCrew</option>
           </select>
         </label>
         <label>
@@ -126,6 +130,10 @@
             <strong class="deal-payment"></strong>
           </div>
           <div class="deal-facts"></div>
+          <div class="deal-enrichment">
+            <div class="enrichment-item seller-reputation"></div>
+            <div class="enrichment-item fuel-economy"></div>
+          </div>
           <p class="deal-location"></p>
           <div class="deal-price-row">
             <span class="deal-price"></span>

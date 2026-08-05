@@ -48,6 +48,24 @@ class MonitorTests(unittest.TestCase):
         self.assertEqual(result["engine"], "2.7L EcoBoost")
         self.assertEqual(result["location"], "Ile Perrot, Quebec")
         self.assertEqual(result["image"], "https://images.test/truck.webp")
+        self.assertEqual(result["make"], "Ford")
+        self.assertEqual(result["model"], "F-150")
+        self.assertEqual(result["cab_class"], "crew_cab")
+        self.assertEqual(result["drivetrain"], "4WD")
+
+    def test_tacoma_double_cab_is_distinct_from_access_cab(self):
+        double_cab = monitor.extract_listing_metadata(
+            '<h1>2022 Toyota Tacoma SR5 Double Cab 4x4 V6 3.5L automatique</h1>',
+            "https://example.test/tacoma-double",
+        )
+        access_cab = monitor.extract_listing_metadata(
+            '<h1>2022 Toyota Tacoma SR5 Access Cab 4x4 V6 3.5L automatique</h1>',
+            "https://example.test/tacoma-access",
+        )
+        self.assertEqual(double_cab["cab_class"], "double_cab")
+        self.assertEqual(double_cab["model"], "Tacoma")
+        self.assertEqual(double_cab["transmission"], "automatic")
+        self.assertEqual(access_cab["cab_class"], "access_cab")
 
     def test_fetch_marks_sold_page_unavailable(self):
         result = monitor.fetch_listing(

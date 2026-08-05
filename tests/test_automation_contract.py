@@ -28,6 +28,12 @@ class AutomationContractTests(unittest.TestCase):
         self.assertGreaterEqual(snapshot["counts"]["discovered"], 1)
         self.assertTrue(all("image" in deal and "checked_at" in deal for deal in snapshot["deals"]))
 
+    def test_client_supports_legacy_snapshots_with_unconfirmed_enrichment(self):
+        client = (ROOT / "docs" / "app.js").read_text(encoding="utf-8")
+        self.assertIn('seller_reputation: { status: "unconfirmed" }', client)
+        self.assertIn('fuel_economy: { status: "unconfirmed" }', client)
+        self.assertIn('id="cab-filter"', (ROOT / "docs" / "index.html").read_text(encoding="utf-8"))
+
     def test_mobile_states_have_explicit_css_variants(self):
         styles = (ROOT / "docs" / "styles.css").read_text(encoding="utf-8")
         self.assertIn('.empty-state[hidden]', styles)

@@ -5,7 +5,36 @@
     "max_mileage": 120000,
     "engine_terms": ["2.7", "2,7", "3.5", "3,5", "ecoboost"],
     "trims": ["Lariat", "XLT"],
-    "require_supercrew": true
+    "require_supercrew": true,
+    "profiles": [
+      {
+        "model": "F-150",
+        "cab_classes": ["crew_cab"],
+        "engine_terms": ["2.7", "2,7", "3.5", "3,5", "ecoboost"],
+        "trims": ["Lariat", "XLT", "XTR"]
+      },
+      {
+        "model": "Tacoma",
+        "cab_classes": ["double_cab"],
+        "cab_reason": "Tacoma Double Cab non confirmé"
+      },
+      {
+        "model": "1500",
+        "cab_classes": ["crew_cab"]
+      },
+      {
+        "model": "Silverado",
+        "cab_classes": ["crew_cab"]
+      },
+      {
+        "model": "Sierra",
+        "cab_classes": ["crew_cab"]
+      },
+      {
+        "model": "Frontier",
+        "cab_classes": ["crew_cab"]
+      }
+    ]
   },
   "sources": [
     {
@@ -16,4 +45,3 @@
     }
   ]
 }
-

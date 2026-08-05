@@ -141,10 +141,40 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
     search_text = " ".join(value for value in (title, description, url) if value).lower()
     search_text = re.sub(r"[-_/]+", " ", search_text)
 
-    engine_match = re.search(r"\b(2[,.\s]7|3[,.\s]5)\s*l?\b", search_text)
-    engine = re.sub(r"[ ,]", ".", engine_match.group(1)) + "L EcoBoost" if engine_match else None
-    trim = next((value for value in ("Lariat", "XLT", "Platinum", "King Ranch") if value.lower() in search_text), None)
-    cab = "SuperCrew" if re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew", search_text) else None
+    engine_match = re.search(r"\b(2[,.\s]7|3[,.\s]5|3[,.\s]6|5[,.\s]0|5[,.\s]7)\s*l?\b", search_text)
+    engine = re.sub(r"[ ,]", ".", engine_match.group(1)) + "L" if engine_match else None
+    if engine and "ecoboost" in search_text:
+        engine += " EcoBoost"
+    elif engine and ("duramax" in search_text or "diesel" in search_text):
+        engine += " Diesel"
+    trim = next(
+        (value for value in ("Lariat", "XLT", "XTR", "Platinum", "King Ranch", "SR5", "TRD", "SR", "SLT", "SLE", "Custom") if value.lower() in search_text),
+        None,
+    )
+    if re.search(r"double\s*cab|double\s+cabine|cabine\s+double", search_text):
+        cab = "Double Cab"
+        cab_class = "double_cab"
+    elif re.search(r"access\s*cab|cabine\s+d['’]?acc[eè]s", search_text):
+        cab = "Access Cab"
+        cab_class = "access_cab"
+    elif re.search(r"super\s*crew|crew\s*cab|cabine\s+supercrew|cabine\s+multiplace", search_text):
+        cab = "SuperCrew"
+        cab_class = "crew_cab"
+    else:
+        cab = None
+        cab_class = "unknown"
+    make = next((value for value in ("Toyota", "Ford", "Ram", "Chevrolet", "GMC", "Nissan") if value.lower() in search_text), None)
+    model_patterns = (
+        ("Tacoma", r"\btacoma\b"),
+        ("F-150", r"\bf\s*150\b"),
+        ("Silverado", r"\bsilverado\b"),
+        ("Sierra", r"\bsierra\b"),
+        ("Frontier", r"\bfrontier\b"),
+        ("1500", r"\bram\s+1500\b"),
+    )
+    model = next((value for value, pattern in model_patterns if re.search(pattern, search_text)), None)
+    transmission = "automatic" if re.search(r"\bautomatique\b|\bautomatic\b|\bba\b", search_text) else None
+    drivetrain = "4WD" if re.search(r"\b4x4\b|\b4wd\b|\b4rm\b", search_text) else None
     return {
         "title": title,
         "description": description,
@@ -155,6 +185,11 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
         "engine": engine,
         "trim": trim,
         "cab": cab,
+        "cab_class": cab_class,
+        "make": make,
+        "model": model,
+        "transmission": transmission,
+        "drivetrain": drivetrain,
     }
 
 

@@ -14,6 +14,19 @@ const formatDate = new Intl.DateTimeFormat("fr-CA", {
   minute: "2-digit"
 });
 
+function normalizedDeal(deal) {
+  return {
+    cab_class: "unknown",
+    make: null,
+    model: null,
+    transmission: null,
+    drivetrain: null,
+    seller_reputation: { status: "unconfirmed" },
+    fuel_economy: { status: "unconfirmed" },
+    ...deal
+  };
+}
+
 function controlApiBase() {
   const fromQuery = new URLSearchParams(location.search).get("controlApi");
   return (fromQuery || window.PICKUP_CONFIG?.controlApiBase || "").replace(/\/$/, "");
@@ -86,6 +99,7 @@ async function control(action) {
 }
 
 function renderCard(deal) {
+  deal = normalizedDeal(deal);
   const fragment = $("#deal-card-template").content.cloneNode(true);
   const card = fragment.querySelector(".deal-card");
   const photoLink = fragment.querySelector(".deal-photo-link");
@@ -107,6 +121,35 @@ function renderCard(deal) {
     deal.cab || "cabine à confirmer",
     deal.engine || "moteur à confirmer"
   ].forEach((value) => facts.append(text("span", value)));
+
+  const seller = fragment.querySelector(".seller-reputation");
+  seller.append(text("strong", "Vendeur"));
+  if (deal.seller_reputation.status === "confirmed") {
+    const source = document.createElement("a");
+    source.href = deal.seller_reputation.source_url;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    source.textContent = `${deal.seller_reputation.name} · ${deal.seller_reputation.rating.toLocaleString("fr-CA")} ★ (${formatNumber.format(deal.seller_reputation.review_count)} avis)`;
+    seller.append(source);
+    seller.append(text("small", `Vérifié le ${deal.seller_reputation.verified_at}`));
+  } else {
+    seller.append(text("span", "Réputation Google non confirmée"));
+  }
+
+  const fuel = fragment.querySelector(".fuel-economy");
+  fuel.append(text("strong", "Consommation"));
+  if (deal.fuel_economy.status === "confirmed") {
+    const source = document.createElement("a");
+    source.href = deal.fuel_economy.source_url;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    source.textContent = `${deal.fuel_economy.city_l_per_100km.toLocaleString("fr-CA")} ville · ${deal.fuel_economy.highway_l_per_100km.toLocaleString("fr-CA")} route L/100 km`;
+    fuel.append(source);
+    const match = deal.fuel_economy.match;
+    fuel.append(text("small", `${match.year} · ${match.engine} · ${match.transmission} · ${match.drivetrain}`));
+  } else {
+    fuel.append(text("span", "Ville / route non confirmées"));
+  }
   fragment.querySelector(".deal-location").textContent = deal.location || "Emplacement à confirmer";
   fragment.querySelector(".deal-price").textContent = deal.price ? `${formatNumber.format(deal.price)} $` : "Prix à confirmer";
   const link = fragment.querySelector(".deal-link");
@@ -122,13 +165,14 @@ function renderCard(deal) {
 function filteredDeals() {
   if (!state.data) return [];
   const eligibleOnly = $("#eligible-only").checked;
-  const trim = $("#trim-filter").value;
-  const engine = $("#engine-filter").value;
+  const model = $("#model-filter").value;
+  const cab = $("#cab-filter").value;
   const maxPayment = Number($("#payment-filter").value);
   return state.data.deals.filter((deal) => {
     if (eligibleOnly && !deal.eligible) return false;
-    if (trim !== "all" && deal.trim !== trim) return false;
-    if (engine !== "all" && !deal.engine?.startsWith(engine)) return false;
+    deal = normalizedDeal(deal);
+    if (model !== "all" && deal.model !== model) return false;
+    if (cab !== "all" && deal.cab_class !== cab) return false;
     if (!deal.monthly_7pct || deal.monthly_7pct > maxPayment) return false;
     return true;
   });
@@ -173,7 +217,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   $("#watch-status").addEventListener("click", () => $("#control-panel").scrollIntoView({ behavior: "smooth" }));
   $("#pause-button").addEventListener("click", () => control("pause"));
   $("#resume-button").addEventListener("click", () => control("resume"));
-  ["#eligible-only", "#trim-filter", "#engine-filter", "#payment-filter"].forEach((selector) => {
+  ["#eligible-only", "#model-filter", "#cab-filter", "#payment-filter"].forEach((selector) => {
     $(selector).addEventListener("change", renderDeals);
   });
   try {
