@@ -43,23 +43,38 @@ function text(tag, value, className) {
 
 function renderTrust(deal) {
   const trust = deal.trust_score || { score: null, level: "non_audité", level_label: "Données insuffisantes", components: {}, reasons: [], sources: [] };
+  const reputation = deal.seller_reputation || { status: "unconfirmed" };
+  const signal = deal.seller_legal_signal || { status: "not_audited" };
   const details = document.createElement("details");
-  const styleLevel = trust.level === "rouge" ? "red" : trust.level === "jaune" ? "yellow" : "pending";
+  const styleLevel = trust.level === "rouge" || signal.status === "red" ? "red" : trust.level === "jaune" || signal.status === "yellow" ? "yellow" : "pending";
   details.className = `trust trust--${styleLevel}`;
   const summary = document.createElement("summary");
   const scoreVisible = trust.score != null && trust.level !== "vigilance_homonymie";
-  const compactScore = scoreVisible ? Math.round(trust.score * 10) / 10 : null;
-  const scoreText = scoreVisible ? `${compactScore.toLocaleString("fr-CA")} / 100` : trust.level === "vigilance_homonymie" ? "Identité non attribuable" : "Données insuffisantes";
-  summary.setAttribute("aria-label", `Confiance vendeur : ${scoreText}, ${trust.level_label}. Activer pour voir le détail.`);
+  const googleVisible = reputation.status === "confirmed"
+    && Number.isFinite(reputation.rating)
+    && reputation.rating >= 0
+    && reputation.rating <= 5
+    && Number.isInteger(reputation.review_count)
+    && reputation.review_count >= 0;
+  const reputationSummary = googleVisible
+    ? `${reputation.rating.toLocaleString("fr-CA")} ★ · ${formatNumber.format(reputation.review_count)} avis`
+    : "Information insuffisante";
+  const riskVisible = ["rouge", "jaune", "vigilance_homonymie"].includes(trust.level)
+    || ["red", "yellow", "unattributed"].includes(signal.status);
+  const signalOnlyRisk = ["red", "yellow", "unattributed"].includes(signal.status)
+    && !["rouge", "jaune", "vigilance_homonymie"].includes(trust.level);
+  const riskSummary = riskVisible ? (signalOnlyRisk ? signal.nature : trust.level_label) || signal.nature || "Signal à vérifier" : null;
+  const ariaParts = [`Confiance vendeur : ${reputationSummary}`];
+  if (riskSummary) ariaParts.push(riskSummary);
+  ariaParts.push("Activer pour voir le détail.");
+  summary.setAttribute("aria-label", ariaParts.join(". "));
   summary.append(text("span", "", "trust-dot"));
   summary.lastChild.setAttribute("aria-hidden", "true");
   const label = text("span", "", "trust-label");
-  label.append(text("span", `Confiance vendeur · ${scoreText} · ${trust.level_label}`, "trust-score"));
-  const reputationSummary = deal.seller_reputation.status === "confirmed"
-    ? `${deal.seller_reputation.rating.toLocaleString("fr-CA")} ★ · ${formatNumber.format(deal.seller_reputation.review_count)} avis`
-    : "Réputation Google non confirmée";
-  label.append(text("span", reputationSummary, "trust-level"));
-  const branchScope = deal.seller_legal_signal?.branch_scope;
+  label.append(text("span", "Confiance vendeur", "trust-heading"));
+  label.append(text("span", reputationSummary, "trust-rating"));
+  if (riskSummary) label.append(text("span", riskSummary, "trust-risk"));
+  const branchScope = signal.branch_scope;
   if (branchScope === "entity_only_branch_not_named_in_event" || branchScope === "entity_head_office_not_named_in_event") {
     label.append(text("span", "Même entité juridique; cette succursale n’est pas nommée dans l’événement.", "trust-branch-scope"));
   }
@@ -70,64 +85,87 @@ function renderTrust(deal) {
   details.append(summary);
 
   const panel = text("div", "", "trust-panel");
-  const google = text("div", "", "trust-panel-section");
-  google.append(text("h4", "Réputation Google"));
-  if (deal.seller_reputation.status === "confirmed") {
-    const source = text("a", `${deal.seller_reputation.rating.toLocaleString("fr-CA")} / 5 · ${formatNumber.format(deal.seller_reputation.review_count)} avis`, "trust-google");
-    source.href = deal.seller_reputation.source_url;
-    source.target = "_blank";
-    source.rel = "noopener noreferrer";
-    google.append(source);
-    google.append(text("p", `Vérifié le ${deal.seller_reputation.verified_at}`, "trust-caveat"));
-  } else {
-    google.append(text("p", "Note et volume non confirmés; aucun chiffre de remplacement.", "trust-caveat"));
-  }
-  panel.append(google);
-
-  const components = text("div", "", "trust-panel-section");
-  components.append(text("h4", "Composantes du score"));
-  const list = text("ul", "", "trust-components");
   const values = trust.components || {};
-  [
+  const componentRows = [
     ["Score exact", scoreVisible ? `${trust.score.toLocaleString("fr-CA")} / 100` : null],
     ["Note", values.rating_points],
     ["Volume d’avis", values.volume_points],
     ["Identité", values.identity_points],
     ["Fraîcheur", values.freshness_multiplier == null ? null : `× ${values.freshness_multiplier.toLocaleString("fr-CA")}`],
-    ["Âge de la preuve", values.days_elapsed == null ? "date invalide ou manquante" : `${values.days_elapsed} jour${values.days_elapsed === 1 ? "" : "s"}`],
+    ["Âge de la preuve", values.days_elapsed == null ? null : `${values.days_elapsed} jour${values.days_elapsed === 1 ? "" : "s"}`],
     ["Base réputation ajustée", values.reputation_base],
     ["Bande juridique", values.band_applied ? `${values.band_applied[0]}–${values.band_applied[1]}` : null]
-  ].forEach(([name, value]) => {
-    const item = document.createElement("li");
-    item.append(text("span", name));
-    item.append(text("span", value == null ? "non disponible" : typeof value === "number" ? `${value.toLocaleString("fr-CA")} pts` : value));
-    list.append(item);
-  });
-  components.append(list);
-  if (scoreVisible && compactScore !== trust.score) {
-    components.append(text("p", `L’état compact arrondit à une décimale; la valeur exacte est ${trust.score.toLocaleString("fr-CA")} / 100.`, "trust-caveat"));
-  }
-  panel.append(components);
+  ].filter(([, value]) => value != null && value !== "");
+  const legalSourceLabel = [signal.event_type, signal.event_date].filter(Boolean).join(" · ");
+  const legalIdentity = [signal.branch, signal.legal_entity, signal.permit_or_neq].filter(Boolean).join(" · ");
+  const hasLegalDetail = ["red", "yellow", "unattributed"].includes(signal.status)
+    || Boolean(signal.nature || signal.source_url || legalSourceLabel || legalIdentity);
+  const showScoreDetails = scoreVisible || googleVisible || hasLegalDetail;
+  const reasons = (trust.reasons || []).filter(Boolean);
 
-  const legalSection = text("div", "", "trust-panel-section");
-  legalSection.append(text("h4", "Signaux juridiques"));
-  const signal = deal.seller_legal_signal;
-  const alertClass = signal.status === "red" ? "trust-alert--red" : signal.status === "yellow" ? "trust-alert--yellow" : "trust-alert--muted";
-  const alert = text("div", "", `trust-alert ${alertClass}`);
-  alert.append(text("span", signal.nature || "Aucun signal confirmé; ce vendeur demeure non audité juridiquement."));
-  if (signal.source_url) {
-    const source = text("a", `${signal.event_type} · ${signal.event_date}`, "meta");
-    source.href = signal.source_url;
-    source.target = "_blank";
-    source.rel = "noopener noreferrer";
-    alert.append(source);
-    alert.append(text("span", `${signal.branch} · ${signal.legal_entity} · ${signal.permit_or_neq}`, "meta"));
+  if (googleVisible) {
+    const google = text("div", "", "trust-panel-section");
+    google.append(text("h4", "Réputation Google"));
+    const googleLabel = `${reputation.rating.toLocaleString("fr-CA")} / 5 · ${formatNumber.format(reputation.review_count)} avis`;
+    if (reputation.source_url) {
+      const source = text("a", googleLabel, "trust-google");
+      source.href = reputation.source_url;
+      source.target = "_blank";
+      source.rel = "noopener noreferrer";
+      google.append(source);
+    } else {
+      google.append(text("p", googleLabel, "trust-google"));
+    }
+    if (reputation.verified_at) google.append(text("p", `Vérifié le ${reputation.verified_at}`, "trust-caveat"));
+    panel.append(google);
   }
-  legalSection.append(alert);
-  (trust.reasons || []).forEach((reason) => legalSection.append(text("p", reason, "trust-caveat")));
-  panel.append(legalSection);
-  const asOf = [trust.computed_at ? `Calculé le ${trust.computed_at}` : null, trust.formula_version ? `formule v${trust.formula_version}` : null].filter(Boolean).join(" · ");
-  if (asOf) panel.append(text("p", asOf, "trust-asof"));
+
+  if (showScoreDetails && componentRows.length) {
+    const components = text("div", "", "trust-panel-section");
+    components.append(text("h4", "Composantes du score"));
+    const list = text("ul", "", "trust-components");
+    componentRows.forEach(([name, value]) => {
+      const item = document.createElement("li");
+      item.append(text("span", name));
+      item.append(text("span", typeof value === "number" ? `${value.toLocaleString("fr-CA")} pts` : value));
+      list.append(item);
+    });
+    components.append(list);
+    panel.append(components);
+  }
+
+  if (hasLegalDetail) {
+    const legalSection = text("div", "", "trust-panel-section");
+    legalSection.append(text("h4", "Signaux juridiques"));
+    const alertClass = signal.status === "red" ? "trust-alert--red" : signal.status === "yellow" ? "trust-alert--yellow" : "trust-alert--muted";
+    const alert = text("div", "", `trust-alert ${alertClass}`);
+    alert.append(text("span", signal.nature || riskSummary || "Signal juridique à vérifier"));
+    if (signal.source_url) {
+      const source = text("a", legalSourceLabel || "Source juridique", "meta");
+      source.href = signal.source_url;
+      source.target = "_blank";
+      source.rel = "noopener noreferrer";
+      alert.append(source);
+    } else if (legalSourceLabel) {
+      alert.append(text("span", legalSourceLabel, "meta"));
+    }
+    if (legalIdentity) alert.append(text("span", legalIdentity, "meta"));
+    legalSection.append(alert);
+    reasons.forEach((reason) => legalSection.append(text("p", reason, "trust-caveat")));
+    panel.append(legalSection);
+  } else if (showScoreDetails && reasons.length) {
+    const explanation = text("div", "", "trust-panel-section");
+    explanation.append(text("h4", "Explications"));
+    reasons.forEach((reason) => explanation.append(text("p", reason, "trust-caveat")));
+    panel.append(explanation);
+  }
+
+  if (!panel.children.length) {
+    panel.append(text("p", "Information insuffisante", "trust-insufficient"));
+  } else if (showScoreDetails) {
+    const asOf = [trust.computed_at ? `Calculé le ${trust.computed_at}` : null, trust.formula_version ? `formule v${trust.formula_version}` : null].filter(Boolean).join(" · ");
+    if (asOf) panel.append(text("p", asOf, "trust-asof"));
+  }
   details.append(panel);
   return details;
 }
@@ -326,7 +364,7 @@ async function loadData() {
   renderHistory();
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+if (typeof document !== "undefined") document.addEventListener("DOMContentLoaded", async () => {
   $("#watch-status").addEventListener("click", () => $("#control-panel").scrollIntoView({ behavior: "smooth" }));
   $("#pause-button").addEventListener("click", () => control("pause"));
   $("#resume-button").addEventListener("click", () => control("resume"));
@@ -341,3 +379,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     $("#empty-state strong").textContent = "Le dernier rapport n’a pas pu être chargé.";
   }
 });
+
+if (typeof module !== "undefined") module.exports = { renderTrust };

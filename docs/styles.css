@@ -109,8 +109,9 @@ h1 { max-width: 760px; margin-bottom: 22px; font-family: Georgia, "Times New Rom
 .trust summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .trust-dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
 .trust-label { flex: 1; min-width: 0; }
-.trust-score { font-weight: 850; font-size: .95rem; }
-.trust-level { display: block; font-size: .72rem; color: var(--muted); margin-top: 1px; }
+.trust-heading { display: block; color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.trust-rating { display: block; margin-top: 2px; color: var(--text); font-size: .98rem; font-weight: 850; }
+.trust-risk { display: block; margin-top: 3px; color: var(--muted); font-size: .72rem; font-weight: 750; }
 .trust-branch-scope { display: block; color: #ffd6a3; font-size: .72rem; line-height: 1.25; margin-top: 3px; }
 .trust-chevron { flex: 0 0 auto; width: 20px; height: 20px; display: grid; place-items: center; color: var(--muted); transition: transform .18s ease; }
 .trust[open] .trust-chevron { transform: rotate(180deg); }
@@ -128,14 +129,15 @@ h1 { max-width: 760px; margin-bottom: 22px; font-family: Georgia, "Times New Rom
 .trust-alert a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
 .trust-caveat { margin: 8px 0 0; font-size: .78rem; color: var(--muted); line-height: 1.5; }
 .trust-asof { margin: 10px 0 0; font-size: .7rem; color: var(--muted); }
+.trust-insufficient { margin: 0; padding-top: 13px; color: var(--muted); font-size: .84rem; }
 .trust--yellow .trust-dot { background: var(--accent); box-shadow: 0 0 0 3px rgba(233,180,76,.15); }
-.trust--yellow .trust-score { color: var(--accent); }
+.trust--yellow .trust-risk { color: var(--accent); }
 .trust--red { border-color: rgba(255,125,116,.4); }
 .trust--red .trust-dot { background: var(--red); box-shadow: 0 0 0 3px rgba(255,125,116,.18); }
-.trust--red .trust-score { color: var(--red); }
+.trust--red .trust-risk { color: var(--red); }
 .trust--red summary { background: rgba(255,125,116,.07); }
 .trust--pending .trust-dot { background: transparent; border: 1.5px dashed var(--muted); }
-.trust--pending .trust-score { color: var(--muted); font-weight: 750; font-size: .85rem; }
+.trust--pending .trust-rating { color: var(--muted); }
 .trust-alert--red { background: rgba(58,15,12,.55); border: 1px solid rgba(255,125,116,.35); color: #ffd8d5; }
 .trust-alert--yellow { background: var(--accent-soft); border: 1px solid rgba(233,180,76,.3); color: #ffe4b0; }
 .trust-alert--muted { background: rgba(20,32,29,.5); border: 1px dashed var(--line); color: var(--muted); }
