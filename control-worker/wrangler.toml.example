@@ -12,6 +12,13 @@ ACCESS_TEAM_DOMAIN = "https://TEAM.cloudflareaccess.com"
 ACCESS_AUD = "CLOUDFLARE_ACCESS_APPLICATION_AUD"
 ALLOWED_EMAILS = "marc@example.com,conjointe@example.com"
 
+[[durable_objects.bindings]]
+name = "CONTROL_COORDINATOR"
+class_name = "WorkflowCoordinator"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["WorkflowCoordinator"]
+
 # Secret à définir côté Worker seulement :
 # wrangler secret put GITHUB_TOKEN
-

@@ -20,11 +20,12 @@ export async function verifyAccess(request, env, fetchImpl = fetch) {
   const assertion = request.headers.get("Cf-Access-Jwt-Assertion");
   if (!assertion) throw new Error("authentification Cloudflare Access requise");
   const token = parseJwt(assertion);
+  if (token.header.alg !== "RS256") throw new Error("algorithme Access invalide");
   const now = Math.floor(Date.now() / 1000);
   const audiences = Array.isArray(token.payload.aud) ? token.payload.aud : [token.payload.aud];
   const expectedIssuer = env.ACCESS_TEAM_DOMAIN.replace(/\/$/, "");
   if (token.payload.iss?.replace(/\/$/, "") !== expectedIssuer) throw new Error("émetteur Access invalide");
-  if (!audiences.includes(env.ACCESS_AUD) || token.payload.exp <= now) throw new Error("jeton Access expiré ou mauvais auditoire");
+  if (!audiences.includes(env.ACCESS_AUD) || !Number.isFinite(token.payload.exp) || token.payload.exp <= now || (Number.isFinite(token.payload.nbf) && token.payload.nbf > now)) throw new Error("jeton Access expiré ou mauvais auditoire");
 
   const certsUrl = `${expectedIssuer}/cdn-cgi/access/certs`;
   const certsResponse = await fetchImpl(certsUrl);
@@ -53,9 +54,8 @@ export async function verifyAccess(request, env, fetchImpl = fetch) {
 
 function corsHeaders(request, env) {
   const origin = request.headers.get("Origin");
-  const allowedOrigin = origin === env.APP_ORIGIN ? origin : env.APP_ORIGIN;
   return {
-    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Origin": origin,
     "Access-Control-Allow-Credentials": "true",
     "Access-Control-Allow-Headers": "Content-Type, Cf-Access-Jwt-Assertion",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
@@ -66,7 +66,7 @@ function corsHeaders(request, env) {
 function json(request, env, value, status = 200) {
   return new Response(JSON.stringify(value), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", ...corsHeaders(request, env) }
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...corsHeaders(request, env) }
   });
 }
 
@@ -96,27 +96,59 @@ async function workflowState(env, fetchImpl) {
 }
 
 async function updateWorkflow(action, env, fetchImpl) {
+  if (action !== "pause" && action !== "resume") throw new Error("action invalide");
   const file = env.GITHUB_WORKFLOW_FILE;
+  const current = await workflowState(env, fetchImpl);
   if (action === "pause") {
+    if (current === "paused") return { state: "paused", changed: false };
     await githubRequest(env, `/actions/workflows/${file}/disable`, { method: "PUT" }, fetchImpl);
-    return "paused";
+    return { state: "paused", changed: true };
   }
   if (action === "resume") {
+    if (current === "running") return { state: "running", changed: false, dispatch: "skipped" };
     await githubRequest(env, `/actions/workflows/${file}/enable`, { method: "PUT" }, fetchImpl);
-    await githubRequest(
-      env,
-      `/actions/workflows/${file}/dispatches`,
-      { method: "POST", body: JSON.stringify({ ref: env.GITHUB_REF || "main" }) },
-      fetchImpl
-    );
-    return "running";
+    try {
+      await githubRequest(
+        env,
+        `/actions/workflows/${file}/dispatches`,
+        { method: "POST", body: JSON.stringify({ ref: env.GITHUB_REF || "main" }) },
+        fetchImpl
+      );
+      return { state: "running", changed: true, dispatch: "started" };
+    } catch (_error) {
+      return { state: "running", changed: true, dispatch: "failed", partial: true };
+    }
   }
-  throw new Error("action invalide");
 }
 
-export function createHandler({ fetchImpl = fetch, verify = verifyAccess } = {}) {
+export function createSerialCoordinator() {
+  let tail = Promise.resolve();
+  return (action, env, fetchImpl) => {
+    const operation = tail.then(() => updateWorkflow(action, env, fetchImpl));
+    tail = operation.catch(() => {});
+    return operation;
+  };
+}
+
+async function durableCoordinator(action, env) {
+  if (!env.CONTROL_COORDINATOR) throw new Error("coordinateur de contrôle non configuré");
+  const id = env.CONTROL_COORDINATOR.idFromName("pickup-watch-workflow");
+  const response = await env.CONTROL_COORDINATOR.get(id).fetch("https://control.internal/", {
+    method: "POST",
+    body: JSON.stringify({ action })
+  });
+  if (!response.ok) throw new Error("coordinateur de contrôle indisponible");
+  return response.json();
+}
+
+function originAllowed(request, env) {
+  return request.headers.get("Origin") === env.APP_ORIGIN;
+}
+
+export function createHandler({ fetchImpl = fetch, verify = verifyAccess, coordinate = durableCoordinator } = {}) {
   return async function handle(request, env) {
-    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders(request, env) });
+    if (!originAllowed(request, env)) return new Response(JSON.stringify({ error: "forbidden_origin" }), { status: 403, headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
+    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { ...corsHeaders(request, env), "Cache-Control": "no-store" } });
     const url = new URL(request.url);
     if (!url.pathname.startsWith("/api/")) return json(request, env, { error: "not_found" }, 404);
     try {
@@ -126,15 +158,33 @@ export function createHandler({ fetchImpl = fetch, verify = verifyAccess } = {})
       }
       if (request.method === "POST" && url.pathname === "/api/control") {
         const body = await request.json();
-        const state = await updateWorkflow(body.action, env, fetchImpl);
-        return json(request, env, { state, user: identity.email });
+        const result = await coordinate(body.action, env, fetchImpl);
+        return json(request, env, { ...result, user: identity.email }, result.partial ? 207 : 200);
       }
       return json(request, env, { error: "not_found" }, 404);
     } catch (error) {
       const unauthorized = String(error.message).toLowerCase().includes("access") || String(error.message).includes("autorisé");
-      return json(request, env, { error: unauthorized ? "unauthorized" : "gateway_error", detail: error.message }, unauthorized ? 401 : 502);
+      return json(request, env, { error: unauthorized ? "unauthorized" : "gateway_error" }, unauthorized ? 401 : 502);
     }
   };
+}
+
+export class WorkflowCoordinator {
+  constructor(_state, env) {
+    this.env = env;
+    this.tail = Promise.resolve();
+  }
+
+  fetch(request) {
+    const operation = this.tail.then(async () => {
+      const { action } = await request.json();
+      return updateWorkflow(action, this.env, fetch);
+    });
+    this.tail = operation.catch(() => {});
+    return operation.then((result) => new Response(JSON.stringify(result), {
+      headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }
+    }));
+  }
 }
 
 const handle = createHandler();

@@ -28,7 +28,11 @@ class AutomationContractTests(unittest.TestCase):
         self.assertGreaterEqual(snapshot["counts"]["discovered"], 1)
         self.assertTrue(all("image" in deal and "checked_at" in deal for deal in snapshot["deals"]))
 
+    def test_mobile_states_have_explicit_css_variants(self):
+        styles = (ROOT / "docs" / "styles.css").read_text(encoding="utf-8")
+        self.assertIn('.empty-state[hidden]', styles)
+        self.assertIn('.deal-card[data-eligible="true"] .match-badge', styles)
+
 
 if __name__ == "__main__":
     unittest.main()
-

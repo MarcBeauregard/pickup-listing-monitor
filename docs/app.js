@@ -49,7 +49,7 @@ async function refreshControl() {
     const response = await fetch(`${base}/api/state`, { credentials: "include" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const result = await response.json();
-    setControlState(result.state, result.state === "running" ? "Prochain scan automatique selon l’horaire GitHub." : "Le workflow planifié est réellement désactivé.");
+    setControlState(result.state, result.state === "running" ? "Prochain scan automatique selon l’horaire GitHub." : "Le prochain scan est bloqué. Un scan déjà lancé peut toutefois se terminer.");
   } catch (_error) {
     setControlState("unconfigured", "Connexion au contrôle impossible; les données restent consultables.");
   }
@@ -68,9 +68,13 @@ async function control(action) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action })
     });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const result = await response.json();
-    setControlState(result.state, result.state === "paused" ? "Le prochain run est bloqué : workflow désactivé." : "Workflow réactivé; un scan immédiat a été demandé.");
+    if (result.state === "running" && result.dispatch === "failed") {
+      setControlState("running", "Veille réactivée, mais le scan immédiat a échoué. Le prochain scan planifié reste actif.");
+      return;
+    }
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    setControlState(result.state, result.state === "paused" ? "Le prochain scan est bloqué. Un scan déjà lancé peut toutefois se terminer." : result.changed === false ? "La veille était déjà active; aucun scan supplémentaire n’a été lancé." : "Workflow réactivé; un scan immédiat a été demandé.");
   } catch (_error) {
     setControlState("unconfigured", "Action refusée ou passerelle inaccessible.");
   }

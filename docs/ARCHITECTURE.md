@@ -26,8 +26,9 @@ La solution minimale est `control-worker/`, un Cloudflare Worker :
 1. Cloudflare Access authentifie Marc et sa conjointe.
 2. Le Worker revérifie cryptographiquement le JWT Access et l’adresse courriel autorisée.
 3. Un jeton GitHub finement limité reste uniquement dans les secrets du Worker.
-4. `Arrêter` appelle l’API GitHub `disable` du workflow : le prochain déclenchement planifié ne part pas.
-5. `Reprendre` appelle `enable`, puis `workflow_dispatch` pour produire immédiatement des données fraîches.
+4. Un Durable Object unique sérialise les commandes. Il relit d’abord l’état GitHub : une reprise ne déclenche un scan que sur la transition réelle `paused → running`; répétitions et requêtes concurrentes restent sans effet.
+5. `Arrêter` appelle l’API GitHub `disable` du workflow : le prochain déclenchement planifié ne part pas. Un run déjà commencé peut se terminer et la page l’annonce explicitement.
+6. `Reprendre` appelle `enable`, puis un seul `workflow_dispatch` pour produire immédiatement des données fraîches. Si le dispatch échoue après l’activation, la réponse conserve l’état réel `running` et la page affiche que le prochain scan planifié demeure actif.
 
 La page ne connaît que l’URL publique du Worker. CORS est limité à l’origine GitHub Pages configurée. Références API :
 
@@ -40,16 +41,33 @@ La page ne connaît que l’URL publique du Worker. CORS est limité à l’orig
 
 1. Miroiter le dépôt Buzz vers un dépôt GitHub privé ou public selon le choix du propriétaire.
 2. Configurer GitHub Pages avec **GitHub Actions** comme source.
-3. Créer un jeton GitHub à portée minimale pour ce seul dépôt et le stocker via `wrangler secret put GITHUB_TOKEN`.
+3. Créer un jeton finement limité ou une GitHub App installée sur **ce seul dépôt**, avec uniquement `Actions: write`; ne donner ni `Contents: write`, ni `Administration`, ni portée organisationnelle. Le stocker via `wrangler secret put GITHUB_TOKEN`.
 4. Copier `control-worker/wrangler.toml.example` vers `wrangler.toml` et remplir les valeurs publiques.
-5. Déployer le Worker, puis créer une application Cloudflare Access devant son domaine avec une politique limitée aux deux courriels autorisés.
+5. Déployer le Worker, puis créer une application Cloudflare Access devant son domaine avec une politique limitée aux deux courriels autorisés. Configurer un bypass Access limité aux requêtes `OPTIONS` afin que le prévol CORS sans cookie atteigne le Worker; les `GET` et `POST` restent protégés par Access.
 6. Renseigner l’URL du Worker dans `docs/config.js`.
 7. Ouvrir directement l’URL du Worker une première fois dans chaque navigateur afin de terminer la connexion Access, puis revenir au tableau.
 8. Fusionner la PR uniquement après validation finale.
+
+## Contrat CORS et Access
+
+- Le Worker répond au prévol `OPTIONS` sans exiger de JWT, mais seulement si `Origin` égale exactement `APP_ORIGIN`.
+- Tout `POST` venant d’une autre origine reçoit `403` avant l’authentification et sans en-tête CORS permissif.
+- Les réponses de contrôle portent `Cache-Control: no-store`.
+- Le bypass Cloudflare ne doit viser que `OPTIONS`; il ne faut jamais exempter `/api/control` ou l’ensemble de l’application Access.
+
+Validation locale du prévol, avant tout déploiement :
+
+```bash
+curl -i -X OPTIONS "$CONTROL_URL/api/control" \
+  -H "Origin: https://OWNER.github.io" \
+  -H "Access-Control-Request-Method: POST" \
+  -H "Access-Control-Request-Headers: content-type"
+```
+
+Le résultat attendu est `204`, avec `Access-Control-Allow-Origin` égal à l’origine Pages. Une origine différente doit recevoir `403`.
 
 ## Limites assumées
 
 - La découverte dépend de la structure HTML d’AutoHebdo; une rupture produit un état `partial`, jamais un faux « aucun deal » silencieux.
 - Le cache GitHub Actions conserve l’historique minimal entre les runs sans écrire de commits automatisés signés au nom d’un humain. GitHub peut purger un cache inactif; le tableau conserve au moins le dernier instantané livré.
 - Avant déploiement, les boutons restent désactivés et annoncent clairement que la passerelle attend le GO.
-

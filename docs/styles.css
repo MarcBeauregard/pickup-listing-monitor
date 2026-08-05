@@ -85,7 +85,8 @@ h1 { max-width: 760px; margin-bottom: 22px; font-family: Georgia, "Times New Rom
 .deal-card:hover .deal-photo { transform: scale(1.025); }
 .new-badge, .match-badge { position: absolute; top: 14px; padding: 7px 10px; border-radius: 999px; font-size: .7rem; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; backdrop-filter: blur(9px); }
 .new-badge { left: 14px; color: #201705; background: var(--accent); }
-.match-badge { right: 14px; color: #d9ffeb; background: rgba(8, 38, 27, .82); border: 1px solid rgba(102, 209, 158, .45); }
+.match-badge { right: 14px; color: #f6dfaa; background: rgba(55, 43, 17, .88); border: 1px solid rgba(233, 180, 76, .5); }
+.deal-card[data-eligible="true"] .match-badge { color: #d9ffeb; background: rgba(8, 38, 27, .82); border-color: rgba(102, 209, 158, .45); }
 .deal-body { padding: 22px; }
 .deal-title-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
 .deal-kicker { margin: 0 0 7px; color: var(--accent); font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
@@ -101,6 +102,7 @@ h1 { max-width: 760px; margin-bottom: 22px; font-family: Georgia, "Times New Rom
 .deal-reasons { margin: 16px 0 0; padding: 0; list-style: none; color: #e1b9b6; font-size: .78rem; }
 .deal-reasons li::before { content: "• "; }
 .empty-state { display: grid; gap: 7px; padding: 42px; color: var(--muted); text-align: center; border: 1px dashed var(--line); border-radius: 18px; }
+.empty-state[hidden] { display: none; }
 .empty-state strong { color: var(--text); font-size: 1.1rem; }
 
 .history { margin: 76px 0 64px; }
