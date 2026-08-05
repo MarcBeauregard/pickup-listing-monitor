@@ -19,6 +19,11 @@ from monitor import infer_engine
 SELLER_FIELDS = ("name", "rating", "review_count", "source_url", "verified_at")
 FUEL_FIELDS = ("city_l_per_100km", "highway_l_per_100km", "source_url", "verified_at")
 MECHANICAL_FIELDS = ("year", "engine", "transmission", "drivetrain")
+LEGAL_FIELDS = (
+    "case_id", "url", "status", "nature", "event_type", "event_date", "legal_entity",
+    "permit_or_neq", "branch", "source_url", "source_checked_at", "match_status",
+    "match_basis", "branch_matched",
+)
 
 
 def valid_date(value: Any) -> bool:
@@ -113,17 +118,60 @@ def validate(snapshot: dict[str, Any], enrichments: dict[str, Any]) -> dict[str,
     }
 
 
+def validate_legal_signals(snapshot: dict[str, Any], signals: dict[str, Any]) -> dict[str, Any]:
+    snapshot_urls = {deal.get("url") for deal in snapshot.get("deals", [])}
+    listings = signals.get("listings", [])
+    urls = [item.get("url") for item in listings]
+    errors: list[str] = []
+    for index, item in enumerate(listings):
+        label = item.get("url") or f"entrée {index}"
+        if not all(item.get(field) is not None for field in LEGAL_FIELDS):
+            errors.append(f"{label}: signal juridique incomplet")
+            continue
+        if item["url"] not in snapshot_urls:
+            errors.append(f"{label}: URL juridique orpheline")
+        if not str(item["source_url"]).startswith("https://"):
+            errors.append(f"{label}: source juridique non HTTPS")
+        for field in ("event_date", "source_checked_at"):
+            if not valid_date(item[field]) or date.fromisoformat(item[field]) > date.today():
+                errors.append(f"{label}: date juridique invalide")
+        exact = item["match_status"] == "exact" and item["branch_matched"] is True
+        different = item["match_status"] == "different_entity" and item["branch_matched"] is False
+        if item["status"] in {"red", "yellow"} and not exact:
+            errors.append(f"{label}: alerte attribuée sans concordance exacte")
+        if item["status"] == "unattributed" and not different:
+            errors.append(f"{label}: homonymie attribuée à tort")
+        if item["status"] not in {"red", "yellow", "unattributed"}:
+            errors.append(f"{label}: statut juridique invalide")
+    duplicates = sorted({url for url in urls if urls.count(url) > 1})
+    return {
+        "entries": len(listings),
+        "unique_cases": len({item.get("case_id") for item in listings}),
+        "red": sum(item.get("status") == "red" for item in listings),
+        "yellow": sum(item.get("status") == "yellow" for item in listings),
+        "unattributed": sum(item.get("status") == "unattributed" for item in listings),
+        "duplicate_urls": duplicates,
+        "errors": errors,
+        "valid": not duplicates and not errors,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--deals", type=Path, default=Path("docs/data/deals.json"))
     parser.add_argument("--enrichments", type=Path, default=Path("data/enrichments.json"))
+    parser.add_argument("--legal-signals", type=Path, default=Path("data/seller_legal_signals.json"))
     args = parser.parse_args()
     report = validate(
         json.loads(args.deals.read_text(encoding="utf-8")),
         json.loads(args.enrichments.read_text(encoding="utf-8")),
     )
-    print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["valid"] else 1
+    legal_report = validate_legal_signals(
+        json.loads(args.deals.read_text(encoding="utf-8")),
+        json.loads(args.legal_signals.read_text(encoding="utf-8")),
+    )
+    print(json.dumps({"enrichments": report, "legal_signals": legal_report}, ensure_ascii=False, indent=2))
+    return 0 if report["valid"] and legal_report["valid"] else 1
 
 
 if __name__ == "__main__":

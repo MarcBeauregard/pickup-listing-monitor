@@ -100,6 +100,10 @@ h1 { max-width: 760px; margin-bottom: 22px; font-family: Georgia, "Times New Rom
 .enrichment-item strong { color: var(--text); }
 .enrichment-item a { color: #dce7e2; text-underline-offset: 3px; }
 .enrichment-item small { grid-column: 2; color: var(--muted); }
+.seller-legal-signal[data-severity="red"] { border-color: rgba(227, 93, 84, .7); background: rgba(90, 24, 22, .3); }
+.seller-legal-signal[data-severity="red"] strong { color: #ffaaa4; }
+.seller-legal-signal[data-severity="yellow"], .seller-legal-signal[data-severity="unattributed"] { border-color: rgba(233, 180, 76, .65); background: rgba(75, 55, 18, .26); }
+.seller-legal-signal[data-severity="yellow"] strong, .seller-legal-signal[data-severity="unattributed"] strong { color: #f4cc79; }
 .deal-location { margin: 0 0 19px; color: var(--muted); font-size: .84rem; }
 .deal-price-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 17px; border-top: 1px solid var(--line); }
 .deal-price { font-size: 1.2rem; font-weight: 850; }

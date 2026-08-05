@@ -22,6 +22,7 @@ function normalizedDeal(deal) {
     transmission: null,
     drivetrain: null,
     seller_reputation: { status: "unconfirmed" },
+    seller_legal_signal: { status: "none_confirmed" },
     fuel_economy: { status: "unconfirmed" },
     ...deal
   };
@@ -135,6 +136,25 @@ function renderCard(deal) {
   } else {
     seller.append(text("span", `${deal.seller_reputation.name ? `${deal.seller_reputation.name} · ` : ""}Réputation Google non confirmée`));
     if (deal.seller_reputation.reason) seller.append(text("small", deal.seller_reputation.reason));
+  }
+
+  const legal = fragment.querySelector(".seller-legal-signal");
+  const signal = deal.seller_legal_signal;
+  legal.dataset.severity = signal.status;
+  if (["red", "yellow", "unattributed"].includes(signal.status)) {
+    const label = signal.status === "red" ? "Alerte rouge" : signal.status === "yellow" ? "Vigilance" : "Non attribué";
+    legal.append(text("strong", label));
+    legal.append(text("span", signal.nature));
+    const source = text("a", `${signal.event_type} · ${signal.event_date}`);
+    source.href = signal.source_url;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    legal.append(source);
+    legal.append(text("small", `${signal.branch} · ${signal.legal_entity} · ${signal.permit_or_neq}`));
+  } else {
+    legal.append(text("strong", "Risque vendeur"));
+    legal.append(text("span", "Aucun signal confirmé"));
+    if (signal.source_checked_at) legal.append(text("small", `Sources vérifiées le ${signal.source_checked_at}`));
   }
 
   const fuel = fragment.querySelector(".fuel-economy");

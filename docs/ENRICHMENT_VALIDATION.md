@@ -20,6 +20,8 @@ La copie intégrée est validée automatiquement par `tools/validate_enrichments
 | Sources non HTTPS | 0 |
 | Valeurs présentes sous statut `unconfirmed` | 0 |
 | Correspondances année + moteur avec le snapshot | 6 / 6 |
+| Cas juridiques distincts | 5 |
+| Annonces rouges / jaunes / non attribuées | 5 / 1 / 1 |
 
 Chaque consommation confirmée possède aussi les quatre clés mécaniques requises : année, moteur, transmission et rouage. Le snapshot v1 ne conservait pas transmission et rouage; ces deux valeurs certifiées sont donc montrées dans l’artefact de prévisualisation, tandis que le pipeline v2 ne les publie lors d’un scan réel que si les quatre valeurs extraites concordent exactement.
 
@@ -35,3 +37,5 @@ npm test --prefix control-worker
 ```
 
 La prévisualisation isolée se charge avec `?preview=enriched`. Elle contient les 20 cartes, 13 réputations confirmées et 6 consommations confirmées, ainsi que des cas `non confirmé` pour les deux catégories. Le fichier de production `docs/data/deals.json` reste inchangé.
+
+La même prévisualisation couvre les cinq cas du rapport `RESEARCH/PICKUP_SELLER_LEGAL_AUDIT_2026-08-05.md`. Les deux annonces Centre de liquidation BD et les deux HGrégoire Carignan expliquent les cinq cartes rouges; Automobile En Direct Laval est la cinquième. St-Basile Honda est jaune. Auto Durocher Mirabel est explicitement non attribué, car la condamnation citée vise une autre raison sociale à Laval. Un test empêche tout héritage par simple ressemblance de nom ou changement de succursale.

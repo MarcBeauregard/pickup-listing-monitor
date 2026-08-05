@@ -20,6 +20,7 @@ from monitor import USER_AGENT, fetch_listing
 
 TAX_RATE = 0.14975
 UNKNOWN_ENRICHMENT = {"status": "unconfirmed"}
+NO_LEGAL_SIGNAL = {"status": "none_confirmed"}
 
 
 def utc_now() -> str:
@@ -203,6 +204,24 @@ def enrichment_for(url: str, current: dict[str, Any], enrichments: dict[str, Any
     }
 
 
+def legal_signal_for(url: str, signals: dict[str, Any]) -> dict[str, Any]:
+    """Associe un signal à une URL exacte, jamais au seul nom commercial."""
+    entry = next((item for item in signals.get("listings", []) if item.get("url") == url), None)
+    if not entry:
+        return {**NO_LEGAL_SIGNAL, "source_checked_at": signals.get("checked_at")}
+    required = (
+        "status", "nature", "event_type", "event_date", "legal_entity", "permit_or_neq",
+        "branch", "source_url", "source_checked_at", "match_status", "match_basis", "branch_matched",
+    )
+    if not all(entry.get(field) is not None for field in required) or not str(entry["source_url"]).startswith("https://"):
+        return {**NO_LEGAL_SIGNAL, "source_checked_at": signals.get("checked_at")}
+    exact = entry["match_status"] == "exact" and entry["branch_matched"] is True
+    different = entry["match_status"] == "different_entity" and entry["branch_matched"] is False
+    if (entry["status"] in {"red", "yellow"} and exact) or (entry["status"] == "unattributed" and different):
+        return {key: value for key, value in entry.items() if key not in {"url", "case_id"}}
+    return {**NO_LEGAL_SIGNAL, "source_checked_at": signals.get("checked_at")}
+
+
 def scan(
     config: dict[str, Any],
     previous: dict[str, Any] | None,
@@ -210,6 +229,7 @@ def scan(
     source_fetcher: Callable[[str, float], str] = fetch_html,
     listing_fetcher: Callable[[str, float], dict[str, Any]] = fetch_listing,
     enrichments: dict[str, Any] | None = None,
+    legal_signals: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     discovered = []
     source_errors = []
@@ -245,6 +265,7 @@ def scan(
         price = current.get("price")
         previous_deal = previous_deals.get(identifier, {})
         enrichment = enrichment_for(url, current, enrichments or {})
+        legal_signal = legal_signal_for(url, legal_signals or {})
         first_seen_at = previous_deal.get("first_seen_at") or checked_at
         try:
             recent = checked_datetime - datetime.fromisoformat(first_seen_at) <= timedelta(hours=72)
@@ -271,6 +292,7 @@ def scan(
                 "drivetrain": current.get("drivetrain"),
                 "location": current.get("location"),
                 **enrichment,
+                "seller_legal_signal": legal_signal,
                 "status": current.get("status"),
                 "eligible": eligible,
                 "score": score,
@@ -325,6 +347,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--deals", type=Path, default=Path("docs/data/deals.json"))
     parser.add_argument("--history", type=Path, default=Path("docs/data/history.json"))
     parser.add_argument("--enrichments", type=Path, default=Path("data/enrichments.json"))
+    parser.add_argument("--legal-signals", type=Path, default=Path("data/seller_legal_signals.json"))
     parser.add_argument("--timeout", type=float, default=20.0)
     return parser.parse_args()
 
@@ -335,7 +358,8 @@ def main() -> int:
     previous = load_json(args.deals, None)
     history = load_json(args.history, [])
     enrichments = load_json(args.enrichments, {"schema_version": 1, "listings": []})
-    result = scan(config, previous, args.timeout, enrichments=enrichments)
+    legal_signals = load_json(args.legal_signals, {"schema_version": 1, "listings": []})
+    result = scan(config, previous, args.timeout, enrichments=enrichments, legal_signals=legal_signals)
     write_json(args.deals, result)
     write_json(args.history, update_history(history, result))
     print(json.dumps({"status": result["scan_status"], **result["counts"]}, ensure_ascii=False))

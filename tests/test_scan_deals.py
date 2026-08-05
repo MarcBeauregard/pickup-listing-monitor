@@ -191,6 +191,53 @@ class ScanDealsTests(unittest.TestCase):
         )["seller_reputation"]
         self.assertEqual(value, {"status": "unconfirmed", "name": "Commerce homonyme", "reason": "adresse Google ambiguë"})
 
+    def test_legal_signal_never_inherits_by_similar_seller_name(self):
+        url = ENRICHMENTS["listings"][0]["url"]
+        signal = {
+            "case_id": "durocher-laval",
+            "url": url,
+            "status": "unattributed",
+            "nature": "Homonymie / entité différente — signal non attribué",
+            "event_type": "condamnation non attribuée",
+            "event_date": "2021-10-17",
+            "legal_entity": "Entité Mirabel; autre entité Laval",
+            "permit_or_neq": "permis distinct",
+            "branch": "Auto Durocher Mirabel",
+            "source_url": "https://example.test/source",
+            "source_checked_at": "2026-08-05",
+            "match_status": "different_entity",
+            "match_basis": "raisons sociales différentes",
+            "branch_matched": False,
+        }
+        signals = {"checked_at": "2026-08-05", "listings": [signal]}
+        self.assertEqual(scan_deals.legal_signal_for(url, signals)["status"], "unattributed")
+        self.assertEqual(
+            scan_deals.legal_signal_for("https://example.test/autre-succursale", signals),
+            {"status": "none_confirmed", "source_checked_at": "2026-08-05"},
+        )
+
+    def test_attributed_alert_requires_exact_branch_match(self):
+        url = ENRICHMENTS["listings"][0]["url"]
+        invalid = {
+            "url": url,
+            "status": "red",
+            "nature": "Condamnation",
+            "event_type": "jugement",
+            "event_date": "2026-01-17",
+            "legal_entity": "Entité test",
+            "permit_or_neq": "permis test",
+            "branch": "Autre succursale",
+            "source_url": "https://example.test/source",
+            "source_checked_at": "2026-08-05",
+            "match_status": "different_entity",
+            "match_basis": "nom seulement",
+            "branch_matched": False,
+        }
+        self.assertEqual(
+            scan_deals.legal_signal_for(url, {"checked_at": "2026-08-05", "listings": [invalid]}),
+            {"status": "none_confirmed", "source_checked_at": "2026-08-05"},
+        )
+
     def test_old_listing_without_enrichment_stays_readable(self):
         result = scan_deals.scan(
             CONFIG,

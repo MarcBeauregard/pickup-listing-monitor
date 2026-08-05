@@ -13,14 +13,17 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from monitor import infer_engine
-from scan_deals import enrichment_for
-from tools.validate_enrichments import validate
+from scan_deals import enrichment_for, legal_signal_for
+from tools.validate_enrichments import validate, validate_legal_signals
 
 
-def build_preview(snapshot: dict[str, Any], enrichments: dict[str, Any]) -> dict[str, Any]:
+def build_preview(snapshot: dict[str, Any], enrichments: dict[str, Any], legal_signals: dict[str, Any]) -> dict[str, Any]:
     report = validate(snapshot, enrichments)
     if not report["valid"]:
         raise ValueError(f"table d'enrichissement invalide: {report['errors']}")
+    legal_report = validate_legal_signals(snapshot, legal_signals)
+    if not legal_report["valid"]:
+        raise ValueError(f"table de risques invalide: {legal_report['errors']}")
 
     enrichment_by_url = {item["url"]: item for item in enrichments["listings"]}
     deals = []
@@ -37,6 +40,7 @@ def build_preview(snapshot: dict[str, Any], enrichments: dict[str, Any]) -> dict
             deal["transmission"] = fuel["match"]["transmission"]
             deal["drivetrain"] = fuel["match"]["drivetrain"]
         deal.update(enrichment_for(deal["url"], deal, enrichments))
+        deal["seller_legal_signal"] = legal_signal_for(deal["url"], legal_signals)
         deals.append(deal)
 
     return {**snapshot, "schema_version": 2, "preview": True, "deals": deals}
@@ -46,11 +50,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--deals", type=Path, default=Path("docs/data/deals.json"))
     parser.add_argument("--enrichments", type=Path, default=Path("data/enrichments.json"))
+    parser.add_argument("--legal-signals", type=Path, default=Path("data/seller_legal_signals.json"))
     parser.add_argument("--output", type=Path, default=Path("docs/data/deals.preview.json"))
     args = parser.parse_args()
     preview = build_preview(
         json.loads(args.deals.read_text(encoding="utf-8")),
         json.loads(args.enrichments.read_text(encoding="utf-8")),
+        json.loads(args.legal_signals.read_text(encoding="utf-8")),
     )
     args.output.write_text(json.dumps(preview, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return 0
