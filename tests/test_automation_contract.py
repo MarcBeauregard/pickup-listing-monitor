@@ -45,18 +45,25 @@ class AutomationContractTests(unittest.TestCase):
         render_trust = client[client.index("function renderTrust"):client.index("function setControlState")]
         self.assertIn('document.createElement("details")', render_trust)
         self.assertIn('document.createElement("summary")', render_trust)
-        self.assertIn('summary.setAttribute("aria-label"', render_trust)
+        self.assertIn('summary.setAttribute("aria-label", `Confiance vendeur', render_trust)
         self.assertNotIn('summary.addEventListener("click"', render_trust)
         self.assertIn('trust.level !== "vigilance_homonymie"', render_trust)
         self.assertIn('trust.level === "rouge" ? "red"', render_trust)
         self.assertNotIn("Math.log", render_trust)
         self.assertNotIn("review_count +", render_trust)
         self.assertIn("Math.round(trust.score * 10) / 10", render_trust)
-        self.assertIn('["Score exact", trust.score == null ? null', render_trust)
+        self.assertIn('["Score exact", scoreVisible ?', render_trust)
+        self.assertNotIn('["Score exact", trust.score == null', render_trust)
         self.assertIn("L’état compact arrondit à une décimale", render_trust)
         self.assertIn(".trust summary:focus-visible", styles)
         self.assertRegex(styles, r"\.trust summary \{[^}]*min-height:\s*44px")
         self.assertIn(".trust--red summary", styles)
+
+    def test_listing_relevance_and_seller_trust_have_distinct_labels(self):
+        client = (ROOT / "docs" / "app.js").read_text(encoding="utf-8")
+        self.assertIn('`Pertinence ${deal.score}`', client)
+        self.assertIn('`Confiance vendeur · ${scoreText}', client)
+        self.assertNotIn('`Score ${deal.score}`', client)
 
     def test_filters_cover_multibrand_2017_and_cabins(self):
         page = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")

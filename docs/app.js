@@ -49,11 +49,11 @@ function renderTrust(deal) {
   const scoreVisible = trust.score != null && trust.level !== "vigilance_homonymie";
   const compactScore = scoreVisible ? Math.round(trust.score * 10) / 10 : null;
   const scoreText = scoreVisible ? `${compactScore.toLocaleString("fr-CA")} / 100` : trust.level === "vigilance_homonymie" ? "Identité non attribuable" : "Données insuffisantes";
-  summary.setAttribute("aria-label", `Score de confiance : ${scoreText}, ${trust.level_label}. Activer pour voir le détail.`);
+  summary.setAttribute("aria-label", `Confiance vendeur : ${scoreText}, ${trust.level_label}. Activer pour voir le détail.`);
   summary.append(text("span", "", "trust-dot"));
   summary.lastChild.setAttribute("aria-hidden", "true");
   const label = text("span", "", "trust-label");
-  label.append(text("span", `${scoreText} · ${trust.level_label}`, "trust-score"));
+  label.append(text("span", `Confiance vendeur · ${scoreText} · ${trust.level_label}`, "trust-score"));
   const reputationSummary = deal.seller_reputation.status === "confirmed"
     ? `${deal.seller_reputation.rating.toLocaleString("fr-CA")} ★ · ${formatNumber.format(deal.seller_reputation.review_count)} avis`
     : "Réputation Google non confirmée";
@@ -84,7 +84,7 @@ function renderTrust(deal) {
   const list = text("ul", "", "trust-components");
   const values = trust.components || {};
   [
-    ["Score exact", trust.score == null ? null : `${trust.score.toLocaleString("fr-CA")} / 100`],
+    ["Score exact", scoreVisible ? `${trust.score.toLocaleString("fr-CA")} / 100` : null],
     ["Note", values.rating_points],
     ["Volume d’avis", values.volume_points],
     ["Identité", values.identity_points],
@@ -196,7 +196,7 @@ function renderCard(deal) {
   image.src = deal.image || "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
   image.alt = `Photo de ${deal.title}`;
   fragment.querySelector(".new-badge").hidden = !deal.is_new;
-  fragment.querySelector(".match-badge").textContent = deal.eligible ? "Bon match" : `Score ${deal.score}`;
+  fragment.querySelector(".match-badge").textContent = deal.eligible ? "Bon match" : `Pertinence ${deal.score}`;
   fragment.querySelector(".deal-kicker").textContent = [deal.year, deal.trim, deal.engine].filter(Boolean).join(" · ");
   fragment.querySelector(".deal-title").textContent = deal.title;
   const payment = fragment.querySelector(".deal-payment");
