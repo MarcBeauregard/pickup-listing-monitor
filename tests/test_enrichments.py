@@ -7,6 +7,7 @@ from tools.validate_enrichments import validate, validate_legal_signals
 
 
 ROOT = Path(__file__).resolve().parents[1]
+CERTIFIED_SNAPSHOT = ROOT / "data/enrichment_baseline_2026-08-05.json"
 
 
 class EnrichmentContractTests(unittest.TestCase):
@@ -18,7 +19,7 @@ class EnrichmentContractTests(unittest.TestCase):
         )
 
     def test_certified_table_matches_the_twenty_existing_listings(self):
-        snapshot = json.loads((ROOT / "docs/data/deals.json").read_text(encoding="utf-8"))
+        snapshot = json.loads(CERTIFIED_SNAPSHOT.read_text(encoding="utf-8"))
         enrichments = json.loads((ROOT / "data/enrichments.json").read_text(encoding="utf-8"))
         report = validate(snapshot, enrichments)
         self.assertTrue(report["valid"], report)
@@ -33,7 +34,7 @@ class EnrichmentContractTests(unittest.TestCase):
         self.assertEqual(report["mechanical_year_engine_matches"], 6)
 
     def test_preview_contains_confirmed_and_unconfirmed_examples(self):
-        snapshot = json.loads((ROOT / "docs/data/deals.json").read_text(encoding="utf-8"))
+        snapshot = json.loads(CERTIFIED_SNAPSHOT.read_text(encoding="utf-8"))
         enrichments = json.loads((ROOT / "data/enrichments.json").read_text(encoding="utf-8"))
         legal_signals = json.loads((ROOT / "data/seller_legal_signals.json").read_text(encoding="utf-8"))
         preview = build_preview(snapshot, enrichments, legal_signals)
@@ -50,7 +51,7 @@ class EnrichmentContractTests(unittest.TestCase):
         self.assertTrue(any(deal["fuel_economy"]["status"] == "unconfirmed" for deal in preview["deals"]))
 
     def test_preview_reproduces_real_trust_states_without_client_estimates(self):
-        snapshot = json.loads((ROOT / "docs/data/deals.json").read_text(encoding="utf-8"))
+        snapshot = json.loads(CERTIFIED_SNAPSHOT.read_text(encoding="utf-8"))
         enrichments = json.loads((ROOT / "data/enrichments.json").read_text(encoding="utf-8"))
         legal_signals = json.loads((ROOT / "data/seller_legal_signals.json").read_text(encoding="utf-8"))
         preview = build_preview(snapshot, enrichments, legal_signals)

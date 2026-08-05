@@ -19,8 +19,23 @@ class AutomationContractTests(unittest.TestCase):
         workflow = (ROOT / ".github" / "workflows" / "pickup-watch.yml").read_text(encoding="utf-8").lower()
         self.assertIn("schedule:", workflow)
         self.assertIn("python3 scan_deals.py", workflow)
+        self.assertIn("deploy_validated_snapshot:", workflow)
+        self.assertIn("inputs.deploy_validated_snapshot != true", workflow)
         self.assertNotIn("openai", workflow)
         self.assertNotIn("anthropic", workflow)
+
+    def test_validated_production_snapshot_has_reconciled_counts(self):
+        snapshot = json.loads((ROOT / "docs" / "data" / "deals.json").read_text(encoding="utf-8"))
+        counts = snapshot["counts"]
+        self.assertEqual(counts["discovered"], 127)
+        self.assertEqual(counts["eligible"], 81)
+        self.assertEqual(counts["high_mileage"], 36)
+        self.assertEqual(
+            counts["discovered"],
+            counts["batch_discovered"]
+            + counts["historical_discovered"]
+            + counts["source_discovered"],
+        )
 
     def test_real_snapshot_has_expected_dashboard_shape(self):
         snapshot = json.loads((ROOT / "docs" / "data" / "deals.json").read_text(encoding="utf-8"))

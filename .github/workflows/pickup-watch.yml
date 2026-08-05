@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
+    inputs:
+      deploy_validated_snapshot:
+        description: "Publier l'instantané validé sans relancer le scan"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,6 +30,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Restaurer l'historique du tableau
+        if: ${{ github.event_name == 'schedule' || inputs.deploy_validated_snapshot != true }}
         uses: actions/cache/restore@v4
         with:
           path: docs/data
@@ -31,9 +38,11 @@ jobs:
           restore-keys: pickup-data-
 
       - name: Scanner les annonces sans LLM
+        if: ${{ github.event_name == 'schedule' || inputs.deploy_validated_snapshot != true }}
         run: python3 scan_deals.py --timeout 20
 
       - name: Conserver l'historique du prochain scan
+        if: ${{ github.event_name == 'schedule' || inputs.deploy_validated_snapshot != true }}
         uses: actions/cache/save@v4
         with:
           path: docs/data
@@ -50,4 +59,3 @@ jobs:
       - name: Publier GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
