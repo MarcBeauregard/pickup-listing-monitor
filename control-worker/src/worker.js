@@ -63,10 +63,10 @@ function corsHeaders(request, env) {
   };
 }
 
-function json(request, env, value, status = 200) {
+function json(request, env, value, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(value), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...corsHeaders(request, env) }
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store", ...corsHeaders(request, env), ...extraHeaders }
   });
 }
 
@@ -95,7 +95,7 @@ async function workflowState(env, fetchImpl) {
   return workflow.state === "active" ? "running" : "paused";
 }
 
-async function updateWorkflow(action, env, fetchImpl) {
+async function updateWorkflow(action, env, fetchImpl, dispatchAllowed = true, retryAfterSeconds = 0) {
   if (action !== "pause" && action !== "resume") throw new Error("action invalide");
   const file = env.GITHUB_WORKFLOW_FILE;
   const current = await workflowState(env, fetchImpl);
@@ -107,6 +107,7 @@ async function updateWorkflow(action, env, fetchImpl) {
   if (action === "resume") {
     if (current === "running") return { state: "running", changed: false, dispatch: "skipped" };
     await githubRequest(env, `/actions/workflows/${file}/enable`, { method: "PUT" }, fetchImpl);
+    if (!dispatchAllowed) return { state: "running", changed: true, dispatch: "cooldown", retry_after_seconds: retryAfterSeconds };
     try {
       await githubRequest(
         env,
@@ -121,10 +122,27 @@ async function updateWorkflow(action, env, fetchImpl) {
   }
 }
 
-export function createSerialCoordinator() {
+async function coordinatedUpdate(action, env, fetchImpl, storage, now = Date.now) {
+  const cooldownSeconds = Math.max(1, Number(env.RESUME_COOLDOWN_SECONDS || 300));
+  const currentTime = now();
+  const lastDispatchAt = Number(await storage.get("lastDispatchAt") || 0);
+  const elapsedSeconds = Math.floor((currentTime - lastDispatchAt) / 1000);
+  const dispatchAllowed = !lastDispatchAt || elapsedSeconds >= cooldownSeconds;
+  const result = await updateWorkflow(action, env, fetchImpl, dispatchAllowed, Math.max(1, cooldownSeconds - elapsedSeconds));
+  if (result.dispatch === "started") await storage.put("lastDispatchAt", currentTime);
+  if (result.dispatch === "cooldown") result.next_dispatch_at = new Date(lastDispatchAt + cooldownSeconds * 1000).toISOString();
+  return result;
+}
+
+export function createSerialCoordinator({ now = Date.now } = {}) {
   let tail = Promise.resolve();
+  const values = new Map();
+  const storage = {
+    get: (key) => values.get(key),
+    put: (key, value) => values.set(key, value)
+  };
   return (action, env, fetchImpl) => {
-    const operation = tail.then(() => updateWorkflow(action, env, fetchImpl));
+    const operation = tail.then(() => coordinatedUpdate(action, env, fetchImpl, storage, now));
     tail = operation.catch(() => {});
     return operation;
   };
@@ -159,7 +177,8 @@ export function createHandler({ fetchImpl = fetch, verify = verifyAccess, coordi
       if (request.method === "POST" && url.pathname === "/api/control") {
         const body = await request.json();
         const result = await coordinate(body.action, env, fetchImpl);
-        return json(request, env, { ...result, user: identity.email }, result.partial ? 207 : 200);
+        const headers = result.dispatch === "cooldown" ? { "Retry-After": String(result.retry_after_seconds) } : {};
+        return json(request, env, { ...result, user: identity.email }, result.partial ? 207 : 200, headers);
       }
       return json(request, env, { error: "not_found" }, 404);
     } catch (error) {
@@ -170,7 +189,8 @@ export function createHandler({ fetchImpl = fetch, verify = verifyAccess, coordi
 }
 
 export class WorkflowCoordinator {
-  constructor(_state, env) {
+  constructor(state, env) {
+    this.state = state;
     this.env = env;
     this.tail = Promise.resolve();
   }
@@ -178,7 +198,7 @@ export class WorkflowCoordinator {
   fetch(request) {
     const operation = this.tail.then(async () => {
       const { action } = await request.json();
-      return updateWorkflow(action, this.env, fetch);
+      return coordinatedUpdate(action, this.env, fetch, this.state.storage);
     });
     this.tail = operation.catch(() => {});
     return operation.then((result) => new Response(JSON.stringify(result), {

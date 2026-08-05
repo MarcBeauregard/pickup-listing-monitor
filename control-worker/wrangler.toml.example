@@ -11,6 +11,7 @@ GITHUB_REF = "main"
 ACCESS_TEAM_DOMAIN = "https://TEAM.cloudflareaccess.com"
 ACCESS_AUD = "CLOUDFLARE_ACCESS_APPLICATION_AUD"
 ALLOWED_EMAILS = "marc@example.com,conjointe@example.com"
+RESUME_COOLDOWN_SECONDS = "300"
 
 [[durable_objects.bindings]]
 name = "CONTROL_COORDINATOR"

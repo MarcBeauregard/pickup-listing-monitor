@@ -73,6 +73,11 @@ async function control(action) {
       setControlState("running", "Veille réactivée, mais le scan immédiat a échoué. Le prochain scan planifié reste actif.");
       return;
     }
+    if (result.state === "running" && result.dispatch === "cooldown") {
+      const minutes = Math.max(1, Math.ceil(result.retry_after_seconds / 60));
+      setControlState("running", `Veille réactivée. Nouveau scan immédiat limité; réessaie dans environ ${minutes} min.`);
+      return;
+    }
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     setControlState(result.state, result.state === "paused" ? "Le prochain scan est bloqué. Un scan déjà lancé peut toutefois se terminer." : result.changed === false ? "La veille était déjà active; aucun scan supplémentaire n’a été lancé." : "Workflow réactivé; un scan immédiat a été demandé.");
   } catch (_error) {

@@ -26,9 +26,9 @@ La solution minimale est `control-worker/`, un Cloudflare Worker :
 1. Cloudflare Access authentifie Marc et sa conjointe.
 2. Le Worker revérifie cryptographiquement le JWT Access et l’adresse courriel autorisée.
 3. Un jeton GitHub finement limité reste uniquement dans les secrets du Worker.
-4. Un Durable Object unique sérialise les commandes. Il relit d’abord l’état GitHub : une reprise ne déclenche un scan que sur la transition réelle `paused → running`; répétitions et requêtes concurrentes restent sans effet.
+4. Un Durable Object unique sérialise les commandes et conserve l’heure du dernier dispatch. Il relit d’abord l’état GitHub : une reprise ne déclenche un scan que sur la transition réelle `paused → running`; répétitions et requêtes concurrentes restent sans effet.
 5. `Arrêter` appelle l’API GitHub `disable` du workflow : le prochain déclenchement planifié ne part pas. Un run déjà commencé peut se terminer et la page l’annonce explicitement.
-6. `Reprendre` appelle `enable`, puis un seul `workflow_dispatch` pour produire immédiatement des données fraîches. Si le dispatch échoue après l’activation, la réponse conserve l’état réel `running` et la page affiche que le prochain scan planifié demeure actif.
+6. `Reprendre` appelle `enable`, puis un seul `workflow_dispatch` pour produire immédiatement des données fraîches. Un délai persistant de cinq minutes empêche une alternance Arrêter/Reprendre de lancer des runs en boucle; la reprise réactive alors la planification sans dispatch immédiat et retourne `dispatch: cooldown`, `next_dispatch_at` et `Retry-After`. Si le dispatch échoue après l’activation, la réponse conserve l’état réel `running` et la page affiche que le prochain scan planifié demeure actif.
 
 La page ne connaît que l’URL publique du Worker. CORS est limité à l’origine GitHub Pages configurée. Références API :
 

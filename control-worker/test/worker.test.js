@@ -108,6 +108,39 @@ test("concurrent resume requests produce exactly one dispatch", async () => {
   assert.equal(calls.filter(([url]) => url.endsWith("/dispatches")).length, 1);
 });
 
+test("rapid concurrent pause and resume alternation stays inside dispatch cooldown", async () => {
+  const calls = [];
+  let githubState = "disabled_manually";
+  const fixedNow = Date.parse("2026-08-05T12:00:00Z");
+  const handler = createHandler({
+    verify: authenticated,
+    coordinate: createSerialCoordinator({ now: () => fixedNow }),
+    fetchImpl: async (url, options = {}) => {
+      const method = options.method || "GET";
+      calls.push([url, method]);
+      if (method === "GET") return Response.json({ state: githubState });
+      if (url.endsWith("/enable")) githubState = "active";
+      if (url.endsWith("/disable")) githubState = "disabled_manually";
+      return new Response(null, { status: 204 });
+    }
+  });
+
+  assert.equal((await (await handler(control("resume"), env)).json()).dispatch, "started");
+  const responses = await Promise.all([
+    handler(control("pause"), env),
+    handler(control("resume"), env),
+    handler(control("pause"), env),
+    handler(control("resume"), env)
+  ]);
+  const results = await Promise.all(responses.map((response) => response.json()));
+  const resumed = results.filter((result) => result.dispatch === "cooldown");
+  assert.equal(calls.filter(([url]) => url.endsWith("/dispatches")).length, 1);
+  assert.equal(resumed.length, 2);
+  assert.equal(resumed[0].retry_after_seconds, 300);
+  assert.equal(resumed[0].next_dispatch_at, "2026-08-05T12:05:00.000Z");
+  assert.equal(responses[1].headers.get("Retry-After"), "300");
+});
+
 test("reconciles state when enable succeeds but dispatch fails", async () => {
   let githubState = "disabled_manually";
   const handler = createHandler({
