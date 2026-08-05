@@ -44,7 +44,7 @@ ENRICHMENTS = {
             "highway_l_per_100km": 10.0,
             "source_url": "https://fcr-ccc.nrcan-rncan.gc.ca/",
             "verified_at": "2026-08-05",
-            "match": {"year": 2022, "engine": "2.7L EcoBoost", "transmission": "automatic", "drivetrain": "4WD"},
+            "match": {"year": 2022, "engine": "2.7L EcoBoost", "transmission": "automatic (AS10, 10 vitesses)", "drivetrain": "4x4/4WD"},
         },
     }],
 }
@@ -163,7 +163,7 @@ class ScanDealsTests(unittest.TestCase):
             {**DETAIL, "drivetrain": "2WD"},
             ENRICHMENTS,
         )
-        self.assertEqual(mismatch["fuel_economy"], {"status": "unconfirmed"})
+        self.assertEqual(mismatch["fuel_economy"], {"status": "unconfirmed", "reason": "configuration mécanique non concordante"})
 
         unsafe = scan_deals.enrichment_for(
             ENRICHMENTS["listings"][0]["url"],
@@ -173,7 +173,23 @@ class ScanDealsTests(unittest.TestCase):
                 "seller_reputation": {**ENRICHMENTS["listings"][0]["seller_reputation"], "source_url": "javascript:alert(1)"},
             }]},
         )
-        self.assertEqual(unsafe["seller_reputation"], {"status": "unconfirmed"})
+        self.assertEqual(unsafe["seller_reputation"], {"status": "unconfirmed", "name": "Garage Test"})
+
+    def test_unconfirmed_seller_keeps_identity_and_reason_without_rating(self):
+        value = scan_deals.enrichment_for(
+            ENRICHMENTS["listings"][0]["url"],
+            DETAIL,
+            {"listings": [{
+                "url": ENRICHMENTS["listings"][0]["url"],
+                "seller_reputation": {
+                    "status": "unconfirmed",
+                    "name": "Commerce homonyme",
+                    "reason": "adresse Google ambiguë",
+                    "rating": 4.9,
+                },
+            }]},
+        )["seller_reputation"]
+        self.assertEqual(value, {"status": "unconfirmed", "name": "Commerce homonyme", "reason": "adresse Google ambiguë"})
 
     def test_old_listing_without_enrichment_stays_readable(self):
         result = scan_deals.scan(

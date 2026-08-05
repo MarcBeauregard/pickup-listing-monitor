@@ -103,6 +103,23 @@ def extract_text(document: str, patterns: tuple[str, ...]) -> str | None:
     return None
 
 
+def infer_engine(value: str | None) -> str | None:
+    """Normalise un moteur explicite sans compléter une motorisation ambiguë."""
+    if not value:
+        return None
+    search_text = re.sub(r"[-_/]+", " ", value.lower())
+    match = re.search(r"\b(2[,.\s]7|3[,.\s]5|3[,.\s]6|5[,.\s]0|5[,.\s]7)\s*([lt])?\b", search_text)
+    if not match:
+        return None
+    engine = re.sub(r"[ ,]", ".", match.group(1)) + "L"
+    turbo_ford = match.group(2) == "t" and ("ford" in search_text or re.search(r"\bf\s*150\b", search_text))
+    if "ecoboost" in search_text or turbo_ford:
+        engine += " EcoBoost"
+    elif "duramax" in search_text or "diesel" in search_text:
+        engine += " Diesel"
+    return engine
+
+
 def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
     """Extrait les champs utiles au tableau de bord depuis une fiche véhicule."""
     title = extract_text(
@@ -141,12 +158,7 @@ def extract_listing_metadata(document: str, url: str) -> dict[str, Any]:
     search_text = " ".join(value for value in (title, description, url) if value).lower()
     search_text = re.sub(r"[-_/]+", " ", search_text)
 
-    engine_match = re.search(r"\b(2[,.\s]7|3[,.\s]5|3[,.\s]6|5[,.\s]0|5[,.\s]7)\s*l?\b", search_text)
-    engine = re.sub(r"[ ,]", ".", engine_match.group(1)) + "L" if engine_match else None
-    if engine and "ecoboost" in search_text:
-        engine += " EcoBoost"
-    elif engine and ("duramax" in search_text or "diesel" in search_text):
-        engine += " Diesel"
+    engine = infer_engine(search_text)
     trim = next(
         (value for value in ("Lariat", "XLT", "XTR", "Platinum", "King Ranch", "SR5", "TRD", "SR", "SLT", "SLE", "Custom") if value.lower() in search_text),
         None,

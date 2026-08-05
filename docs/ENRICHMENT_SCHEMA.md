@@ -36,4 +36,6 @@ Le collecteur d’annonces ne consulte ni Google Business Profile ni une source 
 
 Une réputation n’est publiée que si les cinq champs de preuve sont présents. Une consommation n’est publiée que si les quatre caractéristiques mécaniques correspondent exactement aux données extraites de l’annonce. Toute donnée absente, incomplète ou ambiguë devient explicitement `{"status": "unconfirmed"}` dans la sortie; aucune valeur de remplacement n’est déduite silencieusement.
 
+Un objet non confirmé peut conserver `name` et `reason` pour expliquer l’ambiguïté à l’écran. Il ne conserve jamais une note, un nombre d’avis ou une consommation qui n’a pas franchi la validation.
+
 Les nouveaux sites de marché se configurent dans `data/sources.json` avec `listing_domain`, `base_url` et `listing_path_pattern`. Les URLs sont canonisées sans paramètres de suivi et dédupliquées entre les sources avant leur lecture.

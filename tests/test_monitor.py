@@ -53,6 +53,12 @@ class MonitorTests(unittest.TestCase):
         self.assertEqual(result["cab_class"], "crew_cab")
         self.assertEqual(result["drivetrain"], "4WD")
 
+    def test_infers_ford_2_7t_as_ecoboost_without_description(self):
+        self.assertEqual(
+            monitor.infer_engine("2021 Ford F-150 XLT Crew Cab 4x4 2.7T"),
+            "2.7L EcoBoost",
+        )
+
     def test_tacoma_double_cab_is_distinct_from_access_cab(self):
         double_cab = monitor.extract_listing_metadata(
             '<h1>2022 Toyota Tacoma SR5 Double Cab 4x4 V6 3.5L automatique</h1>',

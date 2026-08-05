@@ -133,7 +133,8 @@ function renderCard(deal) {
     seller.append(source);
     seller.append(text("small", `Vérifié le ${deal.seller_reputation.verified_at}`));
   } else {
-    seller.append(text("span", "Réputation Google non confirmée"));
+    seller.append(text("span", `${deal.seller_reputation.name ? `${deal.seller_reputation.name} · ` : ""}Réputation Google non confirmée`));
+    if (deal.seller_reputation.reason) seller.append(text("small", deal.seller_reputation.reason));
   }
 
   const fuel = fragment.querySelector(".fuel-economy");
@@ -149,6 +150,7 @@ function renderCard(deal) {
     fuel.append(text("small", `${match.year} · ${match.engine} · ${match.transmission} · ${match.drivetrain}`));
   } else {
     fuel.append(text("span", "Ville / route non confirmées"));
+    if (deal.fuel_economy.reason) fuel.append(text("small", deal.fuel_economy.reason));
   }
   fragment.querySelector(".deal-location").textContent = deal.location || "Emplacement à confirmer";
   fragment.querySelector(".deal-price").textContent = deal.price ? `${formatNumber.format(deal.price)} $` : "Prix à confirmer";
@@ -198,8 +200,11 @@ function renderHistory() {
 }
 
 async function loadData() {
+  const previewFile = new URLSearchParams(location.search).get("preview") === "enriched"
+    ? "data/deals.preview.json"
+    : "data/deals.json";
   const [dealsResponse, historyResponse] = await Promise.all([
-    fetch("data/deals.json", { cache: "no-store" }),
+    fetch(previewFile, { cache: "no-store" }),
     fetch("data/history.json", { cache: "no-store" })
   ]);
   if (!dealsResponse.ok || !historyResponse.ok) throw new Error("Données indisponibles");

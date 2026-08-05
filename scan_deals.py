@@ -142,11 +142,34 @@ def deal_id(url: str) -> str:
     return hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
 
 
+def unconfirmed(value: dict[str, Any] | None = None, *, mechanical_mismatch: bool = False) -> dict[str, Any]:
+    result: dict[str, Any] = dict(UNKNOWN_ENRICHMENT)
+    if value:
+        if isinstance(value.get("name"), str) and value["name"].strip():
+            result["name"] = value["name"].strip()
+        if isinstance(value.get("reason"), str) and value["reason"].strip():
+            result["reason"] = value["reason"].strip()
+    if mechanical_mismatch and "reason" not in result:
+        result["reason"] = "configuration mécanique non concordante"
+    return result
+
+
+def normalized_mechanical(field: str, value: Any) -> Any:
+    if not isinstance(value, str):
+        return value
+    normalized = value.strip().lower()
+    if field == "transmission" and ("automatic" in normalized or "automatique" in normalized or "as10" in normalized):
+        return "automatic"
+    if field == "drivetrain" and ("4wd" in normalized or "4x4" in normalized or "4rm" in normalized):
+        return "4WD"
+    return value.strip()
+
+
 def enrichment_for(url: str, current: dict[str, Any], enrichments: dict[str, Any]) -> dict[str, Any]:
     """Retourne uniquement un enrichissement dont l'annonce et la mécanique concordent exactement."""
     entry = next((item for item in enrichments.get("listings", []) if item.get("url") == url), None)
     if not entry:
-        return {"seller_reputation": dict(UNKNOWN_ENRICHMENT), "fuel_economy": dict(UNKNOWN_ENRICHMENT)}
+        return {"seller_reputation": unconfirmed(), "fuel_economy": unconfirmed()}
 
     seller = entry.get("seller_reputation") or UNKNOWN_ENRICHMENT
     fuel = entry.get("fuel_economy") or UNKNOWN_ENRICHMENT
@@ -168,11 +191,15 @@ def enrichment_for(url: str, current: dict[str, Any], enrichments: dict[str, Any
         and all(fuel.get(field) is not None for field in fuel_fields)
         and all(isinstance(fuel.get(field), (int, float)) and 0 < fuel[field] < 100 for field in ("city_l_per_100km", "highway_l_per_100km"))
         and str(fuel.get("source_url", "")).startswith("https://")
-        and all(required.get(field) is not None and required.get(field) == current.get(field) for field in mechanical_fields)
+        and all(
+            required.get(field) is not None
+            and normalized_mechanical(field, required.get(field)) == normalized_mechanical(field, current.get(field))
+            for field in mechanical_fields
+        )
     )
     return {
-        "seller_reputation": seller if seller_confirmed else dict(UNKNOWN_ENRICHMENT),
-        "fuel_economy": fuel if exact_match else dict(UNKNOWN_ENRICHMENT),
+        "seller_reputation": seller if seller_confirmed else unconfirmed(seller),
+        "fuel_economy": fuel if exact_match else unconfirmed(fuel, mechanical_mismatch=fuel.get("status") == "confirmed"),
     }
 
 
