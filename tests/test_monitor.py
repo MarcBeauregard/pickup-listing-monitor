@@ -1,0 +1,88 @@
+import io
+import unittest
+from urllib.error import HTTPError, URLError
+
+import monitor
+
+
+class FakeResponse:
+    def __init__(self, body, status=200, url="https://example.test/listing"):
+        self.body = body.encode("utf-8")
+        self.status = status
+        self.url = url
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return None
+
+    def read(self):
+        return self.body
+
+    def geturl(self):
+        return self.url
+
+
+class MonitorTests(unittest.TestCase):
+    def test_extracts_price_from_json_ld_offer(self):
+        page = '<script type="application/ld+json">{"@type":"Product","offers":{"@type":"Offer","price":"33555.00"}}</script>'
+        self.assertEqual(monitor.extract_price(page), 33555)
+
+    def test_extracts_price_from_meta(self):
+        page = '<meta property="product:price:amount" content="31 998">'
+        self.assertEqual(monitor.extract_price(page), 31998)
+
+    def test_fetch_marks_sold_page_unavailable(self):
+        result = monitor.fetch_listing(
+            "https://example.test/sold",
+            1,
+            opener=lambda *_args, **_kwargs: FakeResponse("Ce véhicule a été vendu"),
+        )
+        self.assertEqual(result["status"], "unavailable")
+
+    def test_404_is_unavailable(self):
+        def opener(*_args, **_kwargs):
+            raise HTTPError("https://example.test", 404, "not found", {}, io.BytesIO())
+
+        self.assertEqual(monitor.fetch_listing("https://example.test", 1, opener)["status"], "unavailable")
+
+    def test_403_is_fetch_error_not_unavailable(self):
+        def opener(*_args, **_kwargs):
+            raise HTTPError("https://example.test", 403, "forbidden", {}, io.BytesIO())
+
+        result = monitor.fetch_listing("https://example.test", 1, opener)
+        self.assertEqual(result["status"], "fetch_error")
+
+    def test_network_error_is_fetch_error(self):
+        def opener(*_args, **_kwargs):
+            raise URLError("timeout")
+
+        self.assertEqual(monitor.fetch_listing("https://example.test", 1, opener)["status"], "fetch_error")
+
+    def test_classifies_price_changes(self):
+        reference = {"price": 33000}
+        self.assertEqual(monitor.classify(reference, {"status": "active", "price": 32000}), "price_down")
+        self.assertEqual(monitor.classify(reference, {"status": "active", "price": 34000}), "price_up")
+        self.assertEqual(monitor.classify(reference, {"status": "active", "price": 33000}), "unchanged")
+
+    def test_summary_warns_about_read_errors(self):
+        report = {
+            "generated_at": "2026-08-05T00:00:00+00:00",
+            "reference_checked_at": "2026-08-04",
+            "counts": {"unchanged": 0, "price_down": 0, "price_up": 0, "unavailable": 0, "fetch_error": 1, "unknown": 0},
+            "listings": [{
+                "name": "Test",
+                "change": "fetch_error",
+                "current": {"price": None, "error": "HTTP 403"},
+                "price_delta": None,
+            }],
+        }
+        summary = monitor.format_summary(report)
+        self.assertIn("ERREUR DE LECTURE", summary)
+        self.assertIn("n'est jamais assimilé", summary)
+
+
+if __name__ == "__main__":
+    unittest.main()
+

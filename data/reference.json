@@ -1,0 +1,77 @@
+{
+  "checked_at": "2026-08-04",
+  "currency": "CAD",
+  "listings": [
+    {
+      "id": "ram-1500-2023-hemi",
+      "name": "Ram 1500 Classic SLT 2023 V8 HEMI",
+      "status": "active",
+      "price": 33555,
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-crew-cab-v8-controle-de-frein-cam-essence-blanc-cat_ma51793gr201260va2403tr11700-ec1fe024-b8ca-498f-93fb-8f31dc58c62e"
+    },
+    {
+      "id": "ram-1500-2021-slt",
+      "name": "Ram 1500 Classic SLT 2021",
+      "status": "active",
+      "price": 33997,
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-essence-noir-cat_ma51793gr201260va2403tr11700-6ce83d91-f8dc-4b66-afd7-dee3d73f4fff"
+    },
+    {
+      "id": "ford-f150-2022-xlt-v8",
+      "name": "Ford F-150 XLT 2022 5.0 V8",
+      "status": "active",
+      "price": 31998,
+      "url": "https://www.hgregoire.com/used-car/ford-f150-2022-for-sale-82963016"
+    },
+    {
+      "id": "ford-f150-2020-xlt-ecoboost",
+      "name": "Ford F-150 XLT 2020 2.7 EcoBoost",
+      "status": "active",
+      "price": 34980,
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-2-7l-v6-4x4-super-crew-5-5-box-essence-noir-cat_ma29gr16518tr11290-93be0311-3ed9-4124-99fd-c63dc545d806"
+    },
+    {
+      "id": "silverado-2023-custom",
+      "name": "Chevrolet Silverado Custom 2023",
+      "status": "active",
+      "price": 36983,
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-cabine-multiplace-4rm-157-po-essence-noir-cat_ma19gr202703tr478357-08754ba7-ac0f-4201-9da2-b27dddf96a9f"
+    },
+    {
+      "id": "silverado-2022-custom-27t",
+      "name": "Chevrolet Silverado Custom 2022 2.7T",
+      "status": "active",
+      "price": 32988,
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-crew-cab-2-7l-turbo-4x4-boite-6-5p-essence-blanc-cat_ma19gr202703va2611tr478357-bb7c1385-980c-4e1f-be85-46d674d77b23"
+    },
+    {
+      "id": "gmc-sierra-2022-sle",
+      "name": "GMC Sierra SLE 2022 2.7T",
+      "status": "active",
+      "price": 36698,
+      "url": "https://www.hgregoire.com/auto-usage/gmc-sierra-1500-2022-a-vendre-82963213"
+    },
+    {
+      "id": "gmc-sierra-2021-sle-duramax",
+      "name": "GMC Sierra SLE X31 Duramax 2021",
+      "status": "active",
+      "price": 36988,
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-x31-duramax-boite-6-5p-diesel-blanc-cat_ma2153gr202685tr478286-f2561599-0742-4135-88e8-b53a1fc31c3b"
+    },
+    {
+      "id": "toyota-tacoma-2022-sr",
+      "name": "Toyota Tacoma SR 4x4 2022 certifié",
+      "status": "active",
+      "price": 34999,
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-certifie-toyota-sr-4x4-double-cab-jamais-accidente-essence-blanc-cat_ma70gr201474-fdc6144c-f3ac-4875-8442-8692c11e6a09"
+    },
+    {
+      "id": "toyota-tacoma-2023-v6",
+      "name": "Toyota Tacoma Double Cab V6 2023",
+      "status": "active",
+      "price": 39913,
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-cabine-acces-4x4-ba-essence-bleu-cat_ma70gr201474-8da04c7c-ed85-4f4e-b196-ddee2d2dbdf5"
+    }
+  ]
+}
+
