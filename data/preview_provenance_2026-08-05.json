@@ -1,0 +1,1369 @@
+{
+  "schema_version": 1,
+  "preview_checked_at": "2026-08-05T16:53:09.926844+00:00",
+  "preview_counts": {
+    "discovered": 127,
+    "eligible": 81,
+    "high_mileage": 36,
+    "batch_discovered": 92,
+    "batch_eligible": 64,
+    "batch_high_mileage": 27,
+    "historical_discovered": 20,
+    "historical_eligible": 7,
+    "source_discovered": 15,
+    "source_eligible": 10,
+    "new": 127,
+    "new_eligible": 81,
+    "new_in_run": 107
+  },
+  "equation": {
+    "rendered": 127,
+    "batch": 92,
+    "historical": 20,
+    "live_source": 15,
+    "excluded_before_ingestion": 7,
+    "duplicates": 0
+  },
+  "rows": [
+    {
+      "id": "401ae6a041be49ec",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-lariat-cabine-supercrew-4rm-caisse-de-5-pi-essence-gris-cat_ma29gr15862-7ee7e1e4-6c62-4d1f-a5bd-e10f19e3dfa8",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "bf15fd610cb0f8ae",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-4wd-supercrew-5-box-essence-gris-cat_ma29gr15862-1068057e-bf8d-47f4-8822-ee34de150cf1",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "e03effe981c53d2a",
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-sr5-4x4-double-cab-auto-essence-noir-cat_ma70gr201474-8625188d-3dc8-4eb4-a3d9-5a9a6558c214",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "ba5b556b2ce3ca52",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-crew-4x4-nav-bedliner-carplay-gr-remorq-essence-gris-cat_ma29gr15862tr8512-f3c1b4d7-b829-43f1-9b33-141a942ddd7a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "99f16f57831e8431",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-wt-2rm-+-cabine-multiplace-camera-+-bluetooth-essence-rouge-cat_ma19gr200266tr12568-f67e06af-674c-4b0d-87e7-7ff1cb4aa0c8",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "a56fc0bc3a2bbb57",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-v6-slt-75-158-km-essence-noir-cat_ma2153gr202502tr17750-827a15bc-a93f-465c-9e59-91af3cdbbc87",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "47a0a4c27e491e99",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-essence-cat_ma29gr15862tr8512-111c781b-b856-4e65-bf2c-ed8bc7822e57",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "10c9e8d51b719681",
+      "url": "https://www.autohebdo.net/annonces/hyundai-santa-cruz-ultimate-awd-2-5l-toit-ouvrant-audio-bose-cuir-essence-beige-cat_ma33gr202092tr17508-6f30d3f8-c9c2-4920-9d59-54bb926ea890",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "d52bd473dfe6278b",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-elevation-standard-essence-noir-cat_ma2153gr202502tr17748-6f9bfeed-3a64-47a1-8771-b9e46b88f6e7",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "0d67958cd3c82264",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-elevation-v6-3-6l-camera-de-recul-1-seul-p-essence-blanc-cat_ma2153gr202502tr17737-740115c7-5bcc-4308-967d-2efd395efed1",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "a75ea5ff8671b80c",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-cabine-supercrew-4rm-caisse-de-5-pi-essence-bleu-cat_ma29gr15862-c02b2ecd-78a0-4c3c-a067-a92a244c4d33",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "35de2725f7eec928",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-crew-cab-141-lt-essence-noir-cat_ma19gr200266tr12571-d8ebd321-0d36-41a7-ba28-f315df6dc2aa",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "75794e80ee6d4a88",
+      "url": "https://www.autohebdo.net/annonces/ford-maverick-xlt-hybride-supercrew-mags-camera-toit-ouvrant-hybride-essence-electrique-noir-cat_ma29gr1762-32ec9387-836f-4f36-9d3b-6de1e1c32e5c",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "aace55da3289fb0b",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-2wd-elevation-auto-a-c-cuir-gr-elect-mags-cam-recu-essence-blanc-cat_ma2153gr202502tr17736-70782be0-2615-4eb3-a017-92e24764fefd",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "2662d007c229cb6d",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-essence-noir-cat_ma2153gr202685tr478286-5d631c89-f5f3-4548-a58f-24a940ba9a36",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "3d960330b03856ac",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-4x4-auto-ac-gr-elec-mags-cam-recule-essence-gris-cat_ma51793gr201260va2403tr11700-d3a535d3-4eac-4547-b142-97848d05a3aa",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "134247f817dbce41",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-v6-3-6l-crew-cab-boite-5-5p-essence-blanc-cat_ma51793gr201260va2403tr11700-7fb9f230-f96a-4332-8fe4-e85bdb8a4628",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "2cae6868c8239393",
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-sport-honda-global-warranty-100-000-km-or-january-essence-noir-cat_ma31gr200646tr13216-27fe4165-8144-46f9-b19d-5fcc664df71c",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "67c2cf16e0683bfe",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-fx4-sport-2-7l-essence-gris-cat_ma29gr16518-cf5d01f1-96e2-4318-bf18-6314b90f28dc",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "dcc99791494b2141",
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-touring-essence-cat_ma31gr200646tr13217-90ef34ec-f2b9-414d-89cf-71fbd47382d9",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "f17fc855b1a088d1",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-crew-cab-v8-controle-de-frein-cam-essence-blanc-cat_ma51793gr201260va2403tr11700-ec1fe024-b8ca-498f-93fb-8f31dc58c62e",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "06faa4f90ebcfb29",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-essence-noir-cat_ma51793gr201260va2403tr11700-6ce83d91-f8dc-4b66-afd7-dee3d73f4fff",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "0ffcf37b61de8149",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-elevation-bas-km-toile-de-boite-essence-noir-cat_ma2153gr202502tr17747-ae8e3a7d-e977-48b0-adc4-6a68ec2a6c3e",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "bf78369257a4a13c",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-2-7l-v6-4x4-super-crew-5-5-box-essence-noir-cat_ma29gr16518tr11290-93be0311-3ed9-4124-99fd-c63dc545d806",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "6234df7e6cac27c9",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-fx4-off-road-3-5l-20-inch-wheels-fx4-off-r-essence-argent-cat_ma29gr16518-97a5ceac-c449-495c-8a52-64c3d082f66e",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "0c18aeb84c0825d9",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-fx4-+-panneau-essence-gris-cat_ma29gr15862-71e713a2-0b2f-4a86-ab1f-50871a0b391b",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "aaa5cf83d7e71332",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-high-country-essence-bleu-cat_ma19gr202703tr478349-16f752a7-0403-4c15-b506-de94f636e18d",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "d86d7cfa589a3750",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-wt-crew-4x4-bedliner-gr-commodite-boite-6-2-pi-essence-noir-cat_ma19gr200266tr12573-e71dec2b-0c33-4ffb-a7ca-b32a23454652",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "7d834cc5f452a2aa",
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-sv-3-8l-v6-4x4-volant+sieges-chauffants-+++-essence-blanc-cat_ma52gr201091-809a9ab6-7049-4cb5-9bd4-fbe98f95ccd1",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "62189927cc9e3b2c",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-warlock-crewcab-v6-pentastar-essence-noir-cat_ma51793gr201260va2403tr14894-1263307f-686b-4b38-9e0b-33ec31ea30b0",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "5757d9feb92c9e49",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-6-1-2ft-box-essence-blanc-cat_ma29gr16518tr11290-200f30a4-e735-4732-8b96-3d9b36bac676",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "1fbd81e5f644c690",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xtr-v6-2-7l-ecoboost-6-passagers-66-920-km-essence-noir-cat_ma29gr16518-76bb5f46-aa03-4268-a5c6-9f6be40f6284",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "60f1071ecadb3c63",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-4x4-crew-cab-mags-camera-essence-argent-cat_ma19gr202703tr478357-e6755f72-9da6-4064-b45c-dce3da3e5513",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "c2e422abe7174657",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-4-wd-auto-ac-mags-cam-recule-bluetooth-essence-noir-cat_ma2153gr202685tr478286-bc3bab72-4c1f-45e9-93c1-ec076737a1f6",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "bba04c1fc9c86b7c",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-flex-fuel-blanc-cat_ma29gr16518tr11290-da83bd3d-7e73-4d0b-9735-1aceee2053f8",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "4da96043733e3d2c",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-cabine-multiplace-4rm-157-po-essence-noir-cat_ma19gr202703tr478357-08754ba7-ac0f-4201-9da2-b27dddf96a9f",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "9d313ed43e308446",
+      "url": "https://www.autohebdo.net/annonces/ford-maverick-xlt-ti-supercrew-essence-noir-cat_ma29gr1762tr10959-cc770f9a-d97b-41b7-a40e-1d1bd5ab0ebb",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "6b589c8a9f41935f",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-elevation-4wd-crew-cab-boite-de-6-6-pieds-essence-noir-cat_ma2153gr202502tr17747-5ddafea1-3d1a-41c1-881d-d891c194214b",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "4f739a553ad96348",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-crew-cab-wt-apple-car-play-groupe-convenience-essence-blanc-cat_ma19gr200266tr12573-1cf79921-15fc-4914-a2f9-833808616bbb",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "6b66c0f7c190fcd8",
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-black-edition-20-dossiers-d-entretient-un-propriet-essence-blanc-cat_ma31gr200646tr13211-ee488260-fe19-4efe-a147-a5b83a9b89c5",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "bb78b051e2787695",
+      "url": "https://www.autohebdo.net/annonces/jeep-gladiator-sport-s-4x4-mags-camera-essence-noir-cat_ma38gr200725tr13672-9095f5eb-5032-458a-81e6-3b5df17ed62f",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "83e4bff25b612618",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-awd-auto-ac-mags-gr-elect-cam-recul-bleuto-essence-blanc-cat_ma51793gr201260va2403tr11758-d823759f-be8f-4e2e-a2c4-af6d8e69007a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "de68be0d9be6c052",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-essence-rouge-cat_ma2153gr202685tr478286-19de54e1-552a-43de-af71-5f487e28c71d",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "f1ca94121ffe3160",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-157-work-truck-essence-noir-cat_ma19gr202703tr478316-db349cb2-32cb-44be-ae06-4efde7253e8a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "331e35845a972021",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-crew-v8-console-bancs-chauff-essence-gris-cat_ma51793gr201260va2403tr11758-49b7958a-86b2-4069-bff9-af1887ae38c1",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "4a23748212eb5c18",
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-pro-4x-cuir-nav-toit-8-roues-cruise-ad-essence-gris-cat_ma52gr201091tr481044-d2c08cdb-29b0-4408-a2f1-b603a83a4bfc",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "37b99fc777f4de0a",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-crew-cab-2-7-essence-blanc-cat_ma19gr202703tr478357-d8ca6c26-d88d-4231-ae2b-3bbab764c1e9",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "b2824cf7956eea84",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-147-custom-trail-boss-essence-noir-cat_ma19gr202703tr478356-d8ca6c26-d88d-4231-ae2b-3bbab764c1e9",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "aac9e809da01eb39",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-sport-+-cuir-+-night-edition-+-volant-chauffant-+-essence-noir-cat_ma51793gr201260tr7155-ff14991e-c3dc-4136-8142-2005f480af75",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "d2cc3a7260ce8820",
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-sv-cabine-double-caisse-standard-4x4le-camion-pret-essence-blanc-cat_ma52gr201091-11033a11-bb1b-4132-8217-93cc6da8ac2a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "89cb599a62325ccb",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-crew-cab-essence-noir-cat_ma19gr200266tr12573-4c10243e-da1a-4d7b-9b9f-67bfa732d26b",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "f2537274d80c59cf",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-cabine-super-crew-4rm-caisse-de-5-pi-essence-gris-cat_ma29gr15862tr8512-c53592fe-82e2-46bb-9402-98bb4a7606b5",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "223189c5e7684fe7",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-4x4-auto-ac-gr-elec-mags-cam-recule-blueto-essence-blanc-cat_ma51793gr201260va2403tr11758-1178b001-3b6d-4d0c-8392-810a13f72ac0",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "419fa7355e1fac53",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-pro-crewcab-boite-6-6-moteur-4-cyl-essence-blanc-cat_ma2153gr202685tr478284-3d359fd4-651e-405b-8b58-a22fb54ff0d3",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "2c433c2b4b3852a7",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-elevation-+-crew-+-boite-6-5-+-carplaky-+-camera-+-essence-blanc-cat_ma2153gr202685tr478281-b61bc099-e269-4563-a1f5-4940ad285f61",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "f50a2915f5826387",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-z71-v6-automatique-crew-cab-1-propri-essence-cat_ma19gr200266tr12575-d78d181c-47cb-4722-90c3-3967f18cb55d",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "121ef4fecaded3cb",
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-impeccable-essence-vert-cat_ma52gr201091-e896ffee-680e-4c4f-921f-cfe696ebd777",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "1b5ccc796f270bb3",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-rally-sport-grp-remorquage-marchepied-essence-blanc-cat_ma19gr202703tr478357-49b6db46-af0a-45d8-88e7-b0a68578bd17",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "735af59b0e8db5ec",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-boite-6-5-crew-cab-camera-mags-essence-noir-cat_ma19gr202703tr478357-55be7e40-79fc-450c-9d5a-c7706634fb51",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "f4771297f4496fc9",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-pro-crew-4x4-bedliner-carplay-diff-auto-wifi-usb-essence-blanc-cat_ma2153gr202685tr478284-59843578-5fc2-466b-83d0-e5fe0c5d3239",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "4e58f3463a0bccc0",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-essence-blanc-cat_ma29gr16518-35940292-39cb-4a15-adae-7983d58f61d9",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "b112025c63ea8e45",
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-black-edition-cuir-toit-remorques-5000-lbs-essence-noir-cat_ma31gr200646tr13211-f7bb02df-8e3e-4e4e-ab39-94f5ecbae03a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "12b34296f6359731",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-crew-cab-2-7-awd-mags-camera-de-recul-a-c-essence-blanc-cat_ma19gr202703tr478357-ec6681e6-dc57-4e01-9d8f-4e3d8bcd6bee",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "dd9dc1f19dc04efa",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-work-truck-crew-cab-4x4-2-7t-mags-essence-blanc-cat_ma19gr202703tr478316-a78a13e0-7026-4953-840f-12f0c0c22571",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "c8148c51bb1d7c08",
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-sport-awd-carplay-i-topit-ouvrant-i-sieges-chauffa-essence-argent-cat_ma31gr200646tr13216-e692aa22-eb24-4d1b-9fcb-0e60365ec013",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "50fb948597ff9408",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-cabine-supercrew-4rm-caisse-de-5-pi-essence-rouge-cat_ma29gr15862-c5e43d8b-3b98-47c4-80a6-af349faf9a75",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "171f488a28b7aba8",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-302a-fx4-demarruer-tow-pack-carfax-essence-argent-cat_ma29gr15862-711d7209-a543-4620-9cfb-b1864af3c89e",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "75f4aef4539c9630",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-limited-v8-crew-6-4-cuir-3-92-alpine-essence-noir-cat_ma51793gr201260tr4993-c0f4bf48-057b-40f5-9e24-883da279f51a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "59a8c001993ad5c3",
+      "url": "https://www.autohebdo.net/annonces/ford-ranger-xlt-4wd-supercrew-5-box-camera-recul-bluetooth-cl-essence-noir-cat_ma29gr15862-11066083-7846-4dfe-9c39-ccdc4789b9c6",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "ee11a7edae4ac0ef",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-night-v8-attelage-banc-chauff-essence-gris-cat_ma51793gr201260va2403tr11758-ae7a674d-8ed8-47d2-9256-b7e296c37f71",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "87745d41a815d00a",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4wd-auto-ac-nav-mags-cam-recule-bluetooth-essence-noir-cat_ma29gr16518-ed4d9d98-92be-45b4-b9d9-a1dbbc1f9eee",
+      "rendered": true,
+      "origin": "historical",
+      "category": "historical_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "b2e7b31340b73b85",
+      "url": "https://www.autohebdo.net/annonces/honda-ridgeline-touring-traction-integrale-essence-noir-cat_ma31gr200646tr13217-4ba2a055-978d-40b1-aa67-d7811774b30b",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "b26c8cbbb3f6931e",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-work-truck-crew-cab-4x4-2-7t-camera-essence-blanc-cat_ma19gr200266tr12573-1f0a6611-d841-429b-ba33-33e4cc560ea8",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "ba9da8bc1ee956d8",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-sle-crew-cab-standard-box-4x4-sieges-volant-chauff-essence-noir-cat_ma2153gr202685va2878tr478286-8774ca7c-13b6-4df6-9e29-c67a03110cc7",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "ac4e1b3b8de53d05",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-night-pkg-sieges-volant-chauff-essence-gris-cat_ma51793gr201260va2403tr11758-17c0a295-32b6-41b5-a42e-2d0d707f5d63",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "ae0c50b3016acad6",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-crew-cab-4x4-2-7l-gps-mags-camera-de-recul-a-c-essence-gris-cat_ma29gr16518tr11290-254a67b2-d354-4273-a528-22cf76e1ed5b",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "943f1fefc9930e0b",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-crew-cab-141-denali-essence-noir-cat_ma2153gr202502tr17746-d3355b14-05e3-419b-9bb6-61408e8ddf4d",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "8c3a3a65dff396ad",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-rst-crew-cab-boite-6-5-toit-ouvrant-essence-blanc-cat_ma19gr202703va2611tr478324-1a66e6c1-13a9-4e90-979e-53c30d22dcf4",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "eb982f165e79b8c7",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-sport-4x4-auto-ac-mags-cam-recule-bluetooth-essence-gris-cat_ma51793gr201260tr7155-3481d2b6-834b-417b-821a-677130f48764",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "a21e9f3e4c664e42",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-157-lt-essence-bleu-cat_ma19gr202703tr478339-63a6df27-19b2-48ec-a23e-83f118688646",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "new_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "dd296cc9b51f8cf7",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-laramie-4x4-auto-ac-cuir-nav-mags-cam-recule-bluet-essence-blanc-cat_ma51793gr201260tr4857-b59cff4e-b311-4411-af2a-e9680ad450e7",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "live_source_eligible",
+      "eligible": true,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "252bb17b561cf4c7",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-2-7-crew-cab-essence-noir-cat_ma29gr16518tr11290-fad4505f-f728-4104-a8a4-62dc35dc6175",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "157cc320ca333c10",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-denali-crew-4x4-v8-toit-nav-cuir-sieges-ventil-essence-noir-cat_ma2153gr202685tr478279-880d126d-ea67-477d-822d-3851f3199c65",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "31d11e887345040a",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-elevation-cabine-double-4rm-147-po-essence-noir-cat_ma2153gr202685tr478281-b7c16c5e-2b8f-4f11-a6af-2e6b20173f1b",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "0fca37fe9fbc88b9",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-supercrew-boite-5-5p-v6-2-7l-essence-gris-cat_ma29gr16518-e053e646-d194-496d-9d21-ddfe10ba5fe0",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "85951ab42f9d9b62",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-colorado-4wd-z71-a-c-gr-elect-mags-essence-noir-cat_ma19gr200266tr12575-3785784c-91a7-436f-a492-fd7985065f63",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "98bb0805acc00557",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-sle-+-duramax-+-4x4-+-crew-+-rare-diesel-blanc-cat_ma2153gr202502tr17749-399e2567-759f-4266-ab68-1d3db1f5b62d",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "1c27573e4a214906",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-crew-cab-4x4-2-7t-sieges-chauffants-camera-essence-blanc-cat_ma29gr16518-d293d454-b466-40fc-8546-bc81827204c3",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "dd52adb6d98b3793",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-4x4-crew-cab-5-7-box-essence-blanc-cat_ma51793gr201260va2403tr11758-56261fdd-9b57-41a1-b113-ec21f8bd597a",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "bedd2e9e27897b66",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-6-places-bluetooth-air-climatise-clean-carf-essence-gris-cat_ma19gr202703va2611tr478357-9dc6b93a-7525-4c1e-83d8-edc562314746",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "c8da7d46044b14e9",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-at4-w-leather-inspecte-aucune-surprise-pret-essence-blanc-cat_ma2153gr202502tr17745-2c6d6277-b99c-471f-95f1-24c71055144c",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "bc1f96777fabc040",
+      "url": "https://www.autohebdo.net/annonces/nissan-titan-pro-4x-4x4-gps-volant-chauffant-essence-noir-cat_ma52gr201098-a2a08ff9-ced2-48b5-921e-e191aa81e4f4",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "d34ff7ad9492ad6a",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-sport-crew-cab-awd-5-7l-mags-essence-noir-cat_ma51793gr201260tr7155-9f109999-2128-4100-ac8f-6c86f74ac204",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "ebb34b77b38251e4",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-4wd-crew-cab-153-0-ltz-w-2lz-essence-noir-cat_ma19gr202703tr478334-851f368e-4898-4876-94d9-2612e8ad847b",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "ead812c87a72725c",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-crew-cab-2-7-awd-mags-camera-de-recul-a-c-essence-rouge-cat_ma19gr202703va2611tr478357-f64ddde3-ddb5-4683-bb95-08f8f9a642b7",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "878824ae0c9931d5",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-stx-4wd-a-c-camera-recul-navigation-mags-essence-gris-cat_ma29gr16518-202e261e-a5d0-499e-a59d-ad8669966c08",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "f231448a1796af13",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-x31-5-3l-v8-marchepied-linex-essence-noir-cat_ma2153gr202685-f7568018-ca0b-43ec-905f-e31958a38d6e",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "968d548d228bbbba",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-crew-elevation-5-3l-awd-mags-camera-recul-essence-blanc-cat_ma2153gr202685tr478281-a3ce810f-601a-40da-9cd1-f8daca3035da",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "4ec464d89bdacd3d",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-supercrew-jamais-accidente-+-hybride-+-boite-d-hybride-essence-electrique-blanc-cat_ma29gr16518-180dd0d9-ae8f-4008-b989-a61e48cec4dd",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "815eb261dbcf3d7e",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-essence-bleu-cat_ma29gr16518-2fc9a39a-96fb-44df-9377-87362ac7fb19",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "9e793c15a426c54a",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-4wd-supercrew-5-5-box-marchepieds-essence-noir-cat_ma29gr16518tr11275-d9c774df-c0a5-47af-9823-469c7a3431d0",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "b41cfd510b2ed7b2",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-elevation-4x4-crew-cab-+-meilleur-deal-sur-le-marc-diesel-noir-cat_ma2153gr202685tr478281-5e68d3e2-3ecb-43a3-971d-4af14ab2065e",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "d353b2b14cf5befb",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-gmc-canyon-at4-2021-v6-3-6-l-4x4-summit-white-av-essence-blanc-cat_ma2153gr202502tr17744-36a081e7-3cd3-4bb4-9e1a-59f232adefeb",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "e435377228cced8a",
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-trd-sport-v6-double-cab-4x4-bm-ac-navigation-essence-bleu-cat_ma70gr201474tr11891-ff8ff05b-a2e3-4776-a627-ac88f2d8d700",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "19598935f9a42d45",
+      "url": "https://www.autohebdo.net/annonces/gmc-canyon-4wd-crew-cab-141-at4-w-cloth-essence-noir-cat_ma2153gr202502tr17744-877f9823-efe7-4616-be4f-a389fcff59c1",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "a7f2b74b5b89db94",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-4wd-crew-cab-157-at4-gris-cat_ma2153gr202685tr478276-5288ef58-5770-48ab-8d9c-0bcd010d4b29",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "a80042a5c197c7bd",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-rst-z-71-double-cab-4x4-3-0t-sieges-chauffants-cam-diesel-blanc-cat_ma19gr202703tr478324-4a44bbc0-1169-4300-9ed6-86b4a473f747",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "3eaf9051a9ba6e06",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-+-bang-olufsen-+-toit-panoramique-+-siege-essence-noir-cat_ma29gr16518-412c1bbb-7c3c-4b94-9e5f-9aa6f822b6f3",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "7d6de44d6fde3311",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-4wd-crew-cab-157-elevation-essence-brun-cat_ma2153gr202685tr478281-6cfe6a0b-cffc-49d4-b4a0-eb6d9f3c5dad",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "b72ca75ca0de8eac",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-at4-4x4-mags-cuir-boite-6-5pi-v8-6-2l-essence-noir-cat_ma2153gr202685va2878tr478276-b6188f73-e394-46d4-80e0-ea1095d62eb5",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "fd3150c0ff109a95",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-crew-+-3-0l-diesel-crew-+-3-0l-diesel-diesel-noir-cat_ma2153gr202685tr478276-2914056c-717f-4d57-a974-d44018b23f3f",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "e1f3bd960313b205",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-essence-noir-cat_ma29gr16518tr11275-c1bc6e2e-030a-4462-a2f8-2cfe5714cca1",
+      "rendered": true,
+      "origin": "historical",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "bc7ee5717d4f9ff2",
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-4x4-double-cab-auto-essence-blanc-cat_ma70gr201474-f1952de8-66c7-42dc-9257-bb2d3bbc9ac8",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "7bff152e18127c05",
+      "url": "https://www.autohebdo.net/annonces/toyota-tacoma-trd-sport-6-feets-cruise-carplay-boite-6-pie-essence-gris-cat_ma70gr201474-e7927e84-ba8e-49a7-99a5-ad07dbb10571",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "77d1b84ff2a04efd",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-rebel-crew-cab-4x4-boite-5-7-cuir-camera-recul-5-7-essence-noir-cat_ma51793gr201260tr6401-46d008c1-b44c-4485-bcf0-2a6785e6d34c",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "c312535639fe6923",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-at4-crew-cab-short-box-4wd-diesel-noir-cat_ma2153gr202685va2878tr478276-3904235a-b73c-4ebf-8b45-f7865d694adf",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "c7e76c88b90300d5",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-4wd-crew-cab-157-elevation-diesel-blanc-cat_ma2153gr202685tr478281-c3166330-ba26-49a6-b64d-b8702fe78292",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "high_mileage",
+      "eligible": false,
+      "high_mileage": true,
+      "status": "active"
+    },
+    {
+      "id": "303283ff98f110a4",
+      "url": "https://www.autohebdo.net/annonces/gmc-sierra-1500-base-flex-fuel-noir-cat_ma2153gr202685-bd551784-62e0-4410-b448-ccfce10fdc89",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "02011d05579b6d14",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-outdoorsman-4x4-crew-cab-camera-3-6l-flex-fuel-rouge-cat_ma51793gr201260tr11741-00b297eb-6212-46e7-9e2a-fcc300b333b1",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "29bcfe7635c439aa",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-express-quad-cab-4x4-caisse-de-6-pi-4-po-essence-blanc-cat_ma51793gr201260tr11758-17bc5850-4167-48d8-b24a-f934ce493fbf",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "c48b7e42b8c3bbfc",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-supercrew-xlt-3-5l-ecoboost-boite-6-5p-essence-blanc-cat_ma29gr16518-07da989b-60d7-4f44-94cb-b8b0ee609f6b",
+      "rendered": true,
+      "origin": "historical",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "64fae42306e64474",
+      "url": "https://www.autohebdo.net/annonces/ram-1500-slt-crew-cab-4x4-sieges-chauffants-camera-bluetoot-diesel-noir-cat_ma51793gr201260va2403tr11700-22b1e818-8d07-47d6-b38e-41b732f89b9d",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "dae74c8722b14019",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-lt-z71-4x4-essence-rouge-cat_ma19gr202703tr478339-1b6e592d-41f4-4a8b-9071-ce97f1b96c6d",
+      "rendered": true,
+      "origin": "live_source",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "6ebd7144a33a4cf5",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-sport-supercrew-302a-marchepied-couvre-caisse-essence-blanc-cat_ma29gr16518-051b7cba-b694-443d-9418-a49e1e1b76bd",
+      "rendered": true,
+      "origin": "historical",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "99fc5044ae034757",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-nav-crewcab-financement-facile-essence-rouge-cat_ma29gr16518-9d5b58d1-e1e1-4e7e-a5c2-f3d98e575e88",
+      "rendered": true,
+      "origin": "historical",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "active"
+    },
+    {
+      "id": "c9ee782ab1c1bcd3",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-gr-elec-a-c-bluetooth-camera-mags-essence-blanc-cat_ma29gr16518-c51e1743-0586-4091-b99c-8db9c0e8370e",
+      "rendered": true,
+      "origin": "historical",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "unavailable"
+    },
+    {
+      "id": "ef548f1f117f63ab",
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-lt-trail-boss-crew-cab-4x4-5-3l-v8-carplay-essence-gris-cat_ma19gr202703tr478337-6c571142-6d59-4449-a91e-0c7cecdae1db",
+      "rendered": true,
+      "origin": "validated_batch",
+      "category": "rejected",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "unavailable"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-sv-cabine-double-caisse-longue-4x4-essence-gris-cat_ma52gr201091-af3145d6-46fa-49b8-9f02-20bed29c472b",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "non_ingested",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "distance_unconfirmed"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-s-v6-4x4-auto-full-equipe-a-c-mags-carplay-73-520-essence-noir-cat_ma52gr201091tr14580-5e45ea6e-46b3-4311-b889-95954bfa6d13",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "non_ingested",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "distance_unconfirmed"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/nissan-frontier-pro-4x-cabine-double-caisse-standard-4x4-essence-rouge-cat_ma52gr201091-c408d9d3-cc9b-4bb4-8312-52bb2e00cce4",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "non_ingested",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "distance_unconfirmed"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/nissan-titan-sv-diesel-noir-cat_ma52gr201098va2624-2452f4d7-dcb0-4959-8db7-f76f7ad06c07",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "non_ingested",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "distance_unconfirmed"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-+-crew-cab-+-black-on-black-+-ecran-6-car-essence-noir-cat_ma19gr202703tr478357-40c017ff-74ba-412a-b854-c462ee48af34",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "non_ingested",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "distance_unconfirmed"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-sport-4x4-only-59-000kms-alloys-tow-pkg-a-c-essence-blanc-cat_ma29gr16518-c21f5342-43f1-4f53-a7f5-c898f334481e",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "rejected_before_ingestion",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "rejected_initial"
+    },
+    {
+      "id": null,
+      "url": "https://www.autohebdo.net/annonces/chevrolet-silverado-1500-custom-4x4-5-3l-v8-carplay-tonneau-tow-pkg-essence-argent-cat_ma19gr202703va2612tr478357-9dce23e5-ba80-49fb-83c4-3d5637757b0e",
+      "rendered": false,
+      "origin": "validated_batch",
+      "category": "rejected_before_ingestion",
+      "eligible": false,
+      "high_mileage": false,
+      "status": "rejected_initial"
+    }
+  ]
+}

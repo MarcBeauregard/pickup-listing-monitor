@@ -53,10 +53,29 @@ class MultibrandContractTests(unittest.TestCase):
 
     def test_preview_excludes_high_mileage_from_alerts_and_keeps_indirect_tacoma_unknown(self):
         preview = json.loads((ROOT / "docs" / "data" / "deals.preview.json").read_text(encoding="utf-8"))
+        self.assertEqual(preview["counts"]["batch_discovered"], 92)
+        self.assertEqual(preview["counts"]["batch_eligible"], 64)
+        self.assertEqual(preview["counts"]["batch_high_mileage"], 27)
+        self.assertEqual(preview["counts"]["historical_discovered"], 20)
+        self.assertEqual(preview["counts"]["eligible"], preview["counts"]["batch_eligible"] + preview["counts"]["historical_eligible"] + preview["counts"]["source_eligible"])
+        self.assertEqual(preview["counts"]["discovered"], preview["counts"]["batch_discovered"] + preview["counts"]["historical_discovered"] + preview["counts"]["source_discovered"])
         self.assertFalse(any(row["high_mileage"] and row["alert_eligible"] for row in preview["deals"]))
         tacoma_2023 = next(row for row in preview["deals"] if row.get("make") == "Toyota" and row.get("model") == "Tacoma" and row.get("year") == 2023)
         self.assertEqual(tacoma_2023["cab_class"], "unknown")
         self.assertFalse(tacoma_2023["eligible"])
+
+    def test_preview_provenance_reconciles_batch_historical_and_live_source(self):
+        preview = json.loads((ROOT / "docs" / "data" / "deals.preview.json").read_text(encoding="utf-8"))
+        provenance = json.loads((ROOT / "data" / "preview_provenance_2026-08-05.json").read_text(encoding="utf-8"))
+        self.assertEqual(provenance["equation"], {
+            "rendered": 127, "batch": 92, "historical": 20, "live_source": 15,
+            "excluded_before_ingestion": 7, "duplicates": 0,
+        })
+        rendered = [row for row in provenance["rows"] if row["rendered"]]
+        self.assertEqual(len(rendered), preview["counts"]["discovered"])
+        self.assertEqual({row["url"] for row in rendered}, {row["url"] for row in preview["deals"]})
+        self.assertEqual(preview["counts"]["eligible"], 81)
+        self.assertEqual(preview["counts"]["eligible"], preview["counts"]["batch_eligible"] + preview["counts"]["historical_eligible"] + preview["counts"]["source_eligible"])
 
 
 if __name__ == "__main__":

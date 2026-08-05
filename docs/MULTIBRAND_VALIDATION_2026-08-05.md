@@ -10,6 +10,8 @@ Corrections appliquées : 82 mensualités actives recalculées à deux décimale
 
 Les cinq distances non confirmées ne sont pas ingérées. Les lignes `high_mileage` restent consultables par un filtre désactivé par défaut et sont exclues des alertes, du podium et du compte admissible.
 
+Ce rapport porte uniquement sur le lot Denise. La prévisualisation conserve aussi les 20 annonces historiques et ajoute les résultats du scan live; leurs comptes distincts et l’équation globale figurent dans `docs/PREVIEW_PROVENANCE_2026-08-05.md`.
+
 | # | Décision | Véhicule | Valeurs validées | URL |
 |---:|---|---|---|---|
 | 1 | eligible | Toyota Tacoma | 2022 · 116742 km · 37795 $ · 655.85 $/mois | [annonce](https://www.autohebdo.net/annonces/toyota-tacoma-sr5-4x4-double-cab-auto-essence-noir-cat_ma70gr201474-8625188d-3dc8-4eb4-a3d9-5a9a6558c214) |

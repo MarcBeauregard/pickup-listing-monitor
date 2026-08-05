@@ -399,6 +399,7 @@ def scan(
 ) -> dict[str, Any]:
     discovered = []
     source_errors = []
+    historical_by_url = {canonical_url(item["url"]): item for item in (previous or {}).get("deals", [])}
     for source in config["sources"]:
         try:
             page = source_fetcher(source["url"], timeout)
@@ -410,6 +411,7 @@ def scan(
             source_errors.append({"source": source["name"], "error": str(exc)})
 
     candidates_by_url = candidate_rows(candidates or {})
+    discovered.extend(historical_by_url)
     discovered.extend(candidates_by_url)
     urls = list(dict.fromkeys(discovered))
     fetched: dict[str, dict[str, Any]] = {}
@@ -478,6 +480,7 @@ def scan(
                 "high_mileage": high_mileage,
                 "alert_eligible": eligible and not high_mileage,
                 "candidate_status": "eligible" if eligible else "high_mileage" if high_mileage else "rejected",
+                "candidate_origin": "validated_batch" if candidate else "historical" if canonical_url(url) in historical_by_url else "live_source",
                 "score": score,
                 "reasons": reasons,
                 "first_seen_at": first_seen_at,
@@ -497,6 +500,13 @@ def scan(
             "discovered": len(deals),
             "eligible": sum(deal["eligible"] for deal in deals),
             "high_mileage": sum(deal["high_mileage"] for deal in deals),
+            "batch_discovered": sum(deal["candidate_origin"] == "validated_batch" for deal in deals),
+            "batch_eligible": sum(deal["candidate_origin"] == "validated_batch" and deal["eligible"] for deal in deals),
+            "batch_high_mileage": sum(deal["candidate_origin"] == "validated_batch" and deal["high_mileage"] for deal in deals),
+            "historical_discovered": sum(deal["candidate_origin"] == "historical" for deal in deals),
+            "historical_eligible": sum(deal["candidate_origin"] == "historical" and deal["eligible"] for deal in deals),
+            "source_discovered": sum(deal["candidate_origin"] == "live_source" for deal in deals),
+            "source_eligible": sum(deal["candidate_origin"] == "live_source" and deal["eligible"] for deal in deals),
             "new": sum(deal["is_new"] for deal in deals),
             "new_eligible": sum(deal["is_new"] and deal["eligible"] for deal in deals),
             "new_in_run": sum(deal["new_in_run"] for deal in deals),
@@ -529,6 +539,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path("data/sources.json"))
     parser.add_argument("--deals", type=Path, default=Path("docs/data/deals.json"))
+    parser.add_argument("--previous", type=Path)
     parser.add_argument("--history", type=Path, default=Path("docs/data/history.json"))
     parser.add_argument("--enrichments", type=Path, default=Path("data/enrichments.json"))
     parser.add_argument("--legal-signals", type=Path, default=Path("data/seller_legal_signals.json"))
@@ -541,7 +552,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     config = load_json(args.config, {})
-    previous = load_json(args.deals, None)
+    previous = load_json(args.previous or args.deals, None)
     history = load_json(args.history, [])
     enrichments = load_json(args.enrichments, {"schema_version": 1, "listings": []})
     legal_signals = load_json(args.legal_signals, {"schema_version": 1, "listings": []})

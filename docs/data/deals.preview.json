@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "last_checked_at": "2026-08-05T16:40:32.713784+00:00",
+  "last_checked_at": "2026-08-05T16:53:09.926844+00:00",
   "scan_status": "ok",
   "source_errors": [],
   "criteria": {
@@ -17,12 +17,19 @@
     }
   },
   "counts": {
-    "discovered": 107,
-    "eligible": 74,
-    "high_mileage": 27,
-    "new": 107,
-    "new_eligible": 74,
-    "new_in_run": 5
+    "discovered": 127,
+    "eligible": 81,
+    "high_mileage": 36,
+    "batch_discovered": 92,
+    "batch_eligible": 64,
+    "batch_high_mileage": 27,
+    "historical_discovered": 20,
+    "historical_eligible": 7,
+    "source_discovered": 15,
+    "source_eligible": 10,
+    "new": 127,
+    "new_eligible": 81,
+    "new_in_run": 107
   },
   "deals": [
     {
@@ -92,12 +99,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 130,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "bf15fd610cb0f8ae",
@@ -166,12 +174,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 120,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "e03effe981c53d2a",
@@ -240,12 +249,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 120,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ba5b556b2ce3ca52",
@@ -314,12 +324,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 120,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "99f16f57831e8431",
@@ -388,12 +399,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "a56fc0bc3a2bbb57",
@@ -462,12 +474,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "47a0a4c27e491e99",
@@ -536,12 +549,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "10c9e8d51b719681",
@@ -609,12 +623,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:40:32.713784+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
       "new_in_run": true,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "d52bd473dfe6278b",
@@ -683,12 +698,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "0d67958cd3c82264",
@@ -757,12 +773,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "a75ea5ff8671b80c",
@@ -831,12 +848,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "35de2725f7eec928",
@@ -905,12 +923,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "75794e80ee6d4a88",
@@ -978,12 +997,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:40:32.713784+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
       "new_in_run": true,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "aace55da3289fb0b",
@@ -1052,12 +1072,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "2662d007c229cb6d",
@@ -1126,12 +1147,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "3d960330b03856ac",
@@ -1215,12 +1237,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "134247f817dbce41",
@@ -1304,12 +1327,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "2cae6868c8239393",
@@ -1378,12 +1402,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "67c2cf16e0683bfe",
@@ -1452,12 +1477,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "dcc99791494b2141",
@@ -1526,12 +1552,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "f17fc855b1a088d1",
@@ -1599,12 +1626,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:40:32.713784+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
       "new_in_run": true,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "06faa4f90ebcfb29",
@@ -1672,12 +1700,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "0ffcf37b61de8149",
@@ -1746,12 +1775,175 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "bf78369257a4a13c",
+      "title": "2020 Ford F-150 XLT, 2.7L V6, 4X4, SUPER-CREW, 5'5 BOX",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-2-7l-v6-4x4-super-crew-5-5-box-essence-noir-cat_ma29gr16518tr11290-93be0311-3ed9-4124-99fd-c63dc545d806",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/93be0311-3ed9-4124-99fd-c63dc545d806_6afd617b-65ff-45d5-a54c-f82978a15377.jpg/1920x1080.jpg",
+      "price": 34980,
+      "monthly_7pct": 607,
+      "year": 2020,
+      "mileage": 80513,
+      "engine": "2.7L",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Saint Hubert, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "AutoFlash",
+        "rating": 4.7,
+        "review_count": 2753,
+        "source_url": "https://reviews.birdeye.com/autoflash-166717454634389",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed",
+        "reason": "configuration mécanique non concordante"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 95.8,
+          "reputation_base_raw": 95.8,
+          "reputation_base_effective": 95.8,
+          "rating_points": 65.8,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/autoflash-166717454634389"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 115,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "6234df7e6cac27c9",
+      "title": "2020 Ford F-150 XLT FX4 OFF ROAD, 3.5L, 20-INCH WHEELS / FX4 OFF R",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-fx4-off-road-3-5l-20-inch-wheels-fx4-off-r-essence-argent-cat_ma29gr16518-97a5ceac-c449-495c-8a52-64c3d082f66e",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/97a5ceac-c449-495c-8a52-64c3d082f66e_5c3b6b81-dc8c-48bc-87bf-597594983ac0.jpg/1920x1080.jpg",
+      "price": 34990,
+      "monthly_7pct": 607,
+      "year": 2020,
+      "mileage": 95085,
+      "engine": "3.5L EcoBoost",
+      "trim": "XLT",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": null,
+      "location": "Boucherville, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Honda de Boucherville",
+        "rating": 4.4,
+        "review_count": 3359,
+        "source_url": "https://reviews.birdeye.com/honda-de-boucherville-167803227679241",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed",
+        "reason": "configuration mécanique non concordante"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 91.6,
+          "reputation_base_raw": 91.6,
+          "reputation_base_effective": 91.6,
+          "rating_points": 61.6,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/honda-de-boucherville-167803227679241"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 115,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "0c18aeb84c0825d9",
@@ -1820,12 +2012,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "aaa5cf83d7e71332",
@@ -1894,12 +2087,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "d86d7cfa589a3750",
@@ -1968,12 +2162,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "7d834cc5f452a2aa",
@@ -2042,12 +2237,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "62189927cc9e3b2c",
@@ -2116,12 +2312,167 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "5757d9feb92c9e49",
+      "title": "2022 Ford F-150 XLT XTR 6 1/2ft Box",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-6-1-2ft-box-essence-blanc-cat_ma29gr16518tr11290-200f30a4-e735-4732-8b96-3d9b36bac676",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/200f30a4-e735-4732-8b96-3d9b36bac676_88468a26-bdf4-40dc-bfb5-0d997167d0ba.jpg/1920x1080.jpg",
+      "price": 35900,
+      "monthly_7pct": 623,
+      "year": 2022,
+      "mileage": 89306,
+      "engine": "3.5L EcoBoost",
+      "trim": "XLT",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": "automatic",
+      "drivetrain": "4WD",
+      "location": "Montreal, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Auto Svetna",
+        "rating": 5.0,
+        "review_count": 23,
+        "source_url": "https://reviews.birdeye.com/grossiste-dauto-svetna-lte-167815800960866",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 89.2,
+          "reputation_base_raw": 89.2,
+          "reputation_base_effective": 89.2,
+          "rating_points": 70.0,
+          "volume_points": 9.2,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/grossiste-dauto-svetna-lte-167815800960866"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 115,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "1fbd81e5f644c690",
+      "title": "2020 Ford F-150 XTR V6 2.7L ** ECOBOOST ** 6 PASSAGERS 66 920 KM",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xtr-v6-2-7l-ecoboost-6-passagers-66-920-km-essence-noir-cat_ma29gr16518-76bb5f46-aa03-4268-a5c6-9f6be40f6284",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/76bb5f46-aa03-4268-a5c6-9f6be40f6284_244e5b7f-658a-46bd-81f4-2a9ac532168f.jpg/1920x1080.jpg",
+      "price": 35990,
+      "monthly_7pct": 625,
+      "year": 2020,
+      "mileage": 66920,
+      "engine": "2.7L EcoBoost",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": "automatic",
+      "drivetrain": "4WD",
+      "location": "Levis, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 115,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "60f1071ecadb3c63",
@@ -2190,12 +2541,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "c2e422abe7174657",
@@ -2263,12 +2615,87 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "bba04c1fc9c86b7c",
+      "title": "2022 Ford F-150 XLT",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-flex-fuel-blanc-cat_ma29gr16518tr11290-da83bd3d-7e73-4d0b-9735-1aceee2053f8",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/da83bd3d-7e73-4d0b-9735-1aceee2053f8_f3b7bb66-60af-4b2e-a8de-aa73b16087cd.jpg/1920x1080.jpg",
+      "price": 36900,
+      "monthly_7pct": 640,
+      "year": 2022,
+      "mileage": 80600,
+      "engine": null,
+      "trim": "XLT",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": null,
+      "location": "Mont Royal, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 115,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "4da96043733e3d2c",
@@ -2336,12 +2763,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:40:32.713784+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
       "new_in_run": true,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "9d313ed43e308446",
@@ -2409,12 +2837,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "6b589c8a9f41935f",
@@ -2483,12 +2912,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "4f739a553ad96348",
@@ -2557,12 +2987,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "6b66c0f7c190fcd8",
@@ -2631,12 +3062,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "bb78b051e2787695",
@@ -2704,12 +3136,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "83e4bff25b612618",
@@ -2778,12 +3211,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "de68be0d9be6c052",
@@ -2852,12 +3286,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "f1ca94121ffe3160",
@@ -2941,12 +3376,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "331e35845a972021",
@@ -3015,12 +3451,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "4a23748212eb5c18",
@@ -3089,12 +3526,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "37b99fc777f4de0a",
@@ -3163,12 +3601,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "b2824cf7956eea84",
@@ -3252,12 +3691,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "aac9e809da01eb39",
@@ -3341,12 +3781,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "d2cc3a7260ce8820",
@@ -3415,12 +3856,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "89cb599a62325ccb",
@@ -3489,12 +3931,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "f2537274d80c59cf",
@@ -3563,12 +4006,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "223189c5e7684fe7",
@@ -3652,12 +4096,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "419fa7355e1fac53",
@@ -3726,12 +4171,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "2c433c2b4b3852a7",
@@ -3800,12 +4246,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "f50a2915f5826387",
@@ -3874,12 +4321,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "121ef4fecaded3cb",
@@ -3948,12 +4396,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "1b5ccc796f270bb3",
@@ -4022,12 +4471,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "735af59b0e8db5ec",
@@ -4096,12 +4546,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "f4771297f4496fc9",
@@ -4170,12 +4621,93 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "4e58f3463a0bccc0",
+      "title": "2022 Ford F-150 XLT",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-essence-blanc-cat_ma29gr16518-35940292-39cb-4a15-adae-7983d58f61d9",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/35940292-39cb-4a15-adae-7983d58f61d9_3a557b59-808c-492e-b32e-34732af9bfac.jpg/1920x1080.jpg",
+      "price": 39999,
+      "monthly_7pct": 694,
+      "year": 2022,
+      "mileage": 96366,
+      "engine": null,
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Cornwall, Ontario",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Miller Hughes Ford Sales",
+        "rating": 4.7,
+        "review_count": 400,
+        "source_url": "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 93.15,
+          "reputation_base_raw": 93.15,
+          "reputation_base_effective": 93.15,
+          "rating_points": 65.8,
+          "volume_points": 17.35,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 115,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "b112025c63ea8e45",
@@ -4244,12 +4776,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "12b34296f6359731",
@@ -4333,12 +4866,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "dd9dc1f19dc04efa",
@@ -4422,12 +4956,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 115,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "c8148c51bb1d7c08",
@@ -4496,12 +5031,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "50fb948597ff9408",
@@ -4570,12 +5106,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "171f488a28b7aba8",
@@ -4644,12 +5181,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "75f4aef4539c9630",
@@ -4718,12 +5256,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "59a8c001993ad5c3",
@@ -4792,12 +5331,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ee11a7edae4ac0ef",
@@ -4866,12 +5406,104 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "87745d41a815d00a",
+      "title": "2022 Ford F-150 XLT 4WD AUTO AC NAV MAGS CAM RECULE BLUETOOTH",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4wd-auto-ac-nav-mags-cam-recule-bluetooth-essence-noir-cat_ma29gr16518-ed4d9d98-92be-45b4-b9d9-a1dbbc1f9eee",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/ed4d9d98-92be-45b4-b9d9-a1dbbc1f9eee_abe3795c-af2b-447e-b640-c80200db9cab.jpg/1920x1080.jpg",
+      "price": 31998,
+      "monthly_7pct": 555,
+      "year": 2022,
+      "mileage": 101113,
+      "engine": null,
+      "trim": "XLT",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Carignan, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "HGrégoire Carignan",
+        "rating": 4.1,
+        "review_count": 1311,
+        "source_url": "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "red",
+        "nature": "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $.",
+        "event_type": "entente et reconnaissance de manquements",
+        "event_date": "2024-02-15",
+        "legal_entity": "2970-7528 Québec inc.",
+        "permit_or_neq": "2970-7528 Québec inc.",
+        "branch": "HGrégoire Carignan",
+        "source_url": "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire",
+        "source_checked_at": "2026-08-05",
+        "match_status": "exact",
+        "match_basis": "raison sociale et succursale nommée",
+        "branch_matched": true
+      },
+      "trust_score": {
+        "score": 17.48,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": 87.4,
+          "reputation_base_raw": 87.4,
+          "reputation_base_effective": 87.4,
+          "rating_points": 57.4,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $."
+        ],
+        "sources": [
+          "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+          "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": true,
+      "high_mileage": false,
+      "alert_eligible": true,
+      "candidate_status": "eligible",
+      "candidate_origin": "historical",
+      "score": 105,
+      "reasons": [],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "b2e7b31340b73b85",
@@ -4939,12 +5571,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "b26c8cbbb3f6931e",
@@ -5028,12 +5661,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ba9da8bc1ee956d8",
@@ -5102,12 +5736,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ac4e1b3b8de53d05",
@@ -5176,12 +5811,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ae0c50b3016acad6",
@@ -5265,12 +5901,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "943f1fefc9930e0b",
@@ -5339,12 +5976,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "8c3a3a65dff396ad",
@@ -5413,12 +6051,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "eb982f165e79b8c7",
@@ -5502,12 +6141,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "a21e9f3e4c664e42",
@@ -5576,12 +6216,13 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "validated_batch",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "dd296cc9b51f8cf7",
@@ -5649,12 +6290,90 @@
       "high_mileage": false,
       "alert_eligible": true,
       "candidate_status": "eligible",
+      "candidate_origin": "live_source",
       "score": 105,
       "reasons": [],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "252bb17b561cf4c7",
+      "title": "2022 Ford F-150 XLT 4X4 2.7 CREW CAB",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-2-7-crew-cab-essence-noir-cat_ma29gr16518tr11290-fad4505f-f728-4104-a8a4-62dc35dc6175",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/fad4505f-f728-4104-a8a4-62dc35dc6175_14a633b1-4d9e-4028-a236-d50fe4fbe447.jpg/1920x1080.jpg",
+      "price": 28995,
+      "monthly_7pct": 503,
+      "year": 2022,
+      "mileage": 155000,
+      "engine": "2.7L",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Quebec, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed",
+        "reason": "configuration mécanique non concordante"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "157cc320ca333c10",
@@ -5723,14 +6442,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "31d11e887345040a",
@@ -5799,14 +6519,103 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "0fca37fe9fbc88b9",
+      "title": "2020 Ford F-150 XLT XTR SUPERCREW BOITE 5.5P V6 2.7L",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-xtr-supercrew-boite-5-5p-v6-2-7l-essence-gris-cat_ma29gr16518-e053e646-d194-496d-9d21-ddfe10ba5fe0",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/e053e646-d194-496d-9d21-ddfe10ba5fe0_580c07df-2e80-4f1d-8f8a-92de443031db.jpg/1920x1080.jpg",
+      "price": 29988,
+      "monthly_7pct": 520,
+      "year": 2020,
+      "mileage": 141689,
+      "engine": "2.7L",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": null,
+      "location": "Granby, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "red",
+        "nature": "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.",
+        "event_type": "jugement civil",
+        "event_date": "2026-01-17",
+        "legal_entity": "3100-8436 Québec inc.",
+        "permit_or_neq": "permis OPC 2102927-1",
+        "branch": "Centre de liquidation BD, Granby",
+        "source_url": "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000",
+        "source_checked_at": "2026-08-05",
+        "match_status": "exact",
+        "match_basis": "raison sociale et permis",
+        "branch_matched": true
+      },
+      "trust_score": {
+        "score": 0.0,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [
+          "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "85951ab42f9d9b62",
@@ -5875,14 +6684,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "98bb0805acc00557",
@@ -5951,14 +6761,109 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "1c27573e4a214906",
+      "title": "2021 Ford F-150 XLT Crew Cab 4x4 2.7T Sièges Chauffants Caméra",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-crew-cab-4x4-2-7t-sieges-chauffants-camera-essence-blanc-cat_ma29gr16518-d293d454-b466-40fc-8546-bc81827204c3",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/d293d454-b466-40fc-8546-bc81827204c3_bf2b910f-7e80-4d6f-b70d-ded72ea93901.jpg/1920x1080.jpg",
+      "price": 29999,
+      "monthly_7pct": 521,
+      "year": 2021,
+      "mileage": 128246,
+      "engine": "2.7L EcoBoost",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Laval, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Automobile En Direct Laval",
+        "rating": 4.1,
+        "review_count": 2012,
+        "source_url": "https://reviews.birdeye.com/automobile-en-directcom-concessionnaire-vehicule-doccasion-financement-reparation-echange-achats-173334780284585",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed",
+        "reason": "configuration mécanique non concordante"
+      },
+      "seller_legal_signal": {
+        "status": "red",
+        "nature": "Plaidoyer de culpabilité : garanties supplémentaires proposées sans information requise sur les garanties légales; 31 380 $ d’amendes.",
+        "event_type": "plaidoyer de culpabilité",
+        "event_date": "2025-03-27",
+        "legal_entity": "Automobile en direct.com inc.",
+        "permit_or_neq": "raison sociale concordante",
+        "branch": "Automobile En Direct Laval",
+        "source_url": "https://www.opc.gouv.qc.ca/actualite/toutes-les-actualites/article/automobile-en-directcom-inc-plaide-coupable",
+        "source_checked_at": "2026-08-05",
+        "match_status": "exact",
+        "match_basis": "raison sociale et succursale nommée",
+        "branch_matched": true
+      },
+      "trust_score": {
+        "score": 17.48,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": 87.4,
+          "reputation_base_raw": 87.4,
+          "reputation_base_effective": 87.4,
+          "rating_points": 57.4,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Plaidoyer de culpabilité : garanties supplémentaires proposées sans information requise sur les garanties légales; 31 380 $ d’amendes."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/automobile-en-directcom-concessionnaire-vehicule-doccasion-financement-reparation-echange-achats-173334780284585",
+          "https://www.opc.gouv.qc.ca/actualite/toutes-les-actualites/article/automobile-en-directcom-inc-plaide-coupable"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "dd52adb6d98b3793",
@@ -6027,14 +6932,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "bedd2e9e27897b66",
@@ -6103,14 +7009,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "c8da7d46044b14e9",
@@ -6179,14 +7086,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "bc1f96777fabc040",
@@ -6255,14 +7163,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "d34ff7ad9492ad6a",
@@ -6346,14 +7255,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ebb34b77b38251e4",
@@ -6437,14 +7347,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ead812c87a72725c",
@@ -6528,14 +7439,108 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "878824ae0c9931d5",
+      "title": "2022 Ford F-150 STX 4WD A/C CAMERA RECUL NAVIGATION MAGS",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-stx-4wd-a-c-camera-recul-navigation-mags-essence-gris-cat_ma29gr16518-202e261e-a5d0-499e-a59d-ad8669966c08",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/202e261e-a5d0-499e-a59d-ad8669966c08_0327721d-b0ff-4350-b78f-d5ab2073ba72.jpg/1920x1080.jpg",
+      "price": 32988,
+      "monthly_7pct": 572,
+      "year": 2022,
+      "mileage": 140382,
+      "engine": null,
+      "trim": null,
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Carignan, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "HGrégoire Carignan",
+        "rating": 4.1,
+        "review_count": 1311,
+        "source_url": "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "red",
+        "nature": "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $.",
+        "event_type": "entente et reconnaissance de manquements",
+        "event_date": "2024-02-15",
+        "legal_entity": "2970-7528 Québec inc.",
+        "permit_or_neq": "2970-7528 Québec inc.",
+        "branch": "HGrégoire Carignan",
+        "source_url": "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire",
+        "source_checked_at": "2026-08-05",
+        "match_status": "exact",
+        "match_basis": "raison sociale et succursale nommée",
+        "branch_matched": true
+      },
+      "trust_score": {
+        "score": 17.48,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": 87.4,
+          "reputation_base_raw": 87.4,
+          "reputation_base_effective": 87.4,
+          "rating_points": 57.4,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Entente AMF : reconnaissance de manquements liés aux assurances et à la rémunération; sanction administrative de 250 000 $."
+        ],
+        "sources": [
+          "https://yably.ca/reviews/carignan/hgregoire-carignan-1840-chemin-chambly",
+          "https://lautorite.qc.ca/grand-public/salle-de-presse/actualites/fiche-dactualite/entente-entre-lautorite-et-h-gregoire"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "f231448a1796af13",
@@ -6604,14 +7609,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "968d548d228bbbba",
@@ -6680,14 +7686,268 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "4ec464d89bdacd3d",
+      "title": "2023 Ford F-150 XLT SUPERCREW JAMAIS ACCIDENTÉ + HYBRIDE + BOITE D",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-supercrew-jamais-accidente-+-hybride-+-boite-d-hybride-essence-electrique-blanc-cat_ma29gr16518-180dd0d9-ae8f-4008-b989-a61e48cec4dd",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/180dd0d9-ae8f-4008-b989-a61e48cec4dd_7f9bfa85-5e27-4307-9901-d31bfb22acdc.jpg/1920x1080.jpg",
+      "price": 33495,
+      "monthly_7pct": 581,
+      "year": 2023,
+      "mileage": 160276,
+      "engine": null,
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": null,
+      "location": "Terrebonne, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Lallier Honda 40/640",
+        "rating": 3.9,
+        "review_count": 1022,
+        "source_url": "https://reviews.birdeye.com/lallier-honda-40-640-167754280580788",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 84.6,
+          "reputation_base_raw": 84.6,
+          "reputation_base_effective": 84.6,
+          "rating_points": 54.6,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/lallier-honda-40-640-167754280580788"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "815eb261dbcf3d7e",
+      "title": "2022 Ford F-150",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-essence-bleu-cat_ma29gr16518-2fc9a39a-96fb-44df-9377-87362ac7fb19",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/2fc9a39a-96fb-44df-9377-87362ac7fb19_b7f9d9c1-90ea-4a05-9634-f02e505e9914.jpg/1920x1080.jpg",
+      "price": 33888,
+      "monthly_7pct": 588,
+      "year": 2022,
+      "mileage": 155493,
+      "engine": null,
+      "trim": "XLT",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": null,
+      "location": "Cornwall, Ontario",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Miller Hughes Ford Sales",
+        "rating": 4.7,
+        "review_count": 400,
+        "source_url": "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 93.15,
+          "reputation_base_raw": 93.15,
+          "reputation_base_effective": 93.15,
+          "rating_points": 65.8,
+          "volume_points": 17.35,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://www.google.com/maps/place/Miller+Hughes+Ford+Sales/@45.0264418,-74.7350319,17z"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "9e793c15a426c54a",
+      "title": "2020 Ford F-150 LARIAT 4WD SuperCrew 5.5' Box, Marchepieds",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-4wd-supercrew-5-5-box-marchepieds-essence-noir-cat_ma29gr16518tr11275-d9c774df-c0a5-47af-9823-469c7a3431d0",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/d9c774df-c0a5-47af-9823-469c7a3431d0_d216aa89-126d-4680-afc6-a042d808bc56.jpg/1920x1080.jpg",
+      "price": 34897,
+      "monthly_7pct": 606,
+      "year": 2020,
+      "mileage": 120746,
+      "engine": "2.7L",
+      "trim": "Lariat",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Mirabel, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed",
+        "reason": "configuration mécanique non concordante"
+      },
+      "seller_legal_signal": {
+        "status": "unattributed",
+        "nature": "Homonymie / entité différente — signal non attribué. La condamnation de Laval ne vise pas l’entité actuelle de Mirabel.",
+        "event_type": "condamnation non attribuée",
+        "event_date": "2021-10-17",
+        "legal_entity": "9131-3015 Québec inc. (Mirabel); 9131-2561 Québec inc. (Laval visée)",
+        "permit_or_neq": "permis Mirabel 2107347-1",
+        "branch": "Auto Durocher, Mirabel",
+        "source_url": "https://www.protegez-vous.ca/condamnations/automobile/entrepot-auto-durocher-laval-et-auto-max-saint-jean-sur-richelieu",
+        "source_checked_at": "2026-08-05",
+        "match_status": "different_entity",
+        "match_basis": "raisons sociales différentes",
+        "branch_matched": false
+      },
+      "trust_score": {
+        "score": 51.0,
+        "level": "vigilance_homonymie",
+        "level_label": "🟠 Vigilance — homonymie, aucune faute prouvée contre ce vendeur",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            51,
+            70
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "vigilance_homonymie",
+        "reasons": [
+          "Homonymie / entité différente — signal non attribué. La condamnation de Laval ne vise pas l’entité actuelle de Mirabel.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [
+          "https://www.protegez-vous.ca/condamnations/automobile/entrepot-auto-durocher-laval-et-auto-max-saint-jean-sur-richelieu"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "b41cfd510b2ed7b2",
@@ -6756,14 +8016,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "d353b2b14cf5befb",
@@ -6832,14 +8093,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "e435377228cced8a",
@@ -6908,14 +8170,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "19598935f9a42d45",
@@ -6984,14 +8247,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "a7f2b74b5b89db94",
@@ -7060,14 +8324,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "a80042a5c197c7bd",
@@ -7151,14 +8416,108 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "3eaf9051a9ba6e06",
+      "title": "2021 Ford F-150 LARIAT + BANG & OLUFSEN + TOIT PANORAMIQUE + SIÈGE",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-+-bang-olufsen-+-toit-panoramique-+-siege-essence-noir-cat_ma29gr16518-412c1bbb-7c3c-4b94-9e5f-9aa6f822b6f3",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/412c1bbb-7c3c-4b94-9e5f-9aa6f822b6f3_1ea1216b-e279-4d12-8fd9-bad72109a1c6.jpg/1920x1080.jpg",
+      "price": 36489,
+      "monthly_7pct": 633,
+      "year": 2021,
+      "mileage": 144700,
+      "engine": "2.7L EcoBoost",
+      "trim": "Lariat",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": "automatic",
+      "drivetrain": "4WD",
+      "location": "Saint Basile Le Grand, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Honda St-Basile",
+        "rating": 4.5,
+        "review_count": 2326,
+        "source_url": "https://yably.ca/reviews/saint-basile-le-grand/st-basile-honda-135-boul-sir-wilfrid-laurier",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "yellow",
+        "nature": "Plaidoyer de culpabilité : frais de 99 $ ajoutés et supplément de 1 500 $ exigé en cas de refus du financement; amende de 3 000 $.",
+        "event_type": "plaidoyer de culpabilité",
+        "event_date": "2023-09-27",
+        "legal_entity": "9309-5420 Québec inc.",
+        "permit_or_neq": "9309-5420 Québec inc.",
+        "branch": "St-Basile Honda, 135 boul. Sir-Wilfrid-Laurier",
+        "source_url": "https://www.opc.gouv.qc.ca/en/actualite/poursuite-condamnation-region-date/poursuites-et-condamnations/article/st-basile-honda-plaide-coupable",
+        "source_checked_at": "2026-08-05",
+        "match_status": "exact",
+        "match_basis": "raison sociale et adresse de succursale",
+        "branch_matched": true
+      },
+      "trust_score": {
+        "score": 47.97,
+        "level": "jaune",
+        "level_label": "🟡 Prudence",
+        "components": {
+          "reputation_base": 93.0,
+          "reputation_base_raw": 93.0,
+          "reputation_base_effective": 93.0,
+          "rating_points": 63.0,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            21,
+            50
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "jaune",
+        "reasons": [
+          "Plaidoyer de culpabilité : frais de 99 $ ajoutés et supplément de 1 500 $ exigé en cas de refus du financement; amende de 3 000 $."
+        ],
+        "sources": [
+          "https://yably.ca/reviews/saint-basile-le-grand/st-basile-honda-135-boul-sir-wilfrid-laurier",
+          "https://www.opc.gouv.qc.ca/en/actualite/poursuite-condamnation-region-date/poursuites-et-condamnations/article/st-basile-honda-plaide-coupable"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "7d6de44d6fde3311",
@@ -7227,14 +8586,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "b72ca75ca0de8eac",
@@ -7303,14 +8663,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "fd3150c0ff109a95",
@@ -7379,14 +8740,97 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "e1f3bd960313b205",
+      "title": "2021 Ford F-150 Lariat",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-lariat-essence-noir-cat_ma29gr16518tr11275-c1bc6e2e-030a-4462-a2f8-2cfe5714cca1",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/c1bc6e2e-030a-4462-a2f8-2cfe5714cca1_857a13a8-30f3-4811-9854-998518ee36d1.jpg/1920x1080.jpg",
+      "price": 37999,
+      "monthly_7pct": 659,
+      "year": 2021,
+      "mileage": 131650,
+      "engine": "2.7L",
+      "trim": "Lariat",
+      "cab": null,
+      "cab_class": "unknown",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": "automatic",
+      "drivetrain": "4WD",
+      "location": "Farnham, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "JP Auto Farnham",
+        "rating": 4.6,
+        "review_count": 35,
+        "source_url": "https://www.jpautofarnham.com/en",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 84.78,
+          "reputation_base_raw": 84.78,
+          "reputation_base_effective": 84.78,
+          "rating_points": 64.4,
+          "volume_points": 10.38,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://www.jpautofarnham.com/en"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": true,
+      "alert_eligible": false,
+      "candidate_status": "high_mileage",
+      "candidate_origin": "historical",
+      "score": 75,
+      "reasons": [
+        "kilométrage élevé — hors classement principal"
+      ],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "bc7ee5717d4f9ff2",
@@ -7455,14 +8899,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "7bff152e18127c05",
@@ -7531,14 +8976,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "77d1b84ff2a04efd",
@@ -7607,14 +9053,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "c312535639fe6923",
@@ -7683,14 +9130,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "c7e76c88b90300d5",
@@ -7759,14 +9207,15 @@
       "high_mileage": true,
       "alert_eligible": false,
       "candidate_status": "high_mileage",
+      "candidate_origin": "validated_batch",
       "score": 75,
       "reasons": [
         "kilométrage élevé — hors classement principal"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "303283ff98f110a4",
@@ -7834,14 +9283,15 @@
       "high_mileage": false,
       "alert_eligible": false,
       "candidate_status": "rejected",
+      "candidate_origin": "live_source",
       "score": 90,
       "reasons": [
         "paiement estimé sous la fourchette"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "02011d05579b6d14",
@@ -7909,15 +9359,16 @@
       "high_mileage": false,
       "alert_eligible": false,
       "candidate_status": "rejected",
+      "candidate_origin": "live_source",
       "score": 65,
       "reasons": [
         "paiement estimé sous la fourchette",
         "kilométrage au-dessus de la cible"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "29bcfe7635c439aa",
@@ -7985,15 +9436,105 @@
       "high_mileage": false,
       "alert_eligible": false,
       "candidate_status": "rejected",
+      "candidate_origin": "live_source",
       "score": 65,
       "reasons": [
         "paiement estimé sous la fourchette",
         "kilométrage au-dessus de la cible"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
+      "is_new": true,
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "c48b7e42b8c3bbfc",
+      "title": "2021 Ford F-150 SUPERCREW XLT 3.5L ECOBOOST BOITE 6.5P",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-supercrew-xlt-3-5l-ecoboost-boite-6-5p-essence-blanc-cat_ma29gr16518-07da989b-60d7-4f44-94cb-b8b0ee609f6b",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/07da989b-60d7-4f44-94cb-b8b0ee609f6b_313a6ade-32f3-4465-968c-4d6be3d34fd3.jpg/1920x1080.jpg",
+      "price": 21788,
+      "monthly_7pct": 378,
+      "year": 2021,
+      "mileage": 218000,
+      "engine": "3.5L EcoBoost",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": null,
+      "location": "Granby, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "red",
+        "nature": "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.",
+        "event_type": "jugement civil",
+        "event_date": "2026-01-17",
+        "legal_entity": "3100-8436 Québec inc.",
+        "permit_or_neq": "permis OPC 2102927-1",
+        "branch": "Centre de liquidation BD, Granby",
+        "source_url": "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000",
+        "source_checked_at": "2026-08-05",
+        "match_status": "exact",
+        "match_basis": "raison sociale et permis",
+        "branch_matched": true
+      },
+      "trust_score": {
+        "score": 0.0,
+        "level": "rouge",
+        "level_label": "🔴 Risque élevé",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            20
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "rouge",
+        "reasons": [
+          "Jugement civil pour dol : réparations d’accident antérieures non divulguées; 12 000 $ plus frais accordés.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [
+          "https://www.protegez-vous.ca/nouvelles/automobile/un-consommateur-paie-41-170-pour-un-vehicule-accidente-et-recupere-12-000"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": false,
+      "alert_eligible": false,
+      "candidate_status": "rejected",
+      "candidate_origin": "historical",
+      "score": 65,
+      "reasons": [
+        "paiement estimé sous la fourchette",
+        "kilométrage au-dessus de la cible"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
       "is_new": true,
       "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "64fae42306e64474",
@@ -8061,15 +9602,16 @@
       "high_mileage": false,
       "alert_eligible": false,
       "candidate_status": "rejected",
+      "candidate_origin": "live_source",
       "score": 65,
       "reasons": [
         "paiement estimé sous la fourchette",
         "kilométrage au-dessus de la cible"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "dae74c8722b14019",
@@ -8137,15 +9679,271 @@
       "high_mileage": false,
       "alert_eligible": false,
       "candidate_status": "rejected",
+      "candidate_origin": "live_source",
       "score": 65,
       "reasons": [
         "paiement estimé sous la fourchette",
         "kilométrage au-dessus de la cible"
       ],
-      "first_seen_at": "2026-08-05T16:40:32.713784+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
       "new_in_run": true,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "6ebd7144a33a4cf5",
+      "title": "2020 Ford F-150 XLT SPORT SUPERCREW 302A MARCHEPIED COUVRE CAISSE",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-sport-supercrew-302a-marchepied-couvre-caisse-essence-blanc-cat_ma29gr16518-051b7cba-b694-443d-9418-a49e1e1b76bd",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/051b7cba-b694-443d-9418-a49e1e1b76bd_40781d55-40fa-4bfe-8173-f47bb9684000.jpg/1920x1080.jpg",
+      "price": 26994,
+      "monthly_7pct": 468,
+      "year": 2020,
+      "mileage": 155612,
+      "engine": null,
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": null,
+      "drivetrain": "4WD",
+      "location": "Montreal, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Christin Automobiles",
+        "rating": 4.1,
+        "review_count": 482,
+        "source_url": "https://reviews.birdeye.com/christin-chevrolet-buick-gmc-166996863732430",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 85.29,
+          "reputation_base_raw": 85.29,
+          "reputation_base_effective": 85.29,
+          "rating_points": 57.4,
+          "volume_points": 17.89,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/christin-chevrolet-buick-gmc-166996863732430"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": false,
+      "alert_eligible": false,
+      "candidate_status": "rejected",
+      "candidate_origin": "historical",
+      "score": 65,
+      "reasons": [
+        "paiement estimé sous la fourchette",
+        "kilométrage au-dessus de la cible"
+      ],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "99fc5044ae034757",
+      "title": "2022 Ford F-150 XLT 4X4 NAV CREWCAB FINANCEMENT FACILE",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-nav-crewcab-financement-facile-essence-rouge-cat_ma29gr16518-9d5b58d1-e1e1-4e7e-a5c2-f3d98e575e88",
+      "image": "https://prod.pictures.autoscout24.net/listing-images/9d5b58d1-e1e1-4e7e-a5c2-f3d98e575e88_abf6aef6-1564-465b-95e0-b5c50b1fa50f.jpg/1920x1080.jpg",
+      "price": 27490,
+      "monthly_7pct": 477,
+      "year": 2022,
+      "mileage": 174700,
+      "engine": "2.7L EcoBoost",
+      "trim": "XLT",
+      "cab": "SuperCrew",
+      "cab_class": "crew_cab",
+      "make": "Ford",
+      "model": "F-150",
+      "transmission": "automatic",
+      "drivetrain": "4WD",
+      "location": "Longueuil, Quebec",
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "confirmed",
+        "name": "Auto 450",
+        "rating": 4.2,
+        "review_count": 1103,
+        "source_url": "https://reviews.birdeye.com/auto-450-167825015215763",
+        "verified_at": "2026-08-05"
+      },
+      "fuel_economy": {
+        "status": "confirmed",
+        "city_l_per_100km": 12.9,
+        "highway_l_per_100km": 10.1,
+        "source_url": "https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64",
+        "verified_at": "2026-08-05",
+        "match": {
+          "year": 2022,
+          "engine": "2.7L EcoBoost",
+          "transmission": "automatic (AS10, 10 vitesses)",
+          "drivetrain": "4x4/4WD"
+        }
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": 80,
+        "level": "non_audité",
+        "level_label": "⚪ Non audité juridiquement",
+        "components": {
+          "reputation_base": 88.8,
+          "reputation_base_raw": 88.8,
+          "reputation_base_effective": 88.8,
+          "rating_points": 58.8,
+          "volume_points": 20,
+          "identity_points": 10,
+          "freshness_multiplier": 1.0,
+          "days_elapsed": 0,
+          "date_invalid_or_missing": false,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": false
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué."
+        ],
+        "sources": [
+          "https://reviews.birdeye.com/auto-450-167825015215763"
+        ],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "active",
+      "eligible": false,
+      "high_mileage": false,
+      "alert_eligible": false,
+      "candidate_status": "rejected",
+      "candidate_origin": "historical",
+      "score": 65,
+      "reasons": [
+        "paiement estimé sous la fourchette",
+        "kilométrage au-dessus de la cible"
+      ],
+      "first_seen_at": "2026-08-05T12:20:24.960272+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
+    },
+    {
+      "id": "c9ee782ab1c1bcd3",
+      "title": "Pickup — détails à confirmer",
+      "url": "https://www.autohebdo.net/annonces/ford-f-150-xlt-4x4-gr-elec-a-c-bluetooth-camera-mags-essence-blanc-cat_ma29gr16518-c51e1743-0586-4091-b99c-8db9c0e8370e",
+      "image": null,
+      "price": null,
+      "monthly_7pct": null,
+      "year": null,
+      "mileage": null,
+      "engine": null,
+      "trim": null,
+      "cab": null,
+      "cab_class": "unknown",
+      "make": null,
+      "model": null,
+      "transmission": null,
+      "drivetrain": null,
+      "location": null,
+      "seller_name": null,
+      "distance_km": null,
+      "distance_band": null,
+      "cab_proof": null,
+      "seller_reputation": {
+        "status": "unconfirmed"
+      },
+      "fuel_economy": {
+        "status": "unconfirmed"
+      },
+      "seller_legal_signal": {
+        "status": "not_audited",
+        "source_checked_at": "2026-08-05"
+      },
+      "trust_score": {
+        "score": null,
+        "level": "non_audité",
+        "level_label": "⚪ Données insuffisantes",
+        "components": {
+          "reputation_base": null,
+          "reputation_base_raw": null,
+          "reputation_base_effective": null,
+          "rating_points": null,
+          "volume_points": null,
+          "identity_points": null,
+          "freshness_multiplier": 0.5,
+          "days_elapsed": null,
+          "date_invalid_or_missing": true,
+          "band_applied": [
+            0,
+            80
+          ],
+          "missing_data_floor_applied": true
+        },
+        "legal_status": "non_audité",
+        "reasons": [
+          "Aucune recherche juridique spécifique confirmée; plafond de 80 appliqué.",
+          "Réputation Google insuffisante; plancher juridique appliqué sans estimation."
+        ],
+        "sources": [],
+        "computed_at": "2026-08-05",
+        "formula_version": 1
+      },
+      "status": "unavailable",
+      "eligible": false,
+      "high_mileage": false,
+      "alert_eligible": false,
+      "candidate_status": "rejected",
+      "candidate_origin": "historical",
+      "score": 0,
+      "reasons": [
+        "annonce inactive ou illisible",
+        "prix hors cible ou inconnu",
+        "année hors cible ou inconnue",
+        "kilométrage inconnu"
+      ],
+      "first_seen_at": "2026-08-05T12:19:31.855819+00:00",
+      "is_new": true,
+      "new_in_run": false,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     },
     {
       "id": "ef548f1f117f63ab",
@@ -8214,6 +10012,7 @@
       "high_mileage": false,
       "alert_eligible": false,
       "candidate_status": "rejected",
+      "candidate_origin": "validated_batch",
       "score": 0,
       "reasons": [
         "annonce inactive ou illisible",
@@ -8221,10 +10020,10 @@
         "année hors cible ou inconnue",
         "kilométrage inconnu"
       ],
-      "first_seen_at": "2026-08-05T16:38:45.970820+00:00",
+      "first_seen_at": "2026-08-05T16:53:09.926844+00:00",
       "is_new": true,
-      "new_in_run": false,
-      "checked_at": "2026-08-05T16:40:32.713784+00:00"
+      "new_in_run": true,
+      "checked_at": "2026-08-05T16:53:09.926844+00:00"
     }
   ]
 }

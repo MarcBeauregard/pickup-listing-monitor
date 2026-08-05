@@ -151,6 +151,8 @@ def markdown(report: dict[str, Any]) -> str:
         "",
         "Les cinq distances non confirmées ne sont pas ingérées. Les lignes `high_mileage` restent consultables par un filtre désactivé par défaut et sont exclues des alertes, du podium et du compte admissible.",
         "",
+        "Le rapport porte uniquement sur le lot livré. Le tableau de bord fusionne ce lot avec les annonces découvertes lors du scan live et publie des compteurs `batch_*` et `source_*` séparés.",
+        "",
         "| # | Décision | Véhicule | Valeurs validées | URL |",
         "|---:|---|---|---|---|",
     ]

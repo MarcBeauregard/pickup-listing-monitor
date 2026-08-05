@@ -90,7 +90,7 @@ class ScanDealsTests(unittest.TestCase):
             source_fetcher=lambda *_: SOURCE_HTML,
             listing_fetcher=lambda *_: DETAIL,
         )
-        self.assertEqual(first["counts"], {"discovered": 1, "eligible": 1, "high_mileage": 0, "new": 1, "new_eligible": 1, "new_in_run": 1})
+        self.assertEqual(first["counts"], {"discovered": 1, "eligible": 1, "high_mileage": 0, "batch_discovered": 0, "batch_eligible": 0, "batch_high_mileage": 0, "historical_discovered": 0, "historical_eligible": 0, "source_discovered": 1, "source_eligible": 1, "new": 1, "new_eligible": 1, "new_in_run": 1})
         self.assertTrue(first["deals"][0]["is_new"])
 
         second = scan_deals.scan(
@@ -143,6 +143,23 @@ class ScanDealsTests(unittest.TestCase):
         self.assertTrue(high["high_mileage"])
         self.assertFalse(high["alert_eligible"])
         self.assertEqual(high["candidate_status"], "high_mileage")
+        self.assertEqual(result["counts"]["batch_discovered"], 2)
+        self.assertEqual(result["counts"]["batch_eligible"], 1)
+        self.assertEqual(result["counts"]["batch_high_mileage"], 1)
+        self.assertEqual(result["counts"]["historical_discovered"], 0)
+        self.assertEqual(result["counts"]["source_discovered"], 0)
+
+    def test_previous_snapshot_remains_readable_and_is_tagged_historical(self):
+        previous = {
+            "deals": [{"id": scan_deals.deal_id("https://www.autohebdo.net/annonces/historique"), "url": "https://www.autohebdo.net/annonces/historique", "first_seen_at": "2026-08-01T00:00:00+00:00"}]
+        }
+        result = scan_deals.scan(
+            {**CONFIG, "sources": []}, previous=previous, timeout=1,
+            listing_fetcher=lambda *_: DETAIL,
+        )
+        self.assertEqual(result["counts"]["historical_discovered"], 1)
+        self.assertEqual(result["deals"][0]["candidate_origin"], "historical")
+        self.assertEqual(result["deals"][0]["first_seen_at"], "2026-08-01T00:00:00+00:00")
 
     def test_accepts_2017_and_rejects_2016_for_any_model(self):
         generic = {**DETAIL, "make": "Honda", "model": "Ridgeline", "cab_class": "crew_cab", "price": 32000}
