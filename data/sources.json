@@ -2,6 +2,8 @@
   "criteria": {
     "min_year": 2020,
     "max_price": 40000,
+    "min_monthly": 500,
+    "max_monthly": 700,
     "max_mileage": 120000,
     "engine_terms": ["2.7", "2,7", "3.5", "3,5", "ecoboost"],
     "trims": ["Lariat", "XLT"],

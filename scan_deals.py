@@ -102,6 +102,12 @@ def evaluate(current: dict[str, Any], criteria: dict[str, Any]) -> tuple[bool, l
     if price is None or price > criteria["max_price"]:
         reasons.append("prix hors cible ou inconnu")
         score -= 35
+    elif criteria.get("min_monthly") and monthly_payment(price) < criteria["min_monthly"]:
+        reasons.append("paiement estimé sous la fourchette")
+        score -= 10
+    elif criteria.get("max_monthly") and monthly_payment(price) > criteria["max_monthly"]:
+        reasons.append("paiement estimé au-dessus de la fourchette")
+        score -= 35
     if year is None or year < criteria["min_year"]:
         reasons.append("année hors cible ou inconnue")
         score -= 20

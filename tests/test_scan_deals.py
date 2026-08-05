@@ -107,6 +107,15 @@ class ScanDealsTests(unittest.TestCase):
     def test_monthly_payment_includes_quebec_taxes(self):
         self.assertEqual(scan_deals.monthly_payment(37887), 657)
 
+    def test_monthly_range_is_enforced_from_tax_inclusive_payment(self):
+        criteria = {**CONFIG["criteria"], "max_price": 60000, "min_monthly": 500, "max_monthly": 700}
+        high = scan_deals.evaluate({**DETAIL, "price": 43499}, criteria)
+        low = scan_deals.evaluate({**DETAIL, "price": 25000}, criteria)
+        self.assertFalse(high[0])
+        self.assertIn("paiement estimé au-dessus de la fourchette", high[1])
+        self.assertFalse(low[0])
+        self.assertIn("paiement estimé sous la fourchette", low[1])
+
     def test_rejects_high_mileage(self):
         current = {**DETAIL, "mileage": 137582}
         eligible, reasons, _score = scan_deals.evaluate(current, CONFIG["criteria"])
